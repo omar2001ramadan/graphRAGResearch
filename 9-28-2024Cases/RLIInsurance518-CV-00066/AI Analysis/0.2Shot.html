@@ -1,0 +1,171 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Interactive Graph</title>
+      <style>
+        body, html {
+          height: 100%;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          flex-direction: row;
+          font-family: Arial, sans-serif;
+        }
+        #graph-container {
+          flex: 3;
+          height: 100vh;
+        }
+        #stats-container {
+          flex: 1;
+          padding: 20px;
+          overflow-y: auto;
+          background-color: #f5f5f5;
+          border-left: 1px solid #ddd;
+        }
+      </style>
+    </head>
+    <body>
+      <div id="graph-container">
+        <html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 100vh;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#911eb4", "font": {"color": "black"}, "id": "rli insurance company \u003cORGANIZATION\u003e", "label": "rli insurance company \u003cORGANIZATION\u003e", "shape": "dot", "title": "Original Text: RLI INSURANCE COMPANY\u003cbr\u003eLabel: ORGANIZATION"}, {"color": "#911eb4", "font": {"color": "black"}, "id": "nexus service inc \u003cORGANIZATION\u003e", "label": "nexus service inc \u003cORGANIZATION\u003e", "shape": "dot", "title": "Original Text: NEXUS SERVICES, INC.\u003cbr\u003eLabel: ORGANIZATION"}, {"color": "#911eb4", "font": {"color": "black"}, "id": "united state district court for the western district of virginia \u003cORGANIZATION\u003e", "label": "united state district court for the western district of virginia \u003cORGANIZATION\u003e", "shape": "dot", "title": "Original Text: UNITED STATES DISTRICT COURT FOR THE WESTERN DISTRICT OF VIRGINIA\u003cbr\u003eLabel: ORGANIZATION"}, {"color": "#f032e6", "font": {"color": "black"}, "id": "micheal donovan \u003cPERSON\u003e", "label": "micheal donovan \u003cPERSON\u003e", "shape": "dot", "title": "Original Text: MICHEAL DONOVAN\u003cbr\u003eLabel: PERSON"}, {"color": "#e6194b", "font": {"color": "black"}, "id": "january 20 2016 \u003cDATE\u003e", "label": "january 20 2016 \u003cDATE\u003e", "shape": "dot", "title": "Original Text: JANUARY 20, 2016\u003cbr\u003eLabel: DATE"}, {"color": "#46f0f0", "font": {"color": "black"}, "id": "28 usc 1332a1 \u003cLAW\u003e", "label": "28 usc 1332a1 \u003cLAW\u003e", "shape": "dot", "title": "Original Text: 28 U.S.C. \u00a7 1332(A)(1)\u003cbr\u003eLabel: LAW"}, {"color": "#46f0f0", "font": {"color": "black"}, "id": "28 usc 1391 \u003cLAW\u003e", "label": "28 usc 1391 \u003cLAW\u003e", "shape": "dot", "title": "Original Text: 28 U.S.C. \u00a7 1391\u003cbr\u003eLabel: LAW"}, {"color": "#911eb4", "font": {"color": "black"}, "id": "nexus \u003cORGANIZATION\u003e", "label": "nexus \u003cORGANIZATION\u003e", "shape": "dot", "title": "Original Text: NEXUS\u003cbr\u003eLabel: ORGANIZATION"}, {"color": "#911eb4", "font": {"color": "black"}, "id": "rli \u003cORGANIZATION\u003e", "label": "rli \u003cORGANIZATION\u003e", "shape": "dot", "title": "Original Text: RLI\u003cbr\u003eLabel: ORGANIZATION"}, {"color": "#e6194b", "font": {"color": "black"}, "id": "may 26 2017 \u003cDATE\u003e", "label": "may 26 2017 \u003cDATE\u003e", "shape": "dot", "title": "Original Text: MAY 26, 2017\u003cbr\u003eLabel: DATE"}, {"color": "#e6194b", "font": {"color": "black"}, "id": "june 19 2017 \u003cDATE\u003e", "label": "june 19 2017 \u003cDATE\u003e", "shape": "dot", "title": "Original Text: JUNE 19, 2017\u003cbr\u003eLabel: DATE"}, {"color": "#e6194b", "font": {"color": "black"}, "id": "december 12 2017 \u003cDATE\u003e", "label": "december 12 2017 \u003cDATE\u003e", "shape": "dot", "title": "Original Text: DECEMBER 12, 2017\u003cbr\u003eLabel: DATE"}, {"color": "#3cb44b", "font": {"color": "black"}, "id": "mclean virginia \u003cLOCATION DATA\u003e", "label": "mclean virginia \u003cLOCATION DATA\u003e", "shape": "dot", "title": "Original Text: MCLEAN, VIRGINIA\u003cbr\u003eLabel: LOCATION DATA"}, {"color": "#e6194b", "font": {"color": "black"}, "id": "january 10 2018 \u003cDATE\u003e", "label": "january 10 2018 \u003cDATE\u003e", "shape": "dot", "title": "Original Text: JANUARY 10, 2018\u003cbr\u003eLabel: DATE"}, {"color": "#e6194b", "font": {"color": "black"}, "id": "march 19 2018 \u003cDATE\u003e", "label": "march 19 2018 \u003cDATE\u003e", "shape": "dot", "title": "Original Text: MARCH 19, 2018\u003cbr\u003eLabel: DATE"}, {"color": "#e6194b", "font": {"color": "black"}, "id": "march 13 2017 \u003cDATE\u003e", "label": "march 13 2017 \u003cDATE\u003e", "shape": "dot", "title": "Original Text: MARCH 13, 2017\u003cbr\u003eLabel: DATE"}, {"color": "#911eb4", "font": {"color": "black"}, "id": "dhs \u003cORGANIZATION\u003e", "label": "dhs \u003cORGANIZATION\u003e", "shape": "dot", "title": "Original Text: DHS\u003cbr\u003eLabel: ORGANIZATION"}, {"color": "#911eb4", "font": {"color": "black"}, "id": "department of treasury \u003cORGANIZATION\u003e", "label": "department of treasury \u003cORGANIZATION\u003e", "shape": "dot", "title": "Original Text: DEPARTMENT OF TREASURY\u003cbr\u003eLabel: ORGANIZATION"}, {"color": "#911eb4", "font": {"color": "black"}, "id": "big marco \u003cORGANIZATION\u003e", "label": "big marco \u003cORGANIZATION\u003e", "shape": "dot", "title": "Original Text: BIG MARCO\u003cbr\u003eLabel: ORGANIZATION"}, {"color": "#e6194b", "font": {"color": "black"}, "id": "march 28 2018 \u003cDATE\u003e", "label": "march 28 2018 \u003cDATE\u003e", "shape": "dot", "title": "Original Text: MARCH 28, 2018\u003cbr\u003eLabel: DATE"}, {"color": "#e6194b", "font": {"color": "black"}, "id": "march 29 2018 \u003cDATE\u003e", "label": "march 29 2018 \u003cDATE\u003e", "shape": "dot", "title": "Original Text: MARCH 29, 2018\u003cbr\u003eLabel: DATE"}, {"color": "#ffe119", "font": {"color": "black"}, "id": "indemnity agreement \u003cLEGAL CASE\u003e", "label": "indemnity agreement \u003cLEGAL CASE\u003e", "shape": "dot", "title": "Original Text: INDEMNITY AGREEMENT\u003cbr\u003eLabel: LEGAL CASE"}, {"color": "#4363d8", "font": {"color": "black"}, "id": "exhibit k \u003cFILE\u003e", "label": "exhibit k \u003cFILE\u003e", "shape": "dot", "title": "Original Text: EXHIBIT K\u003cbr\u003eLabel: FILE"}, {"color": "#f58231", "font": {"color": "black"}, "id": "8387214 \u003cCURRENCY\u003e", "label": "8387214 \u003cCURRENCY\u003e", "shape": "dot", "title": "Original Text: $83,872.14\u003cbr\u003eLabel: CURRENCY"}, {"color": "#f58231", "font": {"color": "black"}, "id": "bond \u003cCURRENCY\u003e", "label": "bond \u003cCURRENCY\u003e", "shape": "dot", "title": "Original Text: BONDS\u003cbr\u003eLabel: CURRENCY"}, {"color": "#911eb4", "font": {"color": "black"}, "id": "court \u003cORGANIZATION\u003e", "label": "court \u003cORGANIZATION\u003e", "shape": "dot", "title": "Original Text: COURT\u003cbr\u003eLabel: ORGANIZATION"}]);
+                  edges = new vis.DataSet([{"arrows": "to", "from": "rli insurance company \u003cORGANIZATION\u003e", "label": "AccusesSigned", "physics": true, "title": "AccusesSigned", "to": "nexus service inc \u003cORGANIZATION\u003e"}, {"arrows": "to", "from": "rli insurance company \u003cORGANIZATION\u003e", "label": "Administers", "physics": true, "title": "Administers", "to": "united state district court for the western district of virginia \u003cORGANIZATION\u003e"}, {"arrows": "to", "from": "nexus service inc \u003cORGANIZATION\u003e", "label": "Works with", "physics": true, "title": "Works with", "to": "micheal donovan \u003cPERSON\u003e"}, {"arrows": "to", "from": "nexus service inc \u003cORGANIZATION\u003e", "label": "Administers", "physics": true, "title": "Administers", "to": "united state district court for the western district of virginia \u003cORGANIZATION\u003e"}, {"arrows": "to", "from": "nexus \u003cORGANIZATION\u003e", "label": "NEXUS and RLI are involved in a complex situation where NEXUS accuses RLI of certain actions. The relationship between the two entities is marked by accusations, with NEXUS claiming that RLI has violated certain obligations. Despite these accusations, there is an indication that RLI was obliged to perform certain actions, which may have been formalized through a signed agreement. This suggests a backdrop of contractual or legal obligations that are central to the dispute between NEXUS and RLI.", "physics": true, "title": "NEXUS and RLI are involved in a complex situation where NEXUS accuses RLI of certain actions. The relationship between the two entities is marked by accusations, with NEXUS claiming that RLI has violated certain obligations. Despite these accusations, there is an indication that RLI was obliged to perform certain actions, which may have been formalized through a signed agreement. This suggests a backdrop of contractual or legal obligations that are central to the dispute between NEXUS and RLI.", "to": "rli \u003cORGANIZATION\u003e"}, {"arrows": "to", "from": "nexus \u003cORGANIZATION\u003e", "label": "Communicated with", "physics": true, "title": "Communicated with", "to": "dhs \u003cORGANIZATION\u003e"}, {"arrows": "to", "from": "nexus \u003cORGANIZATION\u003e", "label": "The NEXUS INDEMNITY AGREEMENT has been signed, but it also violates certain conditions or regulations.", "physics": true, "title": "The NEXUS INDEMNITY AGREEMENT has been signed, but it also violates certain conditions or regulations.", "to": "indemnity agreement \u003cLEGAL CASE\u003e"}, {"arrows": "to", "from": "nexus \u003cORGANIZATION\u003e", "label": "Acts on", "physics": true, "title": "Acts on", "to": "bond \u003cCURRENCY\u003e"}, {"arrows": "to", "from": "rli \u003cORGANIZATION\u003e", "label": "Communicated with", "physics": true, "title": "Communicated with", "to": "big marco \u003cORGANIZATION\u003e"}, {"arrows": "to", "from": "rli \u003cORGANIZATION\u003e", "label": "Paid", "physics": true, "title": "Paid", "to": "dhs \u003cORGANIZATION\u003e"}, {"arrows": "to", "from": "rli \u003cORGANIZATION\u003e", "label": "Signed", "physics": true, "title": "Signed", "to": "indemnity agreement \u003cLEGAL CASE\u003e"}, {"arrows": "to", "from": "rli \u003cORGANIZATION\u003e", "label": "Owns", "physics": true, "title": "Owns", "to": "bond \u003cCURRENCY\u003e"}, {"arrows": "to", "from": "rli \u003cORGANIZATION\u003e", "label": "Communicated with", "physics": true, "title": "Communicated with", "to": "court \u003cORGANIZATION\u003e"}, {"arrows": "to", "from": "dhs \u003cORGANIZATION\u003e", "label": "Communicated with", "physics": true, "title": "Communicated with", "to": "department of treasury \u003cORGANIZATION\u003e"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {"nodes": {"font": {"size": 14, "face": "Tahoma"}, "scaling": {"min": 10, "max": 30, "label": {"enabled": true}}}, "edges": {"font": {"size": 12, "align": "middle"}, "scaling": {"min": 10, "max": 20, "label": {"enabled": true}}}, "physics": {"barnesHut": {"gravitationalConstant": -8000, "centralGravity": 0.3, "springLength": 250, "springConstant": 0.001, "damping": 0.09, "avoidOverlap": 0}, "minVelocity": 0.75}, "interaction": {"hover": true, "navigationButtons": true, "keyboard": true}};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
+      </div>
+      <div id="stats-container">
+        
+    <h3>Entity Counts:</h3>
+    <p>ORGANIZATION: 9 entities, 9 unique texts<br>PERSON: 1 entities, 1 unique texts<br>DATE: 9 entities, 9 unique texts<br>LAW: 2 entities, 2 unique texts<br>LOCATION DATA: 1 entities, 1 unique texts<br>LEGAL CASE: 1 entities, 1 unique texts<br>FILE: 1 entities, 1 unique texts<br>CURRENCY: 2 entities, 2 unique texts</p>
+    <h3>Relation Counts:</h3>
+    <p>AccusesSigned: 1<br>Administers: 2<br>Works with: 1<br>NEXUS and RLI are involved in a complex situation where NEXUS accuses RLI of certain actions. The relationship between the two entities is marked by accusations, with NEXUS claiming that RLI has violated certain obligations. Despite these accusations, there is an indication that RLI was obliged to perform certain actions, which may have been formalized through a signed agreement. This suggests a backdrop of contractual or legal obligations that are central to the dispute between NEXUS and RLI.: 1<br>Communicated with: 4<br>The NEXUS INDEMNITY AGREEMENT has been signed, but it also violates certain conditions or regulations.: 1<br>Acts on: 1<br>Paid: 1<br>Signed: 1<br>Owns: 1</p>
+    <h3>Unconnected Entity Counts:</h3>
+    <p>DATE: 9 unconnected entities<br>LAW: 2 unconnected entities<br>LOCATION DATA: 1 unconnected entities<br>FILE: 1 unconnected entities<br>CURRENCY: 1 unconnected entities</p>
+    
+      </div>
+    </body>
+    </html>
+    

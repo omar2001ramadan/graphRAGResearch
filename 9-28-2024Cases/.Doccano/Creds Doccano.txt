@@ -1,0 +1,13 @@
+docker container create --name doccano \
+  -e "ADMIN_USERNAME=omar" \
+  -e "ADMIN_EMAIL=omar2001ramadan@gmail.com" \
+  -e "ADMIN_PASSWORD=123" \
+  -v doccano-db:/data \
+  -p 8000:8000 doccano/doccano
+
+
+gcp key
+AIzaSyDC4eH-GU3x91CM8-8qFOCB54F9p1GtY7E
+
+PLAIN_TEXT
+

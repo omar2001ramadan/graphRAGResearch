@@ -1,0 +1,171 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Interactive Graph</title>
+      <style>
+        body, html {
+          height: 100%;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          flex-direction: row;
+          font-family: Arial, sans-serif;
+        }
+        #graph-container {
+          flex: 3;
+          height: 100vh;
+        }
+        #stats-container {
+          flex: 1;
+          padding: 20px;
+          overflow-y: auto;
+          background-color: #f5f5f5;
+          border-left: 1px solid #ddd;
+        }
+      </style>
+    </head>
+    <body>
+      <div id="graph-container">
+        <html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 100vh;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#bcf60c", "font": {"color": "black"}, "id": "united state district court \u003c\"ORGANIZATION\"\u003e", "label": "united state district court \u003c\"ORGANIZATION\"\u003e", "shape": "dot", "title": "Original Text: \"UNITED STATES DISTRICT COURT\"\u003cbr\u003eLabel: \"ORGANIZATION\""}, {"color": "#e6194b", "font": {"color": "black"}, "id": "western district of virginia \u003c\"LOCATION DATA\"\u003e", "label": "western district of virginia \u003c\"LOCATION DATA\"\u003e", "shape": "dot", "title": "Original Text: \"WESTERN DISTRICT OF VIRGINIA\"\u003cbr\u003eLabel: \"LOCATION DATA\""}, {"color": "#e6194b", "font": {"color": "black"}, "id": "harrisonburg division \u003c\"LOCATION DATA\"\u003e", "label": "harrisonburg division \u003c\"LOCATION DATA\"\u003e", "shape": "dot", "title": "Original Text: \"HARRISONBURG DIVISION\"\u003cbr\u003eLabel: \"LOCATION DATA\""}, {"color": "#bcf60c", "font": {"color": "black"}, "id": "rli insurance company \u003c\"ORGANIZATION\"\u003e", "label": "rli insurance company \u003c\"ORGANIZATION\"\u003e", "shape": "dot", "title": "Original Text: \"RLI INSURANCE COMPANY\"\u003cbr\u003eLabel: \"ORGANIZATION\""}, {"color": "#bcf60c", "font": {"color": "black"}, "id": "nexus service inc \u003c\"ORGANIZATION\"\u003e", "label": "nexus service inc \u003c\"ORGANIZATION\"\u003e", "shape": "dot", "title": "Original Text: \"NEXUS SERVICES, INC.\"\u003cbr\u003eLabel: \"ORGANIZATION\""}, {"color": "#008080", "font": {"color": "black"}, "id": "january 20 2016 \u003c\"DATE\"\u003e", "label": "january 20 2016 \u003c\"DATE\"\u003e", "shape": "dot", "title": "Original Text: \"JANUARY 20, 2016\"\u003cbr\u003eLabel: \"DATE\""}, {"color": "#f032e6", "font": {"color": "black"}, "id": "micheal donovan \u003c\"PERSON\"\u003e", "label": "micheal donovan \u003c\"PERSON\"\u003e", "shape": "dot", "title": "Original Text: \"MICHEAL DONOVAN\"\u003cbr\u003eLabel: \"PERSON\""}, {"color": "#3cb44b", "font": {"color": "black"}, "id": "28 u s c 1332a1 \u003c\"LAW\"\u003e", "label": "28 u s c 1332a1 \u003c\"LAW\"\u003e", "shape": "dot", "title": "Original Text: \"28 U. S. C. \u00a7 1332(A)(1)\"\u003cbr\u003eLabel: \"LAW\""}, {"color": "#3cb44b", "font": {"color": "black"}, "id": "28 u s c 1391 \u003c\"LAW\"\u003e", "label": "28 u s c 1391 \u003c\"LAW\"\u003e", "shape": "dot", "title": "Original Text: \"28 U. S. C. \u00a7 1391\"\u003cbr\u003eLabel: \"LAW\""}, {"color": "#fabebe", "font": {"color": "black"}, "id": "commercial surety general indemnity agreement \u003c\"LEGAL CASE\"\u003e", "label": "commercial surety general indemnity agreement \u003c\"LEGAL CASE\"\u003e", "shape": "dot", "title": "Original Text: \"COMMERCIAL SURETY GENERAL INDEMNITY AGREEMENT\"\u003cbr\u003eLabel: \"LEGAL CASE\""}, {"color": "#911eb4", "font": {"color": "black"}, "id": "surety \u003c\"ROLE\"\u003e", "label": "surety \u003c\"ROLE\"\u003e", "shape": "dot", "title": "Original Text: \"SURETY\"\u003cbr\u003eLabel: \"ROLE\""}, {"color": "#911eb4", "font": {"color": "black"}, "id": "indemnitors \u003c\"ROLE\"\u003e", "label": "indemnitors \u003c\"ROLE\"\u003e", "shape": "dot", "title": "Original Text: \"INDEMNITOR(S)\"\u003cbr\u003eLabel: \"ROLE\""}, {"color": "#fabebe", "font": {"color": "black"}, "id": "bond \u003c\"LEGAL CASE\"\u003e", "label": "bond \u003c\"LEGAL CASE\"\u003e", "shape": "dot", "title": "Original Text: \"BOND\"\u003cbr\u003eLabel: \"LEGAL CASE\""}, {"color": "#ffe119", "font": {"color": "black"}, "id": "exhibit a general provision section \u003c\"DOCUMENT\"\u003e", "label": "exhibit a general provision section \u003c\"DOCUMENT\"\u003e", "shape": "dot", "title": "Original Text: \"EXHIBIT A, GENERAL PROVISIONS SECTION\"\u003cbr\u003eLabel: \"DOCUMENT\""}, {"color": "#e6194b", "font": {"color": "black"}, "id": "state of illinois \u003c\"LOCATION DATA\"\u003e", "label": "state of illinois \u003c\"LOCATION DATA\"\u003e", "shape": "dot", "title": "Original Text: \"STATE OF ILLINOIS\"\u003cbr\u003eLabel: \"LOCATION DATA\""}, {"color": "#bcf60c", "font": {"color": "black"}, "id": "rli \u003c\"ORGANIZATION\"\u003e", "label": "rli \u003c\"ORGANIZATION\"\u003e", "shape": "dot", "title": "Original Text: \"RLI\"\u003cbr\u003eLabel: \"ORGANIZATION\""}, {"color": "#bcf60c", "font": {"color": "black"}, "id": "nexus \u003c\"ORGANIZATION\"\u003e", "label": "nexus \u003c\"ORGANIZATION\"\u003e", "shape": "dot", "title": "Original Text: \"NEXUS\"\u003cbr\u003eLabel: \"ORGANIZATION\""}, {"color": "#bcf60c", "font": {"color": "black"}, "id": "big marco insurance bonding service llc \u003c\"ORGANIZATION\"\u003e", "label": "big marco insurance bonding service llc \u003c\"ORGANIZATION\"\u003e", "shape": "dot", "title": "Original Text: \"BIG MARCO INSURANCE \u0026 BONDING SERVICES, LLC\"\u003cbr\u003eLabel: \"ORGANIZATION\""}, {"color": "#bcf60c", "font": {"color": "black"}, "id": "united state government \u003c\"ORGANIZATION\"\u003e", "label": "united state government \u003c\"ORGANIZATION\"\u003e", "shape": "dot", "title": "Original Text: \"UNITED STATES GOVERNMENT\"\u003cbr\u003eLabel: \"ORGANIZATION\""}, {"color": "#3cb44b", "font": {"color": "black"}, "id": "code of federal regulation cfr \u003c\"LAW\"\u003e", "label": "code of federal regulation cfr \u003c\"LAW\"\u003e", "shape": "dot", "title": "Original Text: \"CODE OF FEDERAL REGULATIONS (CFR)\"\u003cbr\u003eLabel: \"LAW\""}, {"color": "#bcf60c", "font": {"color": "black"}, "id": "department of homeland security dhs \u003c\"ORGANIZATION\"\u003e", "label": "department of homeland security dhs \u003c\"ORGANIZATION\"\u003e", "shape": "dot", "title": "Original Text: \"DEPARTMENT OF HOMELAND SECURITY (DHS)\"\u003cbr\u003eLabel: \"ORGANIZATION\""}, {"color": "#ffe119", "font": {"color": "black"}, "id": "dhs handbook \u003c\"DOCUMENT\"\u003e", "label": "dhs handbook \u003c\"DOCUMENT\"\u003e", "shape": "dot", "title": "Original Text: \"DHS HANDBOOK\"\u003cbr\u003eLabel: \"DOCUMENT\""}, {"color": "#ffe119", "font": {"color": "black"}, "id": "form i352 \u003c\"DOCUMENT\"\u003e", "label": "form i352 \u003c\"DOCUMENT\"\u003e", "shape": "dot", "title": "Original Text: \"FORM I-352\"\u003cbr\u003eLabel: \"DOCUMENT\""}, {"color": "#fabebe", "font": {"color": "black"}, "id": "delivery bond \u003c\"LEGAL CASE\"\u003e", "label": "delivery bond \u003c\"LEGAL CASE\"\u003e", "shape": "dot", "title": "Original Text: \"DELIVERY BOND\"\u003cbr\u003eLabel: \"LEGAL CASE\""}, {"color": "#fabebe", "font": {"color": "black"}, "id": "departure bond \u003c\"LEGAL CASE\"\u003e", "label": "departure bond \u003c\"LEGAL CASE\"\u003e", "shape": "dot", "title": "Original Text: \"DEPARTURE BOND\"\u003cbr\u003eLabel: \"LEGAL CASE\""}, {"color": "#fabebe", "font": {"color": "black"}, "id": "order of supervision bond osup bond \u003c\"LEGAL CASE\"\u003e", "label": "order of supervision bond osup bond \u003c\"LEGAL CASE\"\u003e", "shape": "dot", "title": "Original Text: \"ORDER OF SUPERVISION BOND (OSUP BOND)\"\u003cbr\u003eLabel: \"LEGAL CASE\""}, {"color": "#4363d8", "font": {"color": "black"}, "id": "bond form i352 \u003c\"FILE\"\u003e", "label": "bond form i352 \u003c\"FILE\"\u003e", "shape": "dot", "title": "Original Text: \"BOND FORM I-352\"\u003cbr\u003eLabel: \"FILE\""}, {"color": "#bcf60c", "font": {"color": "black"}, "id": "united state department of treasury \u003c\"ORGANIZATION\"\u003e", "label": "united state department of treasury \u003c\"ORGANIZATION\"\u003e", "shape": "dot", "title": "Original Text: \"UNITED STATES DEPARTMENT OF TREASURY\"\u003cbr\u003eLabel: \"ORGANIZATION\""}, {"color": "#008080", "font": {"color": "black"}, "id": "february 11 2016 \u003c\"DATE\"\u003e", "label": "february 11 2016 \u003c\"DATE\"\u003e", "shape": "dot", "title": "Original Text: \"FEBRUARY 11, 2016\"\u003cbr\u003eLabel: \"DATE\""}, {"color": "#008080", "font": {"color": "black"}, "id": "february 28 2017 \u003c\"DATE\"\u003e", "label": "february 28 2017 \u003c\"DATE\"\u003e", "shape": "dot", "title": "Original Text: \"FEBRUARY 28, 2017\"\u003cbr\u003eLabel: \"DATE\""}, {"color": "#008080", "font": {"color": "black"}, "id": "may 25 2016 \u003c\"DATE\"\u003e", "label": "may 25 2016 \u003c\"DATE\"\u003e", "shape": "dot", "title": "Original Text: \"MAY 25, 2016\"\u003cbr\u003eLabel: \"DATE\""}, {"color": "#008080", "font": {"color": "black"}, "id": "august 25 2016 \u003c\"DATE\"\u003e", "label": "august 25 2016 \u003c\"DATE\"\u003e", "shape": "dot", "title": "Original Text: \"AUGUST 25, 2016\"\u003cbr\u003eLabel: \"DATE\""}, {"color": "#008080", "font": {"color": "black"}, "id": "march 3 2017 \u003c\"DATE\"\u003e", "label": "march 3 2017 \u003c\"DATE\"\u003e", "shape": "dot", "title": "Original Text: \"MARCH 3, 2017\"\u003cbr\u003eLabel: \"DATE\""}, {"color": "#008080", "font": {"color": "black"}, "id": "march 6 2017 \u003c\"DATE\"\u003e", "label": "march 6 2017 \u003c\"DATE\"\u003e", "shape": "dot", "title": "Original Text: \"MARCH 6, 2017\"\u003cbr\u003eLabel: \"DATE\""}, {"color": "#008080", "font": {"color": "black"}, "id": "march 13 2017 \u003c\"DATE\"\u003e", "label": "march 13 2017 \u003c\"DATE\"\u003e", "shape": "dot", "title": "Original Text: \"MARCH 13, 2017\"\u003cbr\u003eLabel: \"DATE\""}, {"color": "#008080", "font": {"color": "black"}, "id": "may 26 2017 \u003c\"DATE\"\u003e", "label": "may 26 2017 \u003c\"DATE\"\u003e", "shape": "dot", "title": "Original Text: \"MAY 26, 2017\"\u003cbr\u003eLabel: \"DATE\""}, {"color": "#008080", "font": {"color": "black"}, "id": "june 1 2017 \u003c\"DATE\"\u003e", "label": "june 1 2017 \u003c\"DATE\"\u003e", "shape": "dot", "title": "Original Text: \"JUNE 1, 2017\"\u003cbr\u003eLabel: \"DATE\""}, {"color": "#008080", "font": {"color": "black"}, "id": "june 19 2017 \u003c\"DATE\"\u003e", "label": "june 19 2017 \u003c\"DATE\"\u003e", "shape": "dot", "title": "Original Text: \"JUNE 19, 2017\"\u003cbr\u003eLabel: \"DATE\""}, {"color": "#e6194b", "font": {"color": "black"}, "id": "verona virginia \u003c\"LOCATION DATA\"\u003e", "label": "verona virginia \u003c\"LOCATION DATA\"\u003e", "shape": "dot", "title": "Original Text: \"VERONA, VIRGINIA\"\u003cbr\u003eLabel: \"LOCATION DATA\""}, {"color": "#008080", "font": {"color": "black"}, "id": "december 12 2017 \u003c\"DATE\"\u003e", "label": "december 12 2017 \u003c\"DATE\"\u003e", "shape": "dot", "title": "Original Text: \"DECEMBER 12, 2017\"\u003cbr\u003eLabel: \"DATE\""}, {"color": "#008080", "font": {"color": "black"}, "id": "january 10 2018 \u003c\"DATE\"\u003e", "label": "january 10 2018 \u003c\"DATE\"\u003e", "shape": "dot", "title": "Original Text: \"JANUARY 10, 2018\"\u003cbr\u003eLabel: \"DATE\""}, {"color": "#008080", "font": {"color": "black"}, "id": "march 19 2018 \u003c\"DATE\"\u003e", "label": "march 19 2018 \u003c\"DATE\"\u003e", "shape": "dot", "title": "Original Text: \"MARCH 19, 2018\"\u003cbr\u003eLabel: \"DATE\""}, {"color": "#bcf60c", "font": {"color": "black"}, "id": "dhs \u003c\"ORGANIZATION\"\u003e", "label": "dhs \u003c\"ORGANIZATION\"\u003e", "shape": "dot", "title": "Original Text: \"DHS\"\u003cbr\u003eLabel: \"ORGANIZATION\""}, {"color": "#bcf60c", "font": {"color": "black"}, "id": "department of treasury \u003c\"ORGANIZATION\"\u003e", "label": "department of treasury \u003c\"ORGANIZATION\"\u003e", "shape": "dot", "title": "Original Text: \"DEPARTMENT OF TREASURY\"\u003cbr\u003eLabel: \"ORGANIZATION\""}, {"color": "#bcf60c", "font": {"color": "black"}, "id": "big marco \u003c\"ORGANIZATION\"\u003e", "label": "big marco \u003c\"ORGANIZATION\"\u003e", "shape": "dot", "title": "Original Text: \"BIG MARCO\"\u003cbr\u003eLabel: \"ORGANIZATION\""}, {"color": "#008080", "font": {"color": "black"}, "id": "march 28 2018 \u003c\"DATE\"\u003e", "label": "march 28 2018 \u003c\"DATE\"\u003e", "shape": "dot", "title": "Original Text: \"MARCH 28, 2018\"\u003cbr\u003eLabel: \"DATE\""}, {"color": "#008080", "font": {"color": "black"}, "id": "march 29 2018 \u003c\"DATE\"\u003e", "label": "march 29 2018 \u003c\"DATE\"\u003e", "shape": "dot", "title": "Original Text: \"MARCH 29, 2018\"\u003cbr\u003eLabel: \"DATE\""}, {"color": "#f58231", "font": {"color": "black"}, "id": "8387214 \u003c\"CURRENCY\"\u003e", "label": "8387214 \u003c\"CURRENCY\"\u003e", "shape": "dot", "title": "Original Text: \"$83,872.14\"\u003cbr\u003eLabel: \"CURRENCY\""}, {"color": "#fabebe", "font": {"color": "black"}, "id": "indemnity agreement \u003c\"LEGAL CASE\"\u003e", "label": "indemnity agreement \u003c\"LEGAL CASE\"\u003e", "shape": "dot", "title": "Original Text: \"INDEMNITY AGREEMENT\"\u003cbr\u003eLabel: \"LEGAL CASE\""}, {"color": "#4363d8", "font": {"color": "black"}, "id": "exhibit k \u003c\"FILE\"\u003e", "label": "exhibit k \u003c\"FILE\"\u003e", "shape": "dot", "title": "Original Text: \"EXHIBIT K\"\u003cbr\u003eLabel: \"FILE\""}, {"color": "#f58231", "font": {"color": "black"}, "id": "bond \u003c\"CURRENCY\"\u003e", "label": "bond \u003c\"CURRENCY\"\u003e", "shape": "dot", "title": "Original Text: \"BONDS\"\u003cbr\u003eLabel: \"CURRENCY\""}, {"color": "#008080", "font": {"color": "black"}, "id": "april 11 2018 \u003c\"DATE\"\u003e", "label": "april 11 2018 \u003c\"DATE\"\u003e", "shape": "dot", "title": "Original Text: \"APRIL 11, 2018\"\u003cbr\u003eLabel: \"DATE\""}, {"color": "#f032e6", "font": {"color": "black"}, "id": "vivian katsantonis \u003c\"PERSON\"\u003e", "label": "vivian katsantonis \u003c\"PERSON\"\u003e", "shape": "dot", "title": "Original Text: \"VIVIAN KATSANTONIS\"\u003cbr\u003eLabel: \"PERSON\""}, {"color": "#f032e6", "font": {"color": "black"}, "id": "christopher m harris \u003c\"PERSON\"\u003e", "label": "christopher m harris \u003c\"PERSON\"\u003e", "shape": "dot", "title": "Original Text: \"CHRISTOPHER M. HARRIS\"\u003cbr\u003eLabel: \"PERSON\""}, {"color": "#bcf60c", "font": {"color": "black"}, "id": "watt tieder hoffar fitzgerald llp \u003c\"ORGANIZATION\"\u003e", "label": "watt tieder hoffar fitzgerald llp \u003c\"ORGANIZATION\"\u003e", "shape": "dot", "title": "Original Text: \"WATT, TIEDER, HOFFAR \u0026 FITZGERALD, L.L.P.\"\u003cbr\u003eLabel: \"ORGANIZATION\""}, {"color": "#e6194b", "font": {"color": "black"}, "id": "1765 greensboro station place suite 1000 mclean virginia 22102 \u003c\"LOCATION DATA\"\u003e", "label": "1765 greensboro station place suite 1000 mclean virginia 22102 \u003c\"LOCATION DATA\"\u003e", "shape": "dot", "title": "Original Text: \"1765 GREENSBORO STATION PLACE, SUITE 1000, MCLEAN, VIRGINIA 22102\"\u003cbr\u003eLabel: \"LOCATION DATA\""}, {"color": "#e6beff", "font": {"color": "black"}, "id": "7037491000 \u003c\"PHONE NUMBER\"\u003e", "label": "7037491000 \u003c\"PHONE NUMBER\"\u003e", "shape": "dot", "title": "Original Text: \"703-749-1000\"\u003cbr\u003eLabel: \"PHONE NUMBER\""}, {"color": "#e6beff", "font": {"color": "black"}, "id": "7038938029 \u003c\"PHONE NUMBER\"\u003e", "label": "7038938029 \u003c\"PHONE NUMBER\"\u003e", "shape": "dot", "title": "Original Text: \"703-893-8029\"\u003cbr\u003eLabel: \"PHONE NUMBER\""}, {"color": "#46f0f0", "font": {"color": "black"}, "id": "vkatsantoniswatttiedercom \u003c\"EMAIL ADDRESS\"\u003e", "label": "vkatsantoniswatttiedercom \u003c\"EMAIL ADDRESS\"\u003e", "shape": "dot", "title": "Original Text: \"VKATSANTONIS@WATTTIEDER.COM\"\u003cbr\u003eLabel: \"EMAIL ADDRESS\""}, {"color": "#46f0f0", "font": {"color": "black"}, "id": "charriswatttiedercom \u003c\"EMAIL ADDRESS\"\u003e", "label": "charriswatttiedercom \u003c\"EMAIL ADDRESS\"\u003e", "shape": "dot", "title": "Original Text: \"CHARRIS@WATTTIEDER.COM\"\u003cbr\u003eLabel: \"EMAIL ADDRESS\""}]);
+                  edges = new vis.DataSet([{"arrows": "to", "from": "rli insurance company \u003c\"ORGANIZATION\"\u003e", "label": "\"Accuses\"", "physics": true, "title": "\"Accuses\"", "to": "nexus service inc \u003c\"ORGANIZATION\"\u003e"}, {"arrows": "to", "from": "rli insurance company \u003c\"ORGANIZATION\"\u003e", "label": "\"Communicated with\"", "physics": true, "title": "\"Communicated with\"", "to": "micheal donovan \u003c\"PERSON\"\u003e"}, {"arrows": "to", "from": "rli insurance company \u003c\"ORGANIZATION\"\u003e", "label": "\"Signed\"", "physics": true, "title": "\"Signed\"", "to": "commercial surety general indemnity agreement \u003c\"LEGAL CASE\"\u003e"}, {"arrows": "to", "from": "rli insurance company \u003c\"ORGANIZATION\"\u003e", "label": "\"Regulates\"", "physics": true, "title": "\"Regulates\"", "to": "28 u s c 1332a1 \u003c\"LAW\"\u003e"}, {"arrows": "to", "from": "rli insurance company \u003c\"ORGANIZATION\"\u003e", "label": "\"Regulates\"", "physics": true, "title": "\"Regulates\"", "to": "28 u s c 1391 \u003c\"LAW\"\u003e"}, {"arrows": "to", "from": "nexus service inc \u003c\"ORGANIZATION\"\u003e", "label": "\"Works with\"", "physics": true, "title": "\"Works with\"", "to": "micheal donovan \u003c\"PERSON\"\u003e"}, {"arrows": "to", "from": "nexus service inc \u003c\"ORGANIZATION\"\u003e", "label": "\"Signed\"", "physics": true, "title": "\"Signed\"", "to": "commercial surety general indemnity agreement \u003c\"LEGAL CASE\"\u003e"}, {"arrows": "to", "from": "surety \u003c\"ROLE\"\u003e", "label": "\"Obliged to do\"", "physics": true, "title": "\"Obliged to do\"", "to": "indemnitors \u003c\"ROLE\"\u003e"}, {"arrows": "to", "from": "rli \u003c\"ORGANIZATION\"\u003e", "label": "RLI and NEXUS are entities that have a complex relationship involving various interactions. RLI accuses NEXUS of certain actions, indicating a contentious aspect to their relationship. Despite this, both entities are obliged to engage with each other, suggesting a formal or contractual obligation that necessitates communication and collaboration. Additionally, RLI and NEXUS work together, which implies a cooperative aspect to their interactions, possibly in a professional or business context. Overall, the relationship between RLI and NEXUS is multifaceted, involving elements of accusation, obligation, communication, and collaboration.", "physics": true, "title": "RLI and NEXUS are entities that have a complex relationship involving various interactions. RLI accuses NEXUS of certain actions, indicating a contentious aspect to their relationship. Despite this, both entities are obliged to engage with each other, suggesting a formal or contractual obligation that necessitates communication and collaboration. Additionally, RLI and NEXUS work together, which implies a cooperative aspect to their interactions, possibly in a professional or business context. Overall, the relationship between RLI and NEXUS is multifaceted, involving elements of accusation, obligation, communication, and collaboration.", "to": "nexus \u003c\"ORGANIZATION\"\u003e"}, {"arrows": "to", "from": "rli \u003c\"ORGANIZATION\"\u003e", "label": "\"Works with\"", "physics": true, "title": "\"Works with\"", "to": "big marco insurance bonding service llc \u003c\"ORGANIZATION\"\u003e"}, {"arrows": "to", "from": "rli \u003c\"ORGANIZATION\"\u003e", "label": "\"Registers\"", "physics": true, "title": "\"Registers\"", "to": "united state department of treasury \u003c\"ORGANIZATION\"\u003e"}, {"arrows": "to", "from": "rli \u003c\"ORGANIZATION\"\u003e", "label": "\"Acts on\"", "physics": true, "title": "\"Acts on\"", "to": "february 11 2016 \u003c\"DATE\"\u003e"}, {"arrows": "to", "from": "rli \u003c\"ORGANIZATION\"\u003e", "label": "\"Acts on\"", "physics": true, "title": "\"Acts on\"", "to": "february 28 2017 \u003c\"DATE\"\u003e"}, {"arrows": "to", "from": "rli \u003c\"ORGANIZATION\"\u003e", "label": "\"Acts on\"", "physics": true, "title": "\"Acts on\"", "to": "may 25 2016 \u003c\"DATE\"\u003e"}, {"arrows": "to", "from": "rli \u003c\"ORGANIZATION\"\u003e", "label": "\"Acts on\"", "physics": true, "title": "\"Acts on\"", "to": "august 25 2016 \u003c\"DATE\"\u003e"}, {"arrows": "to", "from": "rli \u003c\"ORGANIZATION\"\u003e", "label": "\"Acts on\"", "physics": true, "title": "\"Acts on\"", "to": "march 3 2017 \u003c\"DATE\"\u003e"}, {"arrows": "to", "from": "rli \u003c\"ORGANIZATION\"\u003e", "label": "\"Acts on\"", "physics": true, "title": "\"Acts on\"", "to": "march 6 2017 \u003c\"DATE\"\u003e"}, {"arrows": "to", "from": "rli \u003c\"ORGANIZATION\"\u003e", "label": "\"Acts on\"", "physics": true, "title": "\"Acts on\"", "to": "march 13 2017 \u003c\"DATE\"\u003e"}, {"arrows": "to", "from": "rli \u003c\"ORGANIZATION\"\u003e", "label": "\"Acts on\"", "physics": true, "title": "\"Acts on\"", "to": "may 26 2017 \u003c\"DATE\"\u003e"}, {"arrows": "to", "from": "rli \u003c\"ORGANIZATION\"\u003e", "label": "\"Acts on\"", "physics": true, "title": "\"Acts on\"", "to": "june 1 2017 \u003c\"DATE\"\u003e"}, {"arrows": "to", "from": "rli \u003c\"ORGANIZATION\"\u003e", "label": "\"Acts on\"", "physics": true, "title": "\"Acts on\"", "to": "june 19 2017 \u003c\"DATE\"\u003e"}, {"arrows": "to", "from": "rli \u003c\"ORGANIZATION\"\u003e", "label": "RLI and DHS have engaged in communication and financial transactions, indicating a relationship where RLI has communicated with DHS and also made payments to them.", "physics": true, "title": "RLI and DHS have engaged in communication and financial transactions, indicating a relationship where RLI has communicated with DHS and also made payments to them.", "to": "dhs \u003c\"ORGANIZATION\"\u003e"}, {"arrows": "to", "from": "rli \u003c\"ORGANIZATION\"\u003e", "label": "\"Communicated with\"", "physics": true, "title": "\"Communicated with\"", "to": "big marco \u003c\"ORGANIZATION\"\u003e"}, {"arrows": "to", "from": "rli \u003c\"ORGANIZATION\"\u003e", "label": "\"Signed\"", "physics": true, "title": "\"Signed\"", "to": "indemnity agreement \u003c\"LEGAL CASE\"\u003e"}, {"arrows": "to", "from": "rli \u003c\"ORGANIZATION\"\u003e", "label": "\"Part of\"", "physics": true, "title": "\"Part of\"", "to": "exhibit k \u003c\"FILE\"\u003e"}, {"arrows": "to", "from": "rli \u003c\"ORGANIZATION\"\u003e", "label": "\"Owns\"", "physics": true, "title": "\"Owns\"", "to": "bond \u003c\"CURRENCY\"\u003e"}, {"arrows": "to", "from": "rli \u003c\"ORGANIZATION\"\u003e", "label": "\"Acts on\"", "physics": true, "title": "\"Acts on\"", "to": "april 11 2018 \u003c\"DATE\"\u003e"}, {"arrows": "to", "from": "rli \u003c\"ORGANIZATION\"\u003e", "label": "\"Works with\"", "physics": true, "title": "\"Works with\"", "to": "vivian katsantonis \u003c\"PERSON\"\u003e"}, {"arrows": "to", "from": "rli \u003c\"ORGANIZATION\"\u003e", "label": "\"Works with\"", "physics": true, "title": "\"Works with\"", "to": "christopher m harris \u003c\"PERSON\"\u003e"}, {"arrows": "to", "from": "rli \u003c\"ORGANIZATION\"\u003e", "label": "\"Works with\"", "physics": true, "title": "\"Works with\"", "to": "watt tieder hoffar fitzgerald llp \u003c\"ORGANIZATION\"\u003e"}, {"arrows": "to", "from": "nexus \u003c\"ORGANIZATION\"\u003e", "label": "\"Lives in\"", "physics": true, "title": "\"Lives in\"", "to": "verona virginia \u003c\"LOCATION DATA\"\u003e"}, {"arrows": "to", "from": "nexus \u003c\"ORGANIZATION\"\u003e", "label": "\"Communicated with\"", "physics": true, "title": "\"Communicated with\"", "to": "dhs \u003c\"ORGANIZATION\"\u003e"}, {"arrows": "to", "from": "nexus \u003c\"ORGANIZATION\"\u003e", "label": "\"Communicated with\"", "physics": true, "title": "\"Communicated with\"", "to": "department of treasury \u003c\"ORGANIZATION\"\u003e"}, {"arrows": "to", "from": "nexus \u003c\"ORGANIZATION\"\u003e", "label": "\"Obliged to do\"", "physics": true, "title": "\"Obliged to do\"", "to": "big marco \u003c\"ORGANIZATION\"\u003e"}, {"arrows": "to", "from": "nexus \u003c\"ORGANIZATION\"\u003e", "label": "\"Signed\"", "physics": true, "title": "\"Signed\"", "to": "indemnity agreement \u003c\"LEGAL CASE\"\u003e"}, {"arrows": "to", "from": "nexus \u003c\"ORGANIZATION\"\u003e", "label": "\"Obliged to do\"", "physics": true, "title": "\"Obliged to do\"", "to": "bond \u003c\"CURRENCY\"\u003e"}, {"arrows": "to", "from": "united state government \u003c\"ORGANIZATION\"\u003e", "label": "\"Part of\"", "physics": true, "title": "\"Part of\"", "to": "department of homeland security dhs \u003c\"ORGANIZATION\"\u003e"}, {"arrows": "to", "from": "code of federal regulation cfr \u003c\"LAW\"\u003e", "label": "\"Regulates\"", "physics": true, "title": "\"Regulates\"", "to": "department of homeland security dhs \u003c\"ORGANIZATION\"\u003e"}, {"arrows": "to", "from": "department of homeland security dhs \u003c\"ORGANIZATION\"\u003e", "label": "\"Administers\"", "physics": true, "title": "\"Administers\"", "to": "dhs handbook \u003c\"DOCUMENT\"\u003e"}, {"arrows": "to", "from": "dhs handbook \u003c\"DOCUMENT\"\u003e", "label": "\"Part of\"", "physics": true, "title": "\"Part of\"", "to": "bond form i352 \u003c\"FILE\"\u003e"}, {"arrows": "to", "from": "form i352 \u003c\"DOCUMENT\"\u003e", "label": "\"Part of\"", "physics": true, "title": "\"Part of\"", "to": "delivery bond \u003c\"LEGAL CASE\"\u003e"}, {"arrows": "to", "from": "form i352 \u003c\"DOCUMENT\"\u003e", "label": "\"Part of\"", "physics": true, "title": "\"Part of\"", "to": "departure bond \u003c\"LEGAL CASE\"\u003e"}, {"arrows": "to", "from": "form i352 \u003c\"DOCUMENT\"\u003e", "label": "\"Part of\"", "physics": true, "title": "\"Part of\"", "to": "order of supervision bond osup bond \u003c\"LEGAL CASE\"\u003e"}, {"arrows": "to", "from": "vivian katsantonis \u003c\"PERSON\"\u003e", "label": "\"Owns\"", "physics": true, "title": "\"Owns\"", "to": "vkatsantoniswatttiedercom \u003c\"EMAIL ADDRESS\"\u003e"}, {"arrows": "to", "from": "christopher m harris \u003c\"PERSON\"\u003e", "label": "\"Owns\"", "physics": true, "title": "\"Owns\"", "to": "charriswatttiedercom \u003c\"EMAIL ADDRESS\"\u003e"}, {"arrows": "to", "from": "watt tieder hoffar fitzgerald llp \u003c\"ORGANIZATION\"\u003e", "label": "\"Is\"", "physics": true, "title": "\"Is\"", "to": "1765 greensboro station place suite 1000 mclean virginia 22102 \u003c\"LOCATION DATA\"\u003e"}, {"arrows": "to", "from": "watt tieder hoffar fitzgerald llp \u003c\"ORGANIZATION\"\u003e", "label": "\"Owns\"", "physics": true, "title": "\"Owns\"", "to": "7037491000 \u003c\"PHONE NUMBER\"\u003e"}, {"arrows": "to", "from": "watt tieder hoffar fitzgerald llp \u003c\"ORGANIZATION\"\u003e", "label": "\"Owns\"", "physics": true, "title": "\"Owns\"", "to": "7038938029 \u003c\"PHONE NUMBER\"\u003e"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {"nodes": {"font": {"size": 14, "face": "Tahoma"}, "scaling": {"min": 10, "max": 30, "label": {"enabled": true}}}, "edges": {"font": {"size": 12, "align": "middle"}, "scaling": {"min": 10, "max": 20, "label": {"enabled": true}}}, "physics": {"barnesHut": {"gravitationalConstant": -8000, "centralGravity": 0.3, "springLength": 250, "springConstant": 0.001, "damping": 0.09, "avoidOverlap": 0}, "minVelocity": 0.75}, "interaction": {"hover": true, "navigationButtons": true, "keyboard": true}};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
+      </div>
+      <div id="stats-container">
+        
+    <h3>Entity Counts:</h3>
+    <p>"ORGANIZATION": 13 entities, 13 unique texts<br>"LOCATION DATA": 5 entities, 5 unique texts<br>"DATE": 17 entities, 17 unique texts<br>"PERSON": 3 entities, 3 unique texts<br>"LAW": 3 entities, 3 unique texts<br>"LEGAL CASE": 6 entities, 6 unique texts<br>"ROLE": 2 entities, 2 unique texts<br>"DOCUMENT": 3 entities, 3 unique texts<br>"FILE": 2 entities, 2 unique texts<br>"CURRENCY": 2 entities, 2 unique texts<br>"PHONE NUMBER": 2 entities, 2 unique texts<br>"EMAIL ADDRESS": 2 entities, 2 unique texts</p>
+    <h3>Relation Counts:</h3>
+    <p>"Accuses": 1<br>"Communicated with": 4<br>"Signed": 4<br>"Regulates": 3<br>"Works with": 5<br>"Obliged to do": 3<br>RLI and NEXUS are entities that have a complex relationship involving various interactions. RLI accuses NEXUS of certain actions, indicating a contentious aspect to their relationship. Despite this, both entities are obliged to engage with each other, suggesting a formal or contractual obligation that necessitates communication and collaboration. Additionally, RLI and NEXUS work together, which implies a cooperative aspect to their interactions, possibly in a professional or business context. Overall, the relationship between RLI and NEXUS is multifaceted, involving elements of accusation, obligation, communication, and collaboration.: 1<br>"Registers": 1<br>"Acts on": 11<br>RLI and DHS have engaged in communication and financial transactions, indicating a relationship where RLI has communicated with DHS and also made payments to them.: 1<br>"Part of": 6<br>"Owns": 5<br>"Lives in": 1<br>"Administers": 1<br>"Is": 1</p>
+    <h3>Unconnected Entity Counts:</h3>
+    <p>"ORGANIZATION": 1 unconnected entities<br>"LOCATION DATA": 3 unconnected entities<br>"DATE": 6 unconnected entities<br>"LEGAL CASE": 1 unconnected entities<br>"DOCUMENT": 1 unconnected entities<br>"CURRENCY": 1 unconnected entities</p>
+    
+      </div>
+    </body>
+    </html>
+    

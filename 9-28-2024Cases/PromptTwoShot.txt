@@ -1,0 +1,75 @@
+
+-Goal-
+Given a text document that is potentially relevant to this activity and a list of entity types, identify all entities of those types from the text and all relationships among the identified entities.
+
+-Steps-
+1. Identify all entities. For each identified entity, extract the following information:
+- entity_name: Name of the entity, capitalized
+- entity_type: One of the following types: [Person, Organization, Date, URL, App, Account, File, Phrase, Location Data, IP Address, Phone Number, Law, Email Address, Currency, Video, Role, Crime Type, Legal Case]
+- entity_description: Comprehensive description of the entity's attributes and activities
+Format each entity as ("entity"{tuple_delimiter}<entity_name>{tuple_delimiter}<entity_type>{tuple_delimiter}<entity_description>
+
+2. From the entities identified in step 1, identify all pairs of (source_entity, target_entity) that are *clearly related* to each other.
+For each pair of related entities, extract the following information:
+- source_entity: name of the source entity, as identified in step 1
+- target_entity: name of the target entity, as identified in step 1
+- relationship_description: Only one description from the list: [Owns, Launched After, Registered On, Acts on, Comments, Lives in, Posts, Registers, Deleted, Works with, Obliged to do, Violates, Signed, Regulates, Administers, Communicated with, Is, Part of, Victim of, Perpetrates, Accuses, Accused, Received Message]
+- relationship_strength: a numeric score indicating strength of the relationship between the source entity and target entity
+ Format each relationship as ("relationship"{tuple_delimiter}<source_entity>{tuple_delimiter}<target_entity>{tuple_delimiter}<relationship_description>{tuple_delimiter}<relationship_strength>)
+
+3. Return output in English as a single list of all the entities and relationships identified in steps 1 and 2. Use **{record_delimiter}** as the list delimiter.
+
+4. When finished, output {completion_delimiter}
+######################
+-Examples-
+######################
+Example 1:
+
+Entity_types: [Date, Person, Account, URL, Video, Phrase]
+Text:
+24. On December 3, 2021, Defendant Korslund published a video on TikTok, using the account @narctok_royalty. Korslund plays a portion of Plaintiff’s video explaining the MTS. The video is still available online at the following URL: https:\/\/www.tiktok.com\/@narctok_royalty\/video\/7037588241091988783. In the video, Korslund states: “[the MTS] is not even close to being anonymous, you have to give your info, and this woman doxxed my IP. ” Korslund then shows a series of screenshots of and concerning the Plaintiff as follows: a. A screenshot of Plaintiff’s post regarding the hacker’s IP address. Korslund goes on to state that Plaintiff did not design the MTS for victims but for “herself and her own motives” and that Plaintiff “is a very dangerous woman. ” b. A case summary of Mark Belmessieri v. Rachel DePalma 20CV370750 and later shows page 8 of the amended complaint filed in that case, detailing Belmessieri’s third cause of action for intentional infliction of emotional distress. c. An edited text conversation allegedly between a “Mark” and “Diane” discussing what Defendants believed to be a restraining order against Plaintiff. Plaintiff has never had a restraining order of any kind issued against her.
+################
+Output:
+("entity"{tuple_delimiter}"December 3, 2021"{tuple_delimiter}"Date"){record_delimiter}
+("entity"{tuple_delimiter}"Korslund"{tuple_delimiter}"Person"){record_delimiter}
+("entity"{tuple_delimiter}"TikTok"{tuple_delimiter}"App"){record_delimiter}
+("entity"{tuple_delimiter}"@narctok_royalty"{tuple_delimiter}"Account"){record_delimiter}
+("entity"{tuple_delimiter}"MTS"{tuple_delimiter}"App"){record_delimiter}
+("entity"{tuple_delimiter}"https://www.tiktok.com/@narctok_royalty/video/7037588241091988783"{tuple_delimiter}"URL"){record_delimiter}
+("entity"{tuple_delimiter}"[the MTS] is not even close to being anonymous, you have to give your info, and this woman doxxed my IP."{tuple_delimiter}"Phrase"){record_delimiter}
+("entity"{tuple_delimiter}"herself and her own motives"{tuple_delimiter}"Phrase"){record_delimiter}
+("entity"{tuple_delimiter}"is a very dangerous woman."{tuple_delimiter}"Phrase"){record_delimiter}
+("relationship"{tuple_delimiter}"Korslund"{tuple_delimiter}"December 3, 2021"{tuple_delimiter}"Acts on"){record_delimiter}
+("relationship"{tuple_delimiter}"@narctok_royalty"{tuple_delimiter}"TikTok"{tuple_delimiter}"Registered On"){record_delimiter}
+("relationship"{tuple_delimiter}"@narctok_royalty"{tuple_delimiter}"https://www.tiktok.com/@narctok_royalty/video/7037588241091988783"{tuple_delimiter}"Posts"){record_delimiter}
+("relationship"{tuple_delimiter}"Korslund"{tuple_delimiter}"MTS"{tuple_delimiter}"Comments"){record_delimiter}
+("relationship"{tuple_delimiter}"https://www.tiktok.com/@narctok_royalty/video/7037588241091988783"{tuple_delimiter}"TikTok"{tuple_delimiter}"Registered On"){record_delimiter}
+("relationship"{tuple_delimiter}"Korslund"{tuple_delimiter}"[the MTS] is not even close to being anonymous, you have to give your info, and this woman doxxed my IP."{tuple_delimiter}"Comments"){record_delimiter}
+("relationship"{tuple_delimiter}"Korslund"{tuple_delimiter}"herself and her own motives"{tuple_delimiter}"Comments"){record_delimiter}
+("relationship"{tuple_delimiter}"Korslund"{tuple_delimiter}"is a very dangerous woman."{tuple_delimiter}"Comments"){completion_delimiter}
+#############################
+Example 2:
+
+Entity_types: [Date, Person, Organization]
+Text:
+41. Taitz found a person by the name of Jesse Smith who was to be her new web host. She authorized Ostella to transfer the domains to him. Jesse Smith first contacted Ostella on April 9,2009. Ostella told him to initiate the transfer. Jesse SMith started the initiation on April 10, 2009 through Network Solution. Ostella accepted the transfer request  and the transfer process started.
+################
+Output:
+("entity"{tuple_delimiter}"Taitz"{tuple_delimiter}"Person"){record_delimiter}
+("entity"{tuple_delimiter}"Jesse Smith"{tuple_delimiter}"Person"){record_delimiter}
+("entity"{tuple_delimiter}"Ostella"{tuple_delimiter}"Person"){record_delimiter}
+("entity"{tuple_delimiter}"April 9, 2009"{tuple_delimiter}"Date"){record_delimiter}
+("entity"{tuple_delimiter}"April 10, 2009"{tuple_delimiter}"Date"){record_delimiter}
+("entity"{tuple_delimiter}"Network Solutions"{tuple_delimiter}"Organization"){record_delimiter}
+("relationship"{tuple_delimiter}"Taitz"{tuple_delimiter}"Jesse Smith"{tuple_delimiter}"Works with"){record_delimiter}
+("relationship"{tuple_delimiter}"Taitz"{tuple_delimiter}"Ostella"{tuple_delimiter}"Communicated with"){record_delimiter}
+("relationship"{tuple_delimiter}"Jesse Smith"{tuple_delimiter}"Ostella"{tuple_delimiter}"Communicated with"){record_delimiter}
+("relationship"{tuple_delimiter}"Jesse Smith"{tuple_delimiter}"April 9,2009"{tuple_delimiter}"Acts on"){record_delimiter}
+("relationship"{tuple_delimiter}"Jesse Smith"{tuple_delimiter}"April 10, 2009"{tuple_delimiter}"Acts on"){record_delimiter}
+("relationship"{tuple_delimiter}"Jesse Smith"{tuple_delimiter}"Network Solutions"{tuple_delimiter}"Works With"){record_delimiter}
+#############################
+-Real Data-
+######################
+Text: {input_text}
+######################
+Output:

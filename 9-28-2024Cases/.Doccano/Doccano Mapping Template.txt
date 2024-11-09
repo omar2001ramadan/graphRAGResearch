@@ -1,0 +1,27 @@
+[
+  {% for entity in input.entities %}
+    {% for mention in entity.mentions %}
+      {%- set start_offset = mention.text.beginOffset -%}
+      {%- set end_offset = start_offset + mention.text.content|length -%}
+      {
+        "label": 
+          {% if entity.type == "PERSON" %} "Person Name"
+          {% elif entity.type == "ORGANIZATION" %} "Organization Name"
+          {% elif entity.type == "DATE" %} "Date"
+          {% elif entity.type == "OTHER" and "http" in mention.text.content %} "URL"
+          {% elif entity.type == "OTHER" and ".com" in mention.text.content %} "URL"
+          {% elif entity.type == "OTHER" and "@" in mention.text.content %} "Account Name"
+          {% elif entity.type == "OTHER" and (mention.text.content.endswith('.txt') or mention.text.content.endswith('.mp4') or mention.text.content.endswith('.mp3') or mention.text.content.endswith('.doc') or mention.text.content.endswith('.docx') or mention.text.content.endswith('.pdf')) %} "File Name"
+          {% elif entity.type == "OTHER" and "." in mention.text.content and " " not in mention.text.content %} "File Name"
+          {% elif entity.type == "OTHER" and mention.text.content.startswith('"') and mention.text.content.endswith('"') %} "String"
+          {% elif entity.type == "OTHER" and 'app' in mention.text.content|lower %} "App Name"
+          {% else %} "Other"
+          {% endif %},
+        "start_offset": {{ start_offset }},
+        "end_offset": {{ end_offset }}
+      }{% if not loop.last %},{% endif %}
+    {% endfor %}
+    {% if not loop.last %},{% endif %}
+  {% endfor %}
+]
+

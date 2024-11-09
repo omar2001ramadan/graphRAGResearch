@@ -1,0 +1,171 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Interactive Graph</title>
+      <style>
+        body, html {
+          height: 100%;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          flex-direction: row;
+          font-family: Arial, sans-serif;
+        }
+        #graph-container {
+          flex: 3;
+          height: 100vh;
+        }
+        #stats-container {
+          flex: 1;
+          padding: 20px;
+          overflow-y: auto;
+          background-color: #f5f5f5;
+          border-left: 1px solid #ddd;
+        }
+      </style>
+    </head>
+    <body>
+      <div id="graph-container">
+        <html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 100vh;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#e6194b", "font": {"color": "black"}, "id": "united state district court for the middle district of georgia macon division \u003c\"ORGANIZATION\"\u003e", "label": "united state district court for the middle district of georgia macon division \u003c\"ORGANIZATION\"\u003e", "shape": "dot", "title": "Original Text: \"UNITED STATES DISTRICT COURT FOR THE MIDDLE DISTRICT OF GEORGIA MACON DIVISION\"\u003cbr\u003eLabel: \"ORGANIZATION\""}, {"color": "#bcf60c", "font": {"color": "black"}, "id": "rachel depalma \u003c\"PERSON\"\u003e", "label": "rachel depalma \u003c\"PERSON\"\u003e", "shape": "dot", "title": "Original Text: \"RACHEL DEPALMA\"\u003cbr\u003eLabel: \"PERSON\""}, {"color": "#bcf60c", "font": {"color": "black"}, "id": "samantha kern \u003c\"PERSON\"\u003e", "label": "samantha kern \u003c\"PERSON\"\u003e", "shape": "dot", "title": "Original Text: \"SAMANTHA KERNS\"\u003cbr\u003eLabel: \"PERSON\""}, {"color": "#bcf60c", "font": {"color": "black"}, "id": "tracy korslund \u003c\"PERSON\"\u003e", "label": "tracy korslund \u003c\"PERSON\"\u003e", "shape": "dot", "title": "Original Text: \"TRACY KORSLUND\"\u003cbr\u003eLabel: \"PERSON\""}, {"color": "#bcf60c", "font": {"color": "black"}, "id": "laurinda kirk \u003c\"PERSON\"\u003e", "label": "laurinda kirk \u003c\"PERSON\"\u003e", "shape": "dot", "title": "Original Text: \"LAURINDA KIRK\"\u003cbr\u003eLabel: \"PERSON\""}, {"color": "#9a6324", "font": {"color": "black"}, "id": "522cv00091 \u003c\"LEGAL CASE\"\u003e", "label": "522cv00091 \u003c\"LEGAL CASE\"\u003e", "shape": "dot", "title": "Original Text: \"5:22-CV-00091\"\u003cbr\u003eLabel: \"LEGAL CASE\""}, {"color": "#e6194b", "font": {"color": "black"}, "id": "no peace no quiet \u003c\"ORGANIZATION\"\u003e", "label": "no peace no quiet \u003c\"ORGANIZATION\"\u003e", "shape": "dot", "title": "Original Text: \"NO PEACE NO QUIET\"\u003cbr\u003eLabel: \"ORGANIZATION\""}, {"color": "#3cb44b", "font": {"color": "black"}, "id": "tiktok \u003c\"APP\"\u003e", "label": "tiktok \u003c\"APP\"\u003e", "shape": "dot", "title": "Original Text: \"TIKTOK\"\u003cbr\u003eLabel: \"APP\""}, {"color": "#3cb44b", "font": {"color": "black"}, "id": "instagram \u003c\"APP\"\u003e", "label": "instagram \u003c\"APP\"\u003e", "shape": "dot", "title": "Original Text: \"INSTAGRAM\"\u003cbr\u003eLabel: \"APP\""}, {"color": "#3cb44b", "font": {"color": "black"}, "id": "misconduct ticketing system mt \u003c\"APP\"\u003e", "label": "misconduct ticketing system mt \u003c\"APP\"\u003e", "shape": "dot", "title": "Original Text: \"MISCONDUCT TICKETING SYSTEM (MTS)\"\u003cbr\u003eLabel: \"APP\""}, {"color": "#fabebe", "font": {"color": "black"}, "id": "nopeacenoquietorg \u003c\"URL\"\u003e", "label": "nopeacenoquietorg \u003c\"URL\"\u003e", "shape": "dot", "title": "Original Text: \"NOPEACENOQUIET.ORG\"\u003cbr\u003eLabel: \"URL\""}, {"color": "#008080", "font": {"color": "black"}, "id": "october 2021 \u003c\"DATE\"\u003e", "label": "october 2021 \u003c\"DATE\"\u003e", "shape": "dot", "title": "Original Text: \"OCTOBER 2021\"\u003cbr\u003eLabel: \"DATE\""}, {"color": "#008080", "font": {"color": "black"}, "id": "november 19 2021 \u003c\"DATE\"\u003e", "label": "november 19 2021 \u003c\"DATE\"\u003e", "shape": "dot", "title": "Original Text: \"NOVEMBER 19, 2021\"\u003cbr\u003eLabel: \"DATE\""}, {"color": "#008080", "font": {"color": "black"}, "id": "november 26 2021 \u003c\"DATE\"\u003e", "label": "november 26 2021 \u003c\"DATE\"\u003e", "shape": "dot", "title": "Original Text: \"NOVEMBER 26, 2021\"\u003cbr\u003eLabel: \"DATE\""}, {"color": "#008080", "font": {"color": "black"}, "id": "november 27 2021 \u003c\"DATE\"\u003e", "label": "november 27 2021 \u003c\"DATE\"\u003e", "shape": "dot", "title": "Original Text: \"NOVEMBER 27, 2021\"\u003cbr\u003eLabel: \"DATE\""}, {"color": "#e6beff", "font": {"color": "black"}, "id": "loveandjustice5 \u003c\"ACCOUNT\"\u003e", "label": "loveandjustice5 \u003c\"ACCOUNT\"\u003e", "shape": "dot", "title": "Original Text: \"@LOVEANDJUSTICE5\"\u003cbr\u003eLabel: \"ACCOUNT\""}, {"color": "#e6beff", "font": {"color": "black"}, "id": "nopeacenoquiet \u003c\"ACCOUNT\"\u003e", "label": "nopeacenoquiet \u003c\"ACCOUNT\"\u003e", "shape": "dot", "title": "Original Text: \"@NOPEACENOQUIET\"\u003cbr\u003eLabel: \"ACCOUNT\""}, {"color": "#e6beff", "font": {"color": "black"}, "id": "whatdoesitmatter \u003c\"ACCOUNT\"\u003e", "label": "whatdoesitmatter \u003c\"ACCOUNT\"\u003e", "shape": "dot", "title": "Original Text: \"@WHATDOESITMATTER\"\u003cbr\u003eLabel: \"ACCOUNT\""}, {"color": "#e6beff", "font": {"color": "black"}, "id": "narctokroyalty \u003c\"ACCOUNT\"\u003e", "label": "narctokroyalty \u003c\"ACCOUNT\"\u003e", "shape": "dot", "title": "Original Text: \"@NARCTOK_ROYALTY\"\u003cbr\u003eLabel: \"ACCOUNT\""}, {"color": "#e6beff", "font": {"color": "black"}, "id": "thesilliestho \u003c\"ACCOUNT\"\u003e", "label": "thesilliestho \u003c\"ACCOUNT\"\u003e", "shape": "dot", "title": "Original Text: \"@THE.SILLIEST.HO\"\u003cbr\u003eLabel: \"ACCOUNT\""}, {"color": "#e6beff", "font": {"color": "black"}, "id": "jadalous \u003c\"ACCOUNT\"\u003e", "label": "jadalous \u003c\"ACCOUNT\"\u003e", "shape": "dot", "title": "Original Text: \"@JADALOUS\"\u003cbr\u003eLabel: \"ACCOUNT\""}, {"color": "#e6beff", "font": {"color": "black"}, "id": "wholesomehealingatl \u003c\"ACCOUNT\"\u003e", "label": "wholesomehealingatl \u003c\"ACCOUNT\"\u003e", "shape": "dot", "title": "Original Text: \"@WHOLESOMEHEALINGATL\"\u003cbr\u003eLabel: \"ACCOUNT\""}, {"color": "#e6beff", "font": {"color": "black"}, "id": "reallaurinda \u003c\"ACCOUNT\"\u003e", "label": "reallaurinda \u003c\"ACCOUNT\"\u003e", "shape": "dot", "title": "Original Text: \"@REALLAURINDA\"\u003cbr\u003eLabel: \"ACCOUNT\""}, {"color": "#e6beff", "font": {"color": "black"}, "id": "narctokog \u003c\"ACCOUNT\"\u003e", "label": "narctokog \u003c\"ACCOUNT\"\u003e", "shape": "dot", "title": "Original Text: \"@NARCTOKOG\"\u003cbr\u003eLabel: \"ACCOUNT\""}, {"color": "#e6beff", "font": {"color": "black"}, "id": "hotdoghealing \u003c\"ACCOUNT\"\u003e", "label": "hotdoghealing \u003c\"ACCOUNT\"\u003e", "shape": "dot", "title": "Original Text: \"@HOTDOGHEALING\"\u003cbr\u003eLabel: \"ACCOUNT\""}, {"color": "#f032e6", "font": {"color": "black"}, "id": "28 usc 1332 \u003c\"LAW\"\u003e", "label": "28 usc 1332 \u003c\"LAW\"\u003e", "shape": "dot", "title": "Original Text: \"28 U.S.C. \u00a7 1332\"\u003cbr\u003eLabel: \"LAW\""}, {"color": "#f032e6", "font": {"color": "black"}, "id": "28 usc 1391b1 \u003c\"LAW\"\u003e", "label": "28 usc 1391b1 \u003c\"LAW\"\u003e", "shape": "dot", "title": "Original Text: \"28 U.S.C. \u00a7 1391(B)(1)\"\u003cbr\u003eLabel: \"LAW\""}, {"color": "#f58231", "font": {"color": "black"}, "id": "ip address \u003c\"IP ADDRESS\"\u003e", "label": "ip address \u003c\"IP ADDRESS\"\u003e", "shape": "dot", "title": "Original Text: \"IP ADDRESS\"\u003cbr\u003eLabel: \"IP ADDRESS\""}, {"color": "#bcf60c", "font": {"color": "black"}, "id": "korslund \u003c\"PERSON\"\u003e", "label": "korslund \u003c\"PERSON\"\u003e", "shape": "dot", "title": "Original Text: \"KORSLUND\"\u003cbr\u003eLabel: \"PERSON\""}, {"color": "#bcf60c", "font": {"color": "black"}, "id": "kern \u003c\"PERSON\"\u003e", "label": "kern \u003c\"PERSON\"\u003e", "shape": "dot", "title": "Original Text: \"KERNS\"\u003cbr\u003eLabel: \"PERSON\""}, {"color": "#3cb44b", "font": {"color": "black"}, "id": "mt \u003c\"APP\"\u003e", "label": "mt \u003c\"APP\"\u003e", "shape": "dot", "title": "Original Text: \"MTS\"\u003cbr\u003eLabel: \"APP\""}, {"color": "#008080", "font": {"color": "black"}, "id": "november 29 2021 \u003c\"DATE\"\u003e", "label": "november 29 2021 \u003c\"DATE\"\u003e", "shape": "dot", "title": "Original Text: \"NOVEMBER 29, 2021\"\u003cbr\u003eLabel: \"DATE\""}, {"color": "#fabebe", "font": {"color": "black"}, "id": "httpswwwtiktokcomnarctokroyaltyvideo7036127491538472239 \u003c\"URL\"\u003e", "label": "httpswwwtiktokcomnarctokroyaltyvideo7036127491538472239 \u003c\"URL\"\u003e", "shape": "dot", "title": "Original Text: \"HTTPS://WWW.TIKTOK.COM/@NARCTOK_ROYALTY/VIDEO/7036127491538472239\"\u003cbr\u003eLabel: \"URL\""}, {"color": "#008080", "font": {"color": "black"}, "id": "december 3 2021 \u003c\"DATE\"\u003e", "label": "december 3 2021 \u003c\"DATE\"\u003e", "shape": "dot", "title": "Original Text: \"DECEMBER 3, 2021\"\u003cbr\u003eLabel: \"DATE\""}, {"color": "#fabebe", "font": {"color": "black"}, "id": "httpswwwtiktokcomnarctokroyaltyvideo7037588241091988783 \u003c\"URL\"\u003e", "label": "httpswwwtiktokcomnarctokroyaltyvideo7037588241091988783 \u003c\"URL\"\u003e", "shape": "dot", "title": "Original Text: \"HTTPS://WWW.TIKTOK.COM/@NARCTOK_ROYALTY/VIDEO/7037588241091988783\"\u003cbr\u003eLabel: \"URL\""}, {"color": "#ffe119", "font": {"color": "black"}, "id": "herself and her own motif \u003c\"PHRASE\"\u003e", "label": "herself and her own motif \u003c\"PHRASE\"\u003e", "shape": "dot", "title": "Original Text: \"HERSELF AND HER OWN MOTIVES\"\u003cbr\u003eLabel: \"PHRASE\""}, {"color": "#ffe119", "font": {"color": "black"}, "id": "is a very dangerous woman \u003c\"PHRASE\"\u003e", "label": "is a very dangerous woman \u003c\"PHRASE\"\u003e", "shape": "dot", "title": "Original Text: \"IS A VERY DANGEROUS WOMAN.\"\u003cbr\u003eLabel: \"PHRASE\""}, {"color": "#9a6324", "font": {"color": "black"}, "id": "mark belmessieri v rachel depalma 20cv370750 \u003c\"LEGAL CASE\"\u003e", "label": "mark belmessieri v rachel depalma 20cv370750 \u003c\"LEGAL CASE\"\u003e", "shape": "dot", "title": "Original Text: \"MARK BELMESSIERI V. RACHEL DEPALMA 20CV370750\"\u003cbr\u003eLabel: \"LEGAL CASE\""}, {"color": "#008080", "font": {"color": "black"}, "id": "december 4 2021 \u003c\"DATE\"\u003e", "label": "december 4 2021 \u003c\"DATE\"\u003e", "shape": "dot", "title": "Original Text: \"DECEMBER 4, 2021\"\u003cbr\u003eLabel: \"DATE\""}, {"color": "#bcf60c", "font": {"color": "black"}, "id": "plaintiff \u003c\"PERSON\"\u003e", "label": "plaintiff \u003c\"PERSON\"\u003e", "shape": "dot", "title": "Original Text: \"PLAINTIFF\"\u003cbr\u003eLabel: \"PERSON\""}, {"color": "#f032e6", "font": {"color": "black"}, "id": "o c g a 5151a \u003c\"LAW\"\u003e", "label": "o c g a 5151a \u003c\"LAW\"\u003e", "shape": "dot", "title": "Original Text: \"O. C. G. A. \u00a7 51-5-1(A)\"\u003cbr\u003eLabel: \"LAW\""}, {"color": "#bcf60c", "font": {"color": "black"}, "id": "defendant \u003c\"PERSON\"\u003e", "label": "defendant \u003c\"PERSON\"\u003e", "shape": "dot", "title": "Original Text: \"DEFENDANTS\"\u003cbr\u003eLabel: \"PERSON\""}, {"color": "#ffe119", "font": {"color": "black"}, "id": "false statement \u003c\"PHRASE\"\u003e", "label": "false statement \u003c\"PHRASE\"\u003e", "shape": "dot", "title": "Original Text: \"FALSE STATEMENTS\"\u003cbr\u003eLabel: \"PHRASE\""}, {"color": "#008080", "font": {"color": "black"}, "id": "march 2 2022 \u003c\"DATE\"\u003e", "label": "march 2 2022 \u003c\"DATE\"\u003e", "shape": "dot", "title": "Original Text: \"MARCH 2, 2022\"\u003cbr\u003eLabel: \"DATE\""}, {"color": "#bcf60c", "font": {"color": "black"}, "id": "olga izmaylova \u003c\"PERSON\"\u003e", "label": "olga izmaylova \u003c\"PERSON\"\u003e", "shape": "dot", "title": "Original Text: \"OLGA IZMAYLOVA\"\u003cbr\u003eLabel: \"PERSON\""}, {"color": "#bcf60c", "font": {"color": "black"}, "id": "andrew stebbins \u003c\"PERSON\"\u003e", "label": "andrew stebbins \u003c\"PERSON\"\u003e", "shape": "dot", "title": "Original Text: \"ANDREW STEBBINS\"\u003cbr\u003eLabel: \"PERSON\""}, {"color": "#e6194b", "font": {"color": "black"}, "id": "minc law \u003c\"ORGANIZATION\"\u003e", "label": "minc law \u003c\"ORGANIZATION\"\u003e", "shape": "dot", "title": "Original Text: \"MINC LAW\"\u003cbr\u003eLabel: \"ORGANIZATION\""}, {"color": "#e6194b", "font": {"color": "black"}, "id": "sabbak izmaylova pc \u003c\"ORGANIZATION\"\u003e", "label": "sabbak izmaylova pc \u003c\"ORGANIZATION\"\u003e", "shape": "dot", "title": "Original Text: \"SABBAK \u0026 IZMAYLOVA, P.C.\"\u003cbr\u003eLabel: \"ORGANIZATION\""}, {"color": "#4363d8", "font": {"color": "black"}, "id": "200 park avenue suite 200 cleveland ohio 44122 \u003c\"LOCATION DATA\"\u003e", "label": "200 park avenue suite 200 cleveland ohio 44122 \u003c\"LOCATION DATA\"\u003e", "shape": "dot", "title": "Original Text: \"200 PARK AVENUE, SUITE 200, CLEVELAND, OHIO 44122\"\u003cbr\u003eLabel: \"LOCATION DATA\""}, {"color": "#4363d8", "font": {"color": "black"}, "id": "1875 old alabama road suite 510 roswell georgia 30076 \u003c\"LOCATION DATA\"\u003e", "label": "1875 old alabama road suite 510 roswell georgia 30076 \u003c\"LOCATION DATA\"\u003e", "shape": "dot", "title": "Original Text: \"1875 OLD ALABAMA ROAD, SUITE 510, ROSWELL, GEORGIA 30076\"\u003cbr\u003eLabel: \"LOCATION DATA\""}, {"color": "#46f0f0", "font": {"color": "black"}, "id": "216 3737706 \u003c\"PHONE NUMBER\"\u003e", "label": "216 3737706 \u003c\"PHONE NUMBER\"\u003e", "shape": "dot", "title": "Original Text: \"(216) 373-7706\"\u003cbr\u003eLabel: \"PHONE NUMBER\""}, {"color": "#46f0f0", "font": {"color": "black"}, "id": "440 7925327 \u003c\"PHONE NUMBER\"\u003e", "label": "440 7925327 \u003c\"PHONE NUMBER\"\u003e", "shape": "dot", "title": "Original Text: \"(440) 792-5327\"\u003cbr\u003eLabel: \"PHONE NUMBER\""}, {"color": "#911eb4", "font": {"color": "black"}, "id": "astebbinsminclawcom \u003c\"EMAIL ADDRESS\"\u003e", "label": "astebbinsminclawcom \u003c\"EMAIL ADDRESS\"\u003e", "shape": "dot", "title": "Original Text: \"ASTEBBINS@MINCLAW.COM\"\u003cbr\u003eLabel: \"EMAIL ADDRESS\""}, {"color": "#46f0f0", "font": {"color": "black"}, "id": "404 7937773 \u003c\"PHONE NUMBER\"\u003e", "label": "404 7937773 \u003c\"PHONE NUMBER\"\u003e", "shape": "dot", "title": "Original Text: \"(404) 793-7773\"\u003cbr\u003eLabel: \"PHONE NUMBER\""}, {"color": "#46f0f0", "font": {"color": "black"}, "id": "770 7975887 \u003c\"PHONE NUMBER\"\u003e", "label": "770 7975887 \u003c\"PHONE NUMBER\"\u003e", "shape": "dot", "title": "Original Text: \"(770) 797-5887\"\u003cbr\u003eLabel: \"PHONE NUMBER\""}, {"color": "#911eb4", "font": {"color": "black"}, "id": "olgasilawatlcom \u003c\"EMAIL ADDRESS\"\u003e", "label": "olgasilawatlcom \u003c\"EMAIL ADDRESS\"\u003e", "shape": "dot", "title": "Original Text: \"OLGA@SILAWATL.COM\"\u003cbr\u003eLabel: \"EMAIL ADDRESS\""}]);
+                  edges = new vis.DataSet([{"arrows": "to", "from": "united state district court for the middle district of georgia macon division \u003c\"ORGANIZATION\"\u003e", "label": "\"Administers\"", "physics": true, "title": "\"Administers\"", "to": "522cv00091 \u003c\"LEGAL CASE\"\u003e"}, {"arrows": "to", "from": "rachel depalma \u003c\"PERSON\"\u003e", "label": "\"Owns\"", "physics": true, "title": "\"Owns\"", "to": "no peace no quiet \u003c\"ORGANIZATION\"\u003e"}, {"arrows": "to", "from": "rachel depalma \u003c\"PERSON\"\u003e", "label": "\"Owns\"", "physics": true, "title": "\"Owns\"", "to": "misconduct ticketing system mt \u003c\"APP\"\u003e"}, {"arrows": "to", "from": "rachel depalma \u003c\"PERSON\"\u003e", "label": "\"Owns\"", "physics": true, "title": "\"Owns\"", "to": "loveandjustice5 \u003c\"ACCOUNT\"\u003e"}, {"arrows": "to", "from": "rachel depalma \u003c\"PERSON\"\u003e", "label": "\"Owns\"", "physics": true, "title": "\"Owns\"", "to": "nopeacenoquiet \u003c\"ACCOUNT\"\u003e"}, {"arrows": "to", "from": "rachel depalma \u003c\"PERSON\"\u003e", "label": "\"Launched After\"", "physics": true, "title": "\"Launched After\"", "to": "november 19 2021 \u003c\"DATE\"\u003e"}, {"arrows": "to", "from": "rachel depalma \u003c\"PERSON\"\u003e", "label": "\"Victim of\"", "physics": true, "title": "\"Victim of\"", "to": "november 26 2021 \u003c\"DATE\"\u003e"}, {"arrows": "to", "from": "rachel depalma \u003c\"PERSON\"\u003e", "label": "\"Victim of\"", "physics": true, "title": "\"Victim of\"", "to": "november 27 2021 \u003c\"DATE\"\u003e"}, {"arrows": "to", "from": "rachel depalma \u003c\"PERSON\"\u003e", "label": "\"Accuses\"", "physics": true, "title": "\"Accuses\"", "to": "samantha kern \u003c\"PERSON\"\u003e"}, {"arrows": "to", "from": "rachel depalma \u003c\"PERSON\"\u003e", "label": "\"Accuses\"", "physics": true, "title": "\"Accuses\"", "to": "tracy korslund \u003c\"PERSON\"\u003e"}, {"arrows": "to", "from": "rachel depalma \u003c\"PERSON\"\u003e", "label": "\"Accuses\"", "physics": true, "title": "\"Accuses\"", "to": "laurinda kirk \u003c\"PERSON\"\u003e"}, {"arrows": "to", "from": "rachel depalma \u003c\"PERSON\"\u003e", "label": "\"Accuses\"", "physics": true, "title": "\"Accuses\"", "to": "defendant \u003c\"PERSON\"\u003e"}, {"arrows": "to", "from": "rachel depalma \u003c\"PERSON\"\u003e", "label": "\"Victim of\"", "physics": true, "title": "\"Victim of\"", "to": "false statement \u003c\"PHRASE\"\u003e"}, {"arrows": "to", "from": "rachel depalma \u003c\"PERSON\"\u003e", "label": "\"Works with\"", "physics": true, "title": "\"Works with\"", "to": "olga izmaylova \u003c\"PERSON\"\u003e"}, {"arrows": "to", "from": "rachel depalma \u003c\"PERSON\"\u003e", "label": "\"Works with\"", "physics": true, "title": "\"Works with\"", "to": "andrew stebbins \u003c\"PERSON\"\u003e"}, {"arrows": "to", "from": "rachel depalma \u003c\"PERSON\"\u003e", "label": "\"Works with\"", "physics": true, "title": "\"Works with\"", "to": "minc law \u003c\"ORGANIZATION\"\u003e"}, {"arrows": "to", "from": "rachel depalma \u003c\"PERSON\"\u003e", "label": "\"Works with\"", "physics": true, "title": "\"Works with\"", "to": "sabbak izmaylova pc \u003c\"ORGANIZATION\"\u003e"}, {"arrows": "to", "from": "samantha kern \u003c\"PERSON\"\u003e", "label": "\"Owns\"", "physics": true, "title": "\"Owns\"", "to": "whatdoesitmatter \u003c\"ACCOUNT\"\u003e"}, {"arrows": "to", "from": "tracy korslund \u003c\"PERSON\"\u003e", "label": "\"Owns\"", "physics": true, "title": "\"Owns\"", "to": "narctokroyalty \u003c\"ACCOUNT\"\u003e"}, {"arrows": "to", "from": "tracy korslund \u003c\"PERSON\"\u003e", "label": "\"Owns\"", "physics": true, "title": "\"Owns\"", "to": "thesilliestho \u003c\"ACCOUNT\"\u003e"}, {"arrows": "to", "from": "tracy korslund \u003c\"PERSON\"\u003e", "label": "\"Owns\"", "physics": true, "title": "\"Owns\"", "to": "jadalous \u003c\"ACCOUNT\"\u003e"}, {"arrows": "to", "from": "laurinda kirk \u003c\"PERSON\"\u003e", "label": "\"Owns\"", "physics": true, "title": "\"Owns\"", "to": "wholesomehealingatl \u003c\"ACCOUNT\"\u003e"}, {"arrows": "to", "from": "laurinda kirk \u003c\"PERSON\"\u003e", "label": "\"Owns\"", "physics": true, "title": "\"Owns\"", "to": "reallaurinda \u003c\"ACCOUNT\"\u003e"}, {"arrows": "to", "from": "laurinda kirk \u003c\"PERSON\"\u003e", "label": "\"Owns\"", "physics": true, "title": "\"Owns\"", "to": "narctokog \u003c\"ACCOUNT\"\u003e"}, {"arrows": "to", "from": "laurinda kirk \u003c\"PERSON\"\u003e", "label": "\"Owns\"", "physics": true, "title": "\"Owns\"", "to": "hotdoghealing \u003c\"ACCOUNT\"\u003e"}, {"arrows": "to", "from": "tiktok \u003c\"APP\"\u003e", "label": "\"Posts\"", "physics": true, "title": "\"Posts\"", "to": "korslund \u003c\"PERSON\"\u003e"}, {"arrows": "to", "from": "tiktok \u003c\"APP\"\u003e", "label": "\"Posts\"", "physics": true, "title": "\"Posts\"", "to": "kern \u003c\"PERSON\"\u003e"}, {"arrows": "to", "from": "tiktok \u003c\"APP\"\u003e", "label": "\"Registered On\"", "physics": true, "title": "\"Registered On\"", "to": "whatdoesitmatter \u003c\"ACCOUNT\"\u003e"}, {"arrows": "to", "from": "tiktok \u003c\"APP\"\u003e", "label": "\"Registered On\"", "physics": true, "title": "\"Registered On\"", "to": "narctokroyalty \u003c\"ACCOUNT\"\u003e"}, {"arrows": "to", "from": "misconduct ticketing system mt \u003c\"APP\"\u003e", "label": "\"Registered On\"", "physics": true, "title": "\"Registered On\"", "to": "nopeacenoquietorg \u003c\"URL\"\u003e"}, {"arrows": "to", "from": "november 27 2021 \u003c\"DATE\"\u003e", "label": "\"Acts on\"", "physics": true, "title": "\"Acts on\"", "to": "kern \u003c\"PERSON\"\u003e"}, {"arrows": "to", "from": "whatdoesitmatter \u003c\"ACCOUNT\"\u003e", "label": "\"Owns\"", "physics": true, "title": "\"Owns\"", "to": "kern \u003c\"PERSON\"\u003e"}, {"arrows": "to", "from": "narctokroyalty \u003c\"ACCOUNT\"\u003e", "label": "\"Owns\"", "physics": true, "title": "\"Owns\"", "to": "korslund \u003c\"PERSON\"\u003e"}, {"arrows": "to", "from": "thesilliestho \u003c\"ACCOUNT\"\u003e", "label": "\"Owns\"", "physics": true, "title": "\"Owns\"", "to": "korslund \u003c\"PERSON\"\u003e"}, {"arrows": "to", "from": "jadalous \u003c\"ACCOUNT\"\u003e", "label": "\"Owns\"", "physics": true, "title": "\"Owns\"", "to": "korslund \u003c\"PERSON\"\u003e"}, {"arrows": "to", "from": "ip address \u003c\"IP ADDRESS\"\u003e", "label": "\"Owns\"", "physics": true, "title": "\"Owns\"", "to": "korslund \u003c\"PERSON\"\u003e"}, {"arrows": "to", "from": "korslund \u003c\"PERSON\"\u003e", "label": "\"Posts\"", "physics": true, "title": "\"Posts\"", "to": "httpswwwtiktokcomnarctokroyaltyvideo7036127491538472239 \u003c\"URL\"\u003e"}, {"arrows": "to", "from": "korslund \u003c\"PERSON\"\u003e", "label": "\"Acts on\"", "physics": true, "title": "\"Acts on\"", "to": "december 3 2021 \u003c\"DATE\"\u003e"}, {"arrows": "to", "from": "korslund \u003c\"PERSON\"\u003e", "label": "\"Posts\"", "physics": true, "title": "\"Posts\"", "to": "httpswwwtiktokcomnarctokroyaltyvideo7037588241091988783 \u003c\"URL\"\u003e"}, {"arrows": "to", "from": "korslund \u003c\"PERSON\"\u003e", "label": "\"Comments\"", "physics": true, "title": "\"Comments\"", "to": "herself and her own motif \u003c\"PHRASE\"\u003e"}, {"arrows": "to", "from": "korslund \u003c\"PERSON\"\u003e", "label": "\"Comments\"", "physics": true, "title": "\"Comments\"", "to": "is a very dangerous woman \u003c\"PHRASE\"\u003e"}, {"arrows": "to", "from": "korslund \u003c\"PERSON\"\u003e", "label": "\"Accuses\"", "physics": true, "title": "\"Accuses\"", "to": "mark belmessieri v rachel depalma 20cv370750 \u003c\"LEGAL CASE\"\u003e"}, {"arrows": "to", "from": "kern \u003c\"PERSON\"\u003e", "label": "\"Comments\"", "physics": true, "title": "\"Comments\"", "to": "mt \u003c\"APP\"\u003e"}, {"arrows": "to", "from": "kern \u003c\"PERSON\"\u003e", "label": "\"Acts on\"", "physics": true, "title": "\"Acts on\"", "to": "november 29 2021 \u003c\"DATE\"\u003e"}, {"arrows": "to", "from": "mt \u003c\"APP\"\u003e", "label": "\"Owns\"", "physics": true, "title": "\"Owns\"", "to": "plaintiff \u003c\"PERSON\"\u003e"}, {"arrows": "to", "from": "mt \u003c\"APP\"\u003e", "label": "\"Comments\"", "physics": true, "title": "\"Comments\"", "to": "defendant \u003c\"PERSON\"\u003e"}, {"arrows": "to", "from": "plaintiff \u003c\"PERSON\"\u003e", "label": "\"Accuses\"\"Perpetrates\"", "physics": true, "title": "\"Accuses\"\"Perpetrates\"", "to": "defendant \u003c\"PERSON\"\u003e"}, {"arrows": "to", "from": "o c g a 5151a \u003c\"LAW\"\u003e", "label": "\"Violates\"", "physics": true, "title": "\"Violates\"", "to": "defendant \u003c\"PERSON\"\u003e"}, {"arrows": "to", "from": "defendant \u003c\"PERSON\"\u003e", "label": "\"Perpetrates\"", "physics": true, "title": "\"Perpetrates\"", "to": "false statement \u003c\"PHRASE\"\u003e"}, {"arrows": "to", "from": "minc law \u003c\"ORGANIZATION\"\u003e", "label": "\"Registered On\"", "physics": true, "title": "\"Registered On\"", "to": "200 park avenue suite 200 cleveland ohio 44122 \u003c\"LOCATION DATA\"\u003e"}, {"arrows": "to", "from": "sabbak izmaylova pc \u003c\"ORGANIZATION\"\u003e", "label": "\"Registered On\"", "physics": true, "title": "\"Registered On\"", "to": "1875 old alabama road suite 510 roswell georgia 30076 \u003c\"LOCATION DATA\"\u003e"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {"nodes": {"font": {"size": 14, "face": "Tahoma"}, "scaling": {"min": 10, "max": 30, "label": {"enabled": true}}}, "edges": {"font": {"size": 12, "align": "middle"}, "scaling": {"min": 10, "max": 20, "label": {"enabled": true}}}, "physics": {"barnesHut": {"gravitationalConstant": -8000, "centralGravity": 0.3, "springLength": 250, "springConstant": 0.001, "damping": 0.09, "avoidOverlap": 0}, "minVelocity": 0.75}, "interaction": {"hover": true, "navigationButtons": true, "keyboard": true}};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
+      </div>
+      <div id="stats-container">
+        
+    <h3>Entity Counts:</h3>
+    <p>"ORGANIZATION": 4 entities, 4 unique texts<br>"PERSON": 10 entities, 10 unique texts<br>"LEGAL CASE": 2 entities, 2 unique texts<br>"APP": 4 entities, 4 unique texts<br>"URL": 3 entities, 3 unique texts<br>"DATE": 8 entities, 8 unique texts<br>"ACCOUNT": 10 entities, 10 unique texts<br>"LAW": 3 entities, 3 unique texts<br>"IP ADDRESS": 1 entities, 1 unique texts<br>"PHRASE": 3 entities, 3 unique texts<br>"LOCATION DATA": 2 entities, 2 unique texts<br>"PHONE NUMBER": 4 entities, 4 unique texts<br>"EMAIL ADDRESS": 2 entities, 2 unique texts</p>
+    <h3>Relation Counts:</h3>
+    <p>"Administers": 1<br>"Owns": 18<br>"Launched After": 1<br>"Victim of": 3<br>"Accuses": 5<br>"Works with": 4<br>"Posts": 4<br>"Registered On": 5<br>"Acts on": 3<br>"Comments": 4<br>"Accuses""Perpetrates": 1<br>"Violates": 1<br>"Perpetrates": 1</p>
+    <h3>Unconnected Entity Counts:</h3>
+    <p>"APP": 1 unconnected entities<br>"DATE": 3 unconnected entities<br>"LAW": 2 unconnected entities<br>"PHONE NUMBER": 4 unconnected entities<br>"EMAIL ADDRESS": 2 unconnected entities</p>
+    
+      </div>
+    </body>
+    </html>
+    

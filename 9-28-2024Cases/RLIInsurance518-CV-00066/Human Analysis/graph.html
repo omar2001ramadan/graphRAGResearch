@@ -1,0 +1,207 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Interactive Graph</title>
+      <style>
+        body, html {
+          height: 100%;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          flex-direction: row;
+          font-family: Arial, sans-serif;
+        }
+        #graph-container {
+          flex: 3;
+          height: 100vh;
+        }
+        #stats-container {
+          flex: 1;
+          padding: 20px;
+          overflow-y: auto;
+          background-color: #f5f5f5;
+          border-left: 1px solid #ddd;
+        }
+      </style>
+    </head>
+    <body>
+      <div id="graph-container">
+        <html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 100vh;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#4363d8", "font": {"color": "black"}, "id": "rli \u003cOrganization\u003e", "label": "rli \u003cOrganization\u003e", "shape": "dot", "title": "Original Text: RLI\u003cbr\u003eLabel: Organization"}, {"color": "#46f0f0", "font": {"color": "black"}, "id": "illinois \u003cLocation Data\u003e", "label": "illinois \u003cLocation Data\u003e", "shape": "dot", "title": "Original Text: Illinois\u003cbr\u003eLabel: Location Data"}, {"color": "#46f0f0", "font": {"color": "black"}, "id": "peoria illinois \u003cLocation Data\u003e", "label": "peoria illinois \u003cLocation Data\u003e", "shape": "dot", "title": "Original Text: Peoria, Illinois\u003cbr\u003eLabel: Location Data"}, {"color": "#4363d8", "font": {"color": "black"}, "id": "nexus \u003cOrganization\u003e", "label": "nexus \u003cOrganization\u003e", "shape": "dot", "title": "Original Text: Nexus\u003cbr\u003eLabel: Organization"}, {"color": "#46f0f0", "font": {"color": "black"}, "id": "verona virginia \u003cLocation Data\u003e", "label": "verona virginia \u003cLocation Data\u003e", "shape": "dot", "title": "Original Text: Verona, Virginia\u003cbr\u003eLabel: Location Data"}, {"color": "#46f0f0", "font": {"color": "black"}, "id": "virginia \u003cLocation Data\u003e", "label": "virginia \u003cLocation Data\u003e", "shape": "dot", "title": "Original Text: Virginia\u003cbr\u003eLabel: Location Data"}, {"color": "#f58231", "font": {"color": "black"}, "id": "micheal donovan \u003cPerson\u003e", "label": "micheal donovan \u003cPerson\u003e", "shape": "dot", "title": "Original Text: Micheal Donovan\u003cbr\u003eLabel: Person"}, {"color": "#3cb44b", "font": {"color": "black"}, "id": "january 20 2016 \u003cDate\u003e", "label": "january 20 2016 \u003cDate\u003e", "shape": "dot", "title": "Original Text: January 20, 2016,\u003cbr\u003eLabel: Date"}, {"color": "#4363d8", "font": {"color": "black"}, "id": "big marco insurance bonding service \u003cOrganization\u003e", "label": "big marco insurance bonding service \u003cOrganization\u003e", "shape": "dot", "title": "Original Text: Big Marco Insurance \u0026 Bonding Services\u003cbr\u003eLabel: Organization"}, {"color": "#4363d8", "font": {"color": "black"}, "id": "big marco \u003cOrganization\u003e", "label": "big marco \u003cOrganization\u003e", "shape": "dot", "title": "Original Text: Big Marco\u003cbr\u003eLabel: Organization"}, {"color": "#4363d8", "font": {"color": "black"}, "id": "department of homeland security \u003cOrganization\u003e", "label": "department of homeland security \u003cOrganization\u003e", "shape": "dot", "title": "Original Text: Department of Homeland Security\u003cbr\u003eLabel: Organization"}, {"color": "#e6194b", "font": {"color": "black"}, "id": "code of federal regulation \u003cLaw\u003e", "label": "code of federal regulation \u003cLaw\u003e", "shape": "dot", "title": "Original Text: Code of Federal Regulations\u003cbr\u003eLabel: Law"}, {"color": "#3cb44b", "font": {"color": "black"}, "id": "february 11 2016 \u003cDate\u003e", "label": "february 11 2016 \u003cDate\u003e", "shape": "dot", "title": "Original Text: February 11, 2016\u003cbr\u003eLabel: Date"}, {"color": "#3cb44b", "font": {"color": "black"}, "id": "february 28 2017 \u003cDate\u003e", "label": "february 28 2017 \u003cDate\u003e", "shape": "dot", "title": "Original Text: February 28, 2017\u003cbr\u003eLabel: Date"}, {"color": "#3cb44b", "font": {"color": "black"}, "id": "august 25 2016 \u003cDate\u003e", "label": "august 25 2016 \u003cDate\u003e", "shape": "dot", "title": "Original Text: August 25, 2016\u003cbr\u003eLabel: Date"}, {"color": "#4363d8", "font": {"color": "black"}, "id": "dhs \u003cOrganization\u003e", "label": "dhs \u003cOrganization\u003e", "shape": "dot", "title": "Original Text: DHS\u003cbr\u003eLabel: Organization"}, {"color": "#3cb44b", "font": {"color": "black"}, "id": "march 2017 \u003cDate\u003e", "label": "march 2017 \u003cDate\u003e", "shape": "dot", "title": "Original Text: March 2017\u003cbr\u003eLabel: Date"}, {"color": "#3cb44b", "font": {"color": "black"}, "id": "march 3 2017 \u003cDate\u003e", "label": "march 3 2017 \u003cDate\u003e", "shape": "dot", "title": "Original Text: March 3, 2017\u003cbr\u003eLabel: Date"}, {"color": "#3cb44b", "font": {"color": "black"}, "id": "march 10 2017 \u003cDate\u003e", "label": "march 10 2017 \u003cDate\u003e", "shape": "dot", "title": "Original Text: March 10, 2017\u003cbr\u003eLabel: Date"}, {"color": "#3cb44b", "font": {"color": "black"}, "id": "march 6 2017 \u003cDate\u003e", "label": "march 6 2017 \u003cDate\u003e", "shape": "dot", "title": "Original Text: March 6, 2017\u003cbr\u003eLabel: Date"}, {"color": "#3cb44b", "font": {"color": "black"}, "id": "may 26 2017 \u003cDate\u003e", "label": "may 26 2017 \u003cDate\u003e", "shape": "dot", "title": "Original Text: May 26, 2017\u003cbr\u003eLabel: Date"}, {"color": "#3cb44b", "font": {"color": "black"}, "id": "june 1 2017 \u003cDate\u003e", "label": "june 1 2017 \u003cDate\u003e", "shape": "dot", "title": "Original Text: June 1, 2017\u003cbr\u003eLabel: Date"}, {"color": "#3cb44b", "font": {"color": "black"}, "id": "june 9 2017 \u003cDate\u003e", "label": "june 9 2017 \u003cDate\u003e", "shape": "dot", "title": "Original Text: June 9, \n\n2017\u003cbr\u003eLabel: Date"}, {"color": "#3cb44b", "font": {"color": "black"}, "id": "june 19 2017 \u003cDate\u003e", "label": "june 19 2017 \u003cDate\u003e", "shape": "dot", "title": "Original Text: June 19, 2017\u003cbr\u003eLabel: Date"}, {"color": "#3cb44b", "font": {"color": "black"}, "id": "december 12 2017 \u003cDate\u003e", "label": "december 12 2017 \u003cDate\u003e", "shape": "dot", "title": "Original Text: December 12, 2017\u003cbr\u003eLabel: Date"}, {"color": "#46f0f0", "font": {"color": "black"}, "id": "mclean virginia \u003cLocation Data\u003e", "label": "mclean virginia \u003cLocation Data\u003e", "shape": "dot", "title": "Original Text: McLean, Virginia\u003cbr\u003eLabel: Location Data"}, {"color": "#3cb44b", "font": {"color": "black"}, "id": "january 10 2018 \u003cDate\u003e", "label": "january 10 2018 \u003cDate\u003e", "shape": "dot", "title": "Original Text: January 10, 2018\u003cbr\u003eLabel: Date"}, {"color": "#3cb44b", "font": {"color": "black"}, "id": "march 19 2018 \u003cDate\u003e", "label": "march 19 2018 \u003cDate\u003e", "shape": "dot", "title": "Original Text: March 19, 2018\u003cbr\u003eLabel: Date"}, {"color": "#3cb44b", "font": {"color": "black"}, "id": "march 28 2018 \u003cDate\u003e", "label": "march 28 2018 \u003cDate\u003e", "shape": "dot", "title": "Original Text: March 28, 2018\u003cbr\u003eLabel: Date"}, {"color": "#e6194b", "font": {"color": "black"}, "id": "8 cfr 103 6 \u003cLaw\u003e", "label": "8 cfr 103 6 \u003cLaw\u003e", "shape": "dot", "title": "Original Text: 8 CFR \u00a7 103. 6\u003cbr\u003eLabel: Law"}, {"color": "#e6194b", "font": {"color": "black"}, "id": "indemnity agreement \u003cLaw\u003e", "label": "indemnity agreement \u003cLaw\u003e", "shape": "dot", "title": "Original Text: Indemnity Agreement\u003cbr\u003eLabel: Law"}, {"color": "#911eb4", "font": {"color": "black"}, "id": "indemnitor \u003cRole\u003e", "label": "indemnitor \u003cRole\u003e", "shape": "dot", "title": "Original Text: Indemnitor\u003cbr\u003eLabel: Role"}, {"color": "#911eb4", "font": {"color": "black"}, "id": "surety \u003cRole\u003e", "label": "surety \u003cRole\u003e", "shape": "dot", "title": "Original Text: Surety\u003cbr\u003eLabel: Role"}, {"color": "#e6194b", "font": {"color": "black"}, "id": "bond \u003cLaw\u003e", "label": "bond \u003cLaw\u003e", "shape": "dot", "title": "Original Text: Bond\u003cbr\u003eLabel: Law"}, {"color": "#e6194b", "font": {"color": "black"}, "id": "cfr \u003cLaw\u003e", "label": "cfr \u003cLaw\u003e", "shape": "dot", "title": "Original Text: CFR\u003cbr\u003eLabel: Law"}, {"color": "#3cb44b", "font": {"color": "black"}, "id": "march 13 2017 \u003cDate\u003e", "label": "march 13 2017 \u003cDate\u003e", "shape": "dot", "title": "Original Text: March 13, 2017\u003cbr\u003eLabel: Date"}, {"color": "#3cb44b", "font": {"color": "black"}, "id": "march 17 2017 \u003cDate\u003e", "label": "march 17 2017 \u003cDate\u003e", "shape": "dot", "title": "Original Text: March 17, \n\n2017.\u003cbr\u003eLabel: Date"}, {"color": "#3cb44b", "font": {"color": "black"}, "id": "march 29 2018 \u003cDate\u003e", "label": "march 29 2018 \u003cDate\u003e", "shape": "dot", "title": "Original Text: March 29, 2018\u003cbr\u003eLabel: Date"}, {"color": "#ffe119", "font": {"color": "black"}, "id": "83 872 14 \u003cCurrency\u003e", "label": "83 872 14 \u003cCurrency\u003e", "shape": "dot", "title": "Original Text: $83, 872. 14\u003cbr\u003eLabel: Currency"}]);
+                  edges = new vis.DataSet([{"arrows": "to", "from": "rli \u003cOrganization\u003e", "label": "Lives in", "physics": true, "title": "Lives in", "to": "illinois \u003cLocation Data\u003e"}, {"arrows": "to", "from": "rli \u003cOrganization\u003e", "label": "Lives in", "physics": true, "title": "Lives in", "to": "peoria illinois \u003cLocation Data\u003e"}, {"arrows": "to", "from": "rli \u003cOrganization\u003e", "label": "Works with", "physics": true, "title": "Works with", "to": "big marco insurance bonding service \u003cOrganization\u003e"}, {"arrows": "to", "from": "rli \u003cOrganization\u003e", "label": "Works with", "physics": true, "title": "Works with", "to": "big marco \u003cOrganization\u003e"}, {"arrows": "to", "from": "rli \u003cOrganization\u003e", "label": "Acts on", "physics": true, "title": "Acts on", "to": "february 11 2016 \u003cDate\u003e"}, {"arrows": "to", "from": "rli \u003cOrganization\u003e", "label": "Acts on", "physics": true, "title": "Acts on", "to": "february 28 2017 \u003cDate\u003e"}, {"arrows": "to", "from": "rli \u003cOrganization\u003e", "label": "Acts on", "physics": true, "title": "Acts on", "to": "august 25 2016 \u003cDate\u003e"}, {"arrows": "to", "from": "rli \u003cOrganization\u003e", "label": "Acts on", "physics": true, "title": "Acts on", "to": "march 2017 \u003cDate\u003e"}, {"arrows": "to", "from": "rli \u003cOrganization\u003e", "label": "Acts on", "physics": true, "title": "Acts on", "to": "march 3 2017 \u003cDate\u003e"}, {"arrows": "to", "from": "rli \u003cOrganization\u003e", "label": "Acts on", "physics": true, "title": "Acts on", "to": "march 6 2017 \u003cDate\u003e"}, {"arrows": "to", "from": "rli \u003cOrganization\u003e", "label": "Acts on", "physics": true, "title": "Acts on", "to": "june 1 2017 \u003cDate\u003e"}, {"arrows": "to", "from": "rli \u003cOrganization\u003e", "label": "Acts on", "physics": true, "title": "Acts on", "to": "june 19 2017 \u003cDate\u003e"}, {"arrows": "to", "from": "rli \u003cOrganization\u003e", "label": "Acts on", "physics": true, "title": "Acts on", "to": "january 10 2018 \u003cDate\u003e"}, {"arrows": "to", "from": "rli \u003cOrganization\u003e", "label": "Acts on", "physics": true, "title": "Acts on", "to": "march 19 2018 \u003cDate\u003e"}, {"arrows": "to", "from": "rli \u003cOrganization\u003e", "label": "Communicated with", "physics": true, "title": "Communicated with", "to": "nexus \u003cOrganization\u003e"}, {"arrows": "to", "from": "rli \u003cOrganization\u003e", "label": "Acts on", "physics": true, "title": "Acts on", "to": "verona virginia \u003cLocation Data\u003e"}, {"arrows": "to", "from": "rli \u003cOrganization\u003e", "label": "Acts on", "physics": true, "title": "Acts on", "to": "may 26 2017 \u003cDate\u003e"}, {"arrows": "to", "from": "rli \u003cOrganization\u003e", "label": "Signed", "physics": true, "title": "Signed", "to": "indemnity agreement \u003cLaw\u003e"}, {"arrows": "to", "from": "rli \u003cOrganization\u003e", "label": "Acts on", "physics": true, "title": "Acts on", "to": "march 10 2017 \u003cDate\u003e"}, {"arrows": "to", "from": "rli \u003cOrganization\u003e", "label": "Acts on", "physics": true, "title": "Acts on", "to": "march 13 2017 \u003cDate\u003e"}, {"arrows": "to", "from": "rli \u003cOrganization\u003e", "label": "Lives in", "physics": true, "title": "Lives in", "to": "mclean virginia \u003cLocation Data\u003e"}, {"arrows": "to", "from": "rli \u003cOrganization\u003e", "label": "Acts on", "physics": true, "title": "Acts on", "to": "march 28 2018 \u003cDate\u003e"}, {"arrows": "to", "from": "rli \u003cOrganization\u003e", "label": "Communicated with", "physics": true, "title": "Communicated with", "to": "dhs \u003cOrganization\u003e"}, {"arrows": "to", "from": "nexus \u003cOrganization\u003e", "label": "Acts on", "physics": true, "title": "Acts on", "to": "verona virginia \u003cLocation Data\u003e"}, {"arrows": "to", "from": "nexus \u003cOrganization\u003e", "label": "Lives in", "physics": true, "title": "Lives in", "to": "virginia \u003cLocation Data\u003e"}, {"arrows": "to", "from": "nexus \u003cOrganization\u003e", "label": "Acts on", "physics": true, "title": "Acts on", "to": "january 20 2016 \u003cDate\u003e"}, {"arrows": "to", "from": "nexus \u003cOrganization\u003e", "label": "Administers", "physics": true, "title": "Administers", "to": "december 12 2017 \u003cDate\u003e"}, {"arrows": "to", "from": "nexus \u003cOrganization\u003e", "label": "Violates", "physics": true, "title": "Violates", "to": "rli \u003cOrganization\u003e"}, {"arrows": "to", "from": "nexus \u003cOrganization\u003e", "label": "Acts on", "physics": true, "title": "Acts on", "to": "may 26 2017 \u003cDate\u003e"}, {"arrows": "to", "from": "nexus \u003cOrganization\u003e", "label": "Obliged to do", "physics": true, "title": "Obliged to do", "to": "indemnity agreement \u003cLaw\u003e"}, {"arrows": "to", "from": "nexus \u003cOrganization\u003e", "label": "Acts on", "physics": true, "title": "Acts on", "to": "march 17 2017 \u003cDate\u003e"}, {"arrows": "to", "from": "nexus \u003cOrganization\u003e", "label": "Acts on", "physics": true, "title": "Acts on", "to": "june 9 2017 \u003cDate\u003e"}, {"arrows": "to", "from": "nexus \u003cOrganization\u003e", "label": "Works with", "physics": true, "title": "Works with", "to": "big marco \u003cOrganization\u003e"}, {"arrows": "to", "from": "nexus \u003cOrganization\u003e", "label": "Acts on", "physics": true, "title": "Acts on", "to": "march 29 2018 \u003cDate\u003e"}, {"arrows": "to", "from": "micheal donovan \u003cPerson\u003e", "label": "Owns", "physics": true, "title": "Owns", "to": "nexus \u003cOrganization\u003e"}, {"arrows": "to", "from": "micheal donovan \u003cPerson\u003e", "label": "Is", "physics": true, "title": "Is", "to": "indemnitor \u003cRole\u003e"}, {"arrows": "to", "from": "department of homeland security \u003cOrganization\u003e", "label": "Regulates", "physics": true, "title": "Regulates", "to": "code of federal regulation \u003cLaw\u003e"}, {"arrows": "to", "from": "dhs \u003cOrganization\u003e", "label": "Communicated with", "physics": true, "title": "Communicated with", "to": "rli \u003cOrganization\u003e"}, {"arrows": "to", "from": "dhs \u003cOrganization\u003e", "label": "Obliged to do", "physics": true, "title": "Obliged to do", "to": "83 872 14 \u003cCurrency\u003e"}, {"arrows": "to", "from": "8 cfr 103 6 \u003cLaw\u003e", "label": "Part of", "physics": true, "title": "Part of", "to": "code of federal regulation \u003cLaw\u003e"}, {"arrows": "to", "from": "surety \u003cRole\u003e", "label": "Is", "physics": true, "title": "Is", "to": "rli \u003cOrganization\u003e"}, {"arrows": "to", "from": "bond \u003cLaw\u003e", "label": "Part of", "physics": true, "title": "Part of", "to": "indemnity agreement \u003cLaw\u003e"}, {"arrows": "to", "from": "cfr \u003cLaw\u003e", "label": "Is", "physics": true, "title": "Is", "to": "code of federal regulation \u003cLaw\u003e"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.3,
+            "damping": 0.09,
+            "gravitationalConstant": -80000,
+            "springConstant": 0.001,
+            "springLength": 250
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
+      </div>
+      <div id="stats-container">
+        
+    <h3>Entity Counts:</h3>
+    <p>Organization: 67 entities, 6 unique texts<br>Location Data: 6 entities, 5 unique texts<br>Person: 1 entities, 1 unique texts<br>Date: 24 entities, 19 unique texts<br>Law: 8 entities, 5 unique texts<br>Role: 2 entities, 2 unique texts<br>Currency: 1 entities, 1 unique texts</p>
+    <h3>Relation Counts:</h3>
+    <p>Lives in: 5<br>Acts on: 27<br>Owns: 1<br>Works with: 3<br>Administers: 1<br>Regulates: 1<br>Communicated with: 8<br>Part of: 2<br>Is: 3<br>Signed: 2<br>Violates: 4<br>Obliged to do: 2</p>
+    <h3>Unconnected Entity Counts:</h3>
+    <p>None</p>
+    
+      </div>
+    </body>
+    </html>
+    
