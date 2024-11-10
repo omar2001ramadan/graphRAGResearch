@@ -1,0 +1,631 @@
+Comparison Results
+
+Comparison with Generated Graph 1
+
+Entity Comparison Summary
+Total Entities in Truth Graph,54
+Total Entities in Generated Graph,20
+Matched Entities,1
+Extra Entities,19
+Missing Entities,53
+Entity Coverage (%),1.85
+
+Relation Comparison Summary
+Total Relations in Truth Graph,77
+Total Relations in Generated Graph,17
+Matched Relations,4
+Extra Relations,13
+Missing Relations,73
+Relationship Coverage (%),5.19
+
+
+Comparison with Generated Graph 2
+
+Entity Comparison Summary
+Total Entities in Truth Graph,54
+Total Entities in Generated Graph,20
+Matched Entities,1
+Extra Entities,19
+Missing Entities,53
+Entity Coverage (%),1.85
+
+Relation Comparison Summary
+Total Relations in Truth Graph,77
+Total Relations in Generated Graph,17
+Matched Relations,4
+Extra Relations,13
+Missing Relations,73
+Relationship Coverage (%),5.19
+
+
+Comparison with Generated Graph 3
+
+Entity Comparison Summary
+Total Entities in Truth Graph,54
+Total Entities in Generated Graph,20
+Matched Entities,1
+Extra Entities,19
+Missing Entities,53
+Entity Coverage (%),1.85
+
+Relation Comparison Summary
+Total Relations in Truth Graph,77
+Total Relations in Generated Graph,17
+Matched Relations,4
+Extra Relations,13
+Missing Relations,73
+Relationship Coverage (%),5.19
+
+
+Average Metrics Across All Trials
+
+Entity Comparison Summary
+Total Entities in Truth Graph,54.00
+Total Entities in Generated Graph,20.00
+Matched Entities,1.00
+Extra Entities,19.00
+Missing Entities,53.00
+Entity Coverage (%),1.85
+
+Relation Comparison Summary
+Total Relations in Truth Graph,77.00
+Total Relations in Generated Graph,17.00
+Matched Relations,4.00
+Extra Relations,13.00
+Missing Relations,73.00
+Relationship Coverage (%),5.19
+
+In-Depth Analysis of Included and Left-Out Items
+
+Detailed Analysis for Generated Graph 1
+
+Matched Entities
+Truth Entity Text,Truth Entity Type,Generated Entity Text,Generated Entity Type,Similarity Score
+christopher elli bouzy,person,christopher bouzy,"""person""",0.78
+
+Extra Entities in Generated Graph
+Entity Text,Entity Type
+jason goodman,entity
+christopher elli bouzy,entity
+bot sentinel inc,entity
+george webb sweigert,entity
+multimedia system design inc,entity
+crowdsource the truth,entity
+twitter,entity
+benjamin wittes,entity
+lawfare,entity
+december 17 2021,entity
+defendant,"""person"""
+plaintiff,"""person"""
+december 13 2021,"""date"""
+252 7th avenue apt 6 new york ny 10001,"""location data"""
+323 7447594,"""phone number"""
+truthcrowdsourcethetruthorg,"""email address"""
+httpstco265twarkgk,"""url"""
+december 19 2021,"""date"""
+sidney powell,"""person"""
+
+Missing Entities from Generated Graph
+Entity Text,Entity Type
+jason goodman,person
+new york citizen,location data
+multimedia system design inc msd,organization
+bouzy,person
+new jersey,location data
+bot sentinel inc,organization
+twitter,app
+bot sentinel,organization
+george webb sweigert,person
+webb,person
+georgia,location data
+christopher bouzy,person
+in 2018 christopher bouzy cbouzy launched bot sentinel to help fight disinformation and targeted harassment we believe twitter user should be able to engage in healthy online discourse without inauthentic account toxic troll foreign country and organized group manipulating the conversation,phrase
+decmber 2020,date
+benjamin wittes,person
+wittes,person
+ask me anything,phrase
+december 17 2021,date
+december 20 2020,date
+december 2020,date
+december 20 2021,date
+cbouzy,account
+jason goodman the man who falsely accused wittes of being part of a murder cover up and called my cell after finding my number on the internet sent me a cease and desist in dm jason doesnt want me tweeting that he threatened me not to tweet about his rape allegation,phrase
+may 2018,date
+youtube,app
+httpsenwikipediaorgwikihalimaaden,url
+2020,date
+httpsenwikipediaorgwikihalimaaden,video
+defendant,role
+botsentinel com,url
+plaintiff,role
+halima aden,person
+aden,person
+crowdsource the truth,app
+goodman,person
+defamatory,crime type
+bot sentiel inc,organization
+ceo,role
+28 u s c 1391,law
+scam,crime type
+attack,crime type
+defame,crime type
+harassment,crime type
+defamation,crime type
+rape,crime type
+raped,crime type
+defamatory statement,crime type
+criminal activity,crime type
+sweigert v cnn,legal case
+20cv12933gadkga ecf no 35,legal case
+20cv12933gadkga ecf no 20,legal case
+harass,crime type
+false statement,crime type
+
+Matched Relations
+Truth From,Truth Label,Truth To,Generated From,Generated Label,Generated To,Similarity Score
+jason goodman,owns,multimedia system design inc msd,jason goodman,"""owns""",multimedia system design inc,0.94
+christopher elli bouzy,owns,bot sentinel inc,christopher elli bouzy,"""owns""",bot sentinel inc,1.00
+bouzy,acts on,december 17 2021,christopher elli bouzy,"""acts on""",december 17 2021,0.82
+goodman,owns,crowdsource the truth,jason goodman,"""owns""",crowdsource the truth,0.86
+
+Extra Relations in Generated Graph
+From,Label,To
+jason goodman,"""accuses""",christopher elli bouzy
+jason goodman,"""accuses""",bot sentinel inc
+jason goodman,"""accuses""",george webb sweigert
+jason goodman,"""communicated with""",benjamin wittes
+jason goodman,"""signed""",december 13 2021
+jason goodman,"""comments""",christopher bouzy
+jason goodman,"""communicated with""",sidney powell
+christopher elli bouzy,"""acts on""",twitter
+bot sentinel inc,"""works with""",twitter
+twitter,"""posts""",defendant
+benjamin wittes,"""owns""",lawfare
+defendant,"""accuses""",plaintiff
+christopher bouzy,"""posts""",httpstco265twarkgk
+
+Missing Relations from Generated Graph
+From,Label,To
+jason goodman,lives in,new york citizen
+jason goodman,is,ceo
+christopher elli bouzy,lives in,new jersey
+christopher elli bouzy,is,ceo
+christopher elli bouzy,works with,twitter
+bouzy,acts on,december 20 2020
+bouzy,acts on,december 2020
+bouzy,acts on,december 20 2021
+bouzy,owns,cbouzy
+bouzy,comments,jason goodman the man who falsely accused wittes of being part of a murder cover up and called my cell after finding my number on the internet sent me a cease and desist in dm jason doesnt want me tweeting that he threatened me not to tweet about his rape allegation
+bouzy,works with,webb
+bouzy,owns,bot sentinel inc
+bouzy,owns,botsentinel com
+bouzy,comments,in 2018 christopher bouzy cbouzy launched bot sentinel to help fight disinformation and targeted harassment we believe twitter user should be able to engage in healthy online discourse without inauthentic account toxic troll foreign country and organized group manipulating the conversation
+bouzy,is,christopher elli bouzy
+bouzy,is,christopher bouzy
+bouzy,perpetrates,defamatory
+bouzy,perpetrates,harassment
+bouzy,perpetrates,defamation
+bouzy,accuses,rape
+bouzy,registered on,twitter
+bouzy,perpetrates,defamatory statement
+bouzy,acts on,2020
+bouzy,perpetrates,false statement
+bot sentinel,is,bot sentinel inc
+bot sentinel,perpetrates,scam
+bot sentinel,perpetrates,defame
+bot sentinel,perpetrates,attack
+bot sentinel,perpetrates,harassment
+bot sentinel,registered on,twitter
+george webb sweigert,lives in,georgia
+webb,acts on,may 2018
+webb,acts on,december 17 2021
+webb,works with,bouzy
+webb,is,george webb sweigert
+webb,posts,youtube
+webb,accuses,rape
+webb,accuses,raped
+webb,accused,criminal activity
+benjamin wittes,communicated with,plaintiff
+wittes,acts on,decmber 2020
+wittes,is,benjamin wittes
+ask me anything,posts,plaintiff
+ask me anything,registered on,twitter
+cbouzy,registered on,twitter
+defendant,is,christopher elli bouzy
+defendant,is,bot sentinel inc
+defendant,is,george webb sweigert
+defendant,is,christopher bouzy
+defendant,is,bouzy
+defendant,is,bot sentiel inc
+plaintiff,is,jason goodman
+plaintiff,victim of,defamatory
+plaintiff,accused,rape
+plaintiff,victim of,harassment
+plaintiff,victim of,defamation
+plaintiff,victim of,defamatory statement
+plaintiff,accuses,criminal activity
+plaintiff,accuses,harass
+plaintiff,accuses,defame
+aden,is,halima aden
+aden,registered on,httpsenwikipediaorgwikihalimaaden
+aden,registered on,httpsenwikipediaorgwikihalimaaden
+goodman,is,jason goodman
+28 u s c 1391,regulates,plaintiff
+28 u s c 1391,regulates,defendant
+defame,accused,webb
+rape,accused,plaintiff
+raped,accused,plaintiff
+sweigert v cnn,launched after,december 17 2021
+sweigert v cnn,part of,20cv12933gadkga ecf no 35
+sweigert v cnn,part of,20cv12933gadkga ecf no 20
+harass,accused,bouzy
+
+
+Detailed Analysis for Generated Graph 2
+
+Matched Entities
+Truth Entity Text,Truth Entity Type,Generated Entity Text,Generated Entity Type,Similarity Score
+christopher elli bouzy,person,christopher bouzy,"""person""",0.78
+
+Extra Entities in Generated Graph
+Entity Text,Entity Type
+jason goodman,entity
+christopher elli bouzy,entity
+bot sentinel inc,entity
+george webb sweigert,entity
+multimedia system design inc,entity
+crowdsource the truth,entity
+twitter,entity
+benjamin wittes,entity
+lawfare,entity
+december 17 2021,entity
+defendant,"""person"""
+plaintiff,"""person"""
+december 13 2021,"""date"""
+252 7th avenue apt 6 new york ny 10001,"""location data"""
+323 7447594,"""phone number"""
+truthcrowdsourcethetruthorg,"""email address"""
+httpstco265twarkgk,"""url"""
+december 19 2021,"""date"""
+sidney powell,"""person"""
+
+Missing Entities from Generated Graph
+Entity Text,Entity Type
+jason goodman,person
+new york citizen,location data
+multimedia system design inc msd,organization
+bouzy,person
+new jersey,location data
+bot sentinel inc,organization
+twitter,app
+bot sentinel,organization
+george webb sweigert,person
+webb,person
+georgia,location data
+christopher bouzy,person
+in 2018 christopher bouzy cbouzy launched bot sentinel to help fight disinformation and targeted harassment we believe twitter user should be able to engage in healthy online discourse without inauthentic account toxic troll foreign country and organized group manipulating the conversation,phrase
+decmber 2020,date
+benjamin wittes,person
+wittes,person
+ask me anything,phrase
+december 17 2021,date
+december 20 2020,date
+december 2020,date
+december 20 2021,date
+cbouzy,account
+jason goodman the man who falsely accused wittes of being part of a murder cover up and called my cell after finding my number on the internet sent me a cease and desist in dm jason doesnt want me tweeting that he threatened me not to tweet about his rape allegation,phrase
+may 2018,date
+youtube,app
+httpsenwikipediaorgwikihalimaaden,url
+2020,date
+httpsenwikipediaorgwikihalimaaden,video
+defendant,role
+botsentinel com,url
+plaintiff,role
+halima aden,person
+aden,person
+crowdsource the truth,app
+goodman,person
+defamatory,crime type
+bot sentiel inc,organization
+ceo,role
+28 u s c 1391,law
+scam,crime type
+attack,crime type
+defame,crime type
+harassment,crime type
+defamation,crime type
+rape,crime type
+raped,crime type
+defamatory statement,crime type
+criminal activity,crime type
+sweigert v cnn,legal case
+20cv12933gadkga ecf no 35,legal case
+20cv12933gadkga ecf no 20,legal case
+harass,crime type
+false statement,crime type
+
+Matched Relations
+Truth From,Truth Label,Truth To,Generated From,Generated Label,Generated To,Similarity Score
+jason goodman,owns,multimedia system design inc msd,jason goodman,"""owns""",multimedia system design inc,0.94
+christopher elli bouzy,owns,bot sentinel inc,christopher elli bouzy,"""owns""",bot sentinel inc,1.00
+bouzy,acts on,december 17 2021,christopher elli bouzy,"""acts on""",december 17 2021,0.82
+goodman,owns,crowdsource the truth,jason goodman,"""owns""",crowdsource the truth,0.86
+
+Extra Relations in Generated Graph
+From,Label,To
+jason goodman,"""accuses""",christopher elli bouzy
+jason goodman,"""accuses""",bot sentinel inc
+jason goodman,"""accuses""",george webb sweigert
+jason goodman,"""communicated with""",benjamin wittes
+jason goodman,"""signed""",december 13 2021
+jason goodman,"""comments""",christopher bouzy
+jason goodman,"""communicated with""",sidney powell
+christopher elli bouzy,"""acts on""",twitter
+bot sentinel inc,"""works with""",twitter
+twitter,"""posts""",defendant
+benjamin wittes,"""owns""",lawfare
+defendant,"""accuses""",plaintiff
+christopher bouzy,"""posts""",httpstco265twarkgk
+
+Missing Relations from Generated Graph
+From,Label,To
+jason goodman,lives in,new york citizen
+jason goodman,is,ceo
+christopher elli bouzy,lives in,new jersey
+christopher elli bouzy,is,ceo
+christopher elli bouzy,works with,twitter
+bouzy,acts on,december 20 2020
+bouzy,acts on,december 2020
+bouzy,acts on,december 20 2021
+bouzy,owns,cbouzy
+bouzy,comments,jason goodman the man who falsely accused wittes of being part of a murder cover up and called my cell after finding my number on the internet sent me a cease and desist in dm jason doesnt want me tweeting that he threatened me not to tweet about his rape allegation
+bouzy,works with,webb
+bouzy,owns,bot sentinel inc
+bouzy,owns,botsentinel com
+bouzy,comments,in 2018 christopher bouzy cbouzy launched bot sentinel to help fight disinformation and targeted harassment we believe twitter user should be able to engage in healthy online discourse without inauthentic account toxic troll foreign country and organized group manipulating the conversation
+bouzy,is,christopher elli bouzy
+bouzy,is,christopher bouzy
+bouzy,perpetrates,defamatory
+bouzy,perpetrates,harassment
+bouzy,perpetrates,defamation
+bouzy,accuses,rape
+bouzy,registered on,twitter
+bouzy,perpetrates,defamatory statement
+bouzy,acts on,2020
+bouzy,perpetrates,false statement
+bot sentinel,is,bot sentinel inc
+bot sentinel,perpetrates,scam
+bot sentinel,perpetrates,defame
+bot sentinel,perpetrates,attack
+bot sentinel,perpetrates,harassment
+bot sentinel,registered on,twitter
+george webb sweigert,lives in,georgia
+webb,acts on,may 2018
+webb,acts on,december 17 2021
+webb,works with,bouzy
+webb,is,george webb sweigert
+webb,posts,youtube
+webb,accuses,rape
+webb,accuses,raped
+webb,accused,criminal activity
+benjamin wittes,communicated with,plaintiff
+wittes,acts on,decmber 2020
+wittes,is,benjamin wittes
+ask me anything,posts,plaintiff
+ask me anything,registered on,twitter
+cbouzy,registered on,twitter
+defendant,is,christopher elli bouzy
+defendant,is,bot sentinel inc
+defendant,is,george webb sweigert
+defendant,is,christopher bouzy
+defendant,is,bouzy
+defendant,is,bot sentiel inc
+plaintiff,is,jason goodman
+plaintiff,victim of,defamatory
+plaintiff,accused,rape
+plaintiff,victim of,harassment
+plaintiff,victim of,defamation
+plaintiff,victim of,defamatory statement
+plaintiff,accuses,criminal activity
+plaintiff,accuses,harass
+plaintiff,accuses,defame
+aden,is,halima aden
+aden,registered on,httpsenwikipediaorgwikihalimaaden
+aden,registered on,httpsenwikipediaorgwikihalimaaden
+goodman,is,jason goodman
+28 u s c 1391,regulates,plaintiff
+28 u s c 1391,regulates,defendant
+defame,accused,webb
+rape,accused,plaintiff
+raped,accused,plaintiff
+sweigert v cnn,launched after,december 17 2021
+sweigert v cnn,part of,20cv12933gadkga ecf no 35
+sweigert v cnn,part of,20cv12933gadkga ecf no 20
+harass,accused,bouzy
+
+
+Detailed Analysis for Generated Graph 3
+
+Matched Entities
+Truth Entity Text,Truth Entity Type,Generated Entity Text,Generated Entity Type,Similarity Score
+christopher elli bouzy,person,christopher bouzy,"""person""",0.78
+
+Extra Entities in Generated Graph
+Entity Text,Entity Type
+jason goodman,entity
+christopher elli bouzy,entity
+bot sentinel inc,entity
+george webb sweigert,entity
+multimedia system design inc,entity
+crowdsource the truth,entity
+twitter,entity
+benjamin wittes,entity
+lawfare,entity
+december 17 2021,entity
+defendant,"""person"""
+plaintiff,"""person"""
+december 13 2021,"""date"""
+252 7th avenue apt 6 new york ny 10001,"""location data"""
+323 7447594,"""phone number"""
+truthcrowdsourcethetruthorg,"""email address"""
+httpstco265twarkgk,"""url"""
+december 19 2021,"""date"""
+sidney powell,"""person"""
+
+Missing Entities from Generated Graph
+Entity Text,Entity Type
+jason goodman,person
+new york citizen,location data
+multimedia system design inc msd,organization
+bouzy,person
+new jersey,location data
+bot sentinel inc,organization
+twitter,app
+bot sentinel,organization
+george webb sweigert,person
+webb,person
+georgia,location data
+christopher bouzy,person
+in 2018 christopher bouzy cbouzy launched bot sentinel to help fight disinformation and targeted harassment we believe twitter user should be able to engage in healthy online discourse without inauthentic account toxic troll foreign country and organized group manipulating the conversation,phrase
+decmber 2020,date
+benjamin wittes,person
+wittes,person
+ask me anything,phrase
+december 17 2021,date
+december 20 2020,date
+december 2020,date
+december 20 2021,date
+cbouzy,account
+jason goodman the man who falsely accused wittes of being part of a murder cover up and called my cell after finding my number on the internet sent me a cease and desist in dm jason doesnt want me tweeting that he threatened me not to tweet about his rape allegation,phrase
+may 2018,date
+youtube,app
+httpsenwikipediaorgwikihalimaaden,url
+2020,date
+httpsenwikipediaorgwikihalimaaden,video
+defendant,role
+botsentinel com,url
+plaintiff,role
+halima aden,person
+aden,person
+crowdsource the truth,app
+goodman,person
+defamatory,crime type
+bot sentiel inc,organization
+ceo,role
+28 u s c 1391,law
+scam,crime type
+attack,crime type
+defame,crime type
+harassment,crime type
+defamation,crime type
+rape,crime type
+raped,crime type
+defamatory statement,crime type
+criminal activity,crime type
+sweigert v cnn,legal case
+20cv12933gadkga ecf no 35,legal case
+20cv12933gadkga ecf no 20,legal case
+harass,crime type
+false statement,crime type
+
+Matched Relations
+Truth From,Truth Label,Truth To,Generated From,Generated Label,Generated To,Similarity Score
+jason goodman,owns,multimedia system design inc msd,jason goodman,"""owns""",multimedia system design inc,0.94
+christopher elli bouzy,owns,bot sentinel inc,christopher elli bouzy,"""owns""",bot sentinel inc,1.00
+bouzy,acts on,december 17 2021,christopher elli bouzy,"""acts on""",december 17 2021,0.82
+goodman,owns,crowdsource the truth,jason goodman,"""owns""",crowdsource the truth,0.86
+
+Extra Relations in Generated Graph
+From,Label,To
+jason goodman,"""accuses""",christopher elli bouzy
+jason goodman,"""accuses""",bot sentinel inc
+jason goodman,"""accuses""",george webb sweigert
+jason goodman,"""communicated with""",benjamin wittes
+jason goodman,"""signed""",december 13 2021
+jason goodman,"""comments""",christopher bouzy
+jason goodman,"""communicated with""",sidney powell
+christopher elli bouzy,"""acts on""",twitter
+bot sentinel inc,"""works with""",twitter
+twitter,"""posts""",defendant
+benjamin wittes,"""owns""",lawfare
+defendant,"""accuses""",plaintiff
+christopher bouzy,"""posts""",httpstco265twarkgk
+
+Missing Relations from Generated Graph
+From,Label,To
+jason goodman,lives in,new york citizen
+jason goodman,is,ceo
+christopher elli bouzy,lives in,new jersey
+christopher elli bouzy,is,ceo
+christopher elli bouzy,works with,twitter
+bouzy,acts on,december 20 2020
+bouzy,acts on,december 2020
+bouzy,acts on,december 20 2021
+bouzy,owns,cbouzy
+bouzy,comments,jason goodman the man who falsely accused wittes of being part of a murder cover up and called my cell after finding my number on the internet sent me a cease and desist in dm jason doesnt want me tweeting that he threatened me not to tweet about his rape allegation
+bouzy,works with,webb
+bouzy,owns,bot sentinel inc
+bouzy,owns,botsentinel com
+bouzy,comments,in 2018 christopher bouzy cbouzy launched bot sentinel to help fight disinformation and targeted harassment we believe twitter user should be able to engage in healthy online discourse without inauthentic account toxic troll foreign country and organized group manipulating the conversation
+bouzy,is,christopher elli bouzy
+bouzy,is,christopher bouzy
+bouzy,perpetrates,defamatory
+bouzy,perpetrates,harassment
+bouzy,perpetrates,defamation
+bouzy,accuses,rape
+bouzy,registered on,twitter
+bouzy,perpetrates,defamatory statement
+bouzy,acts on,2020
+bouzy,perpetrates,false statement
+bot sentinel,is,bot sentinel inc
+bot sentinel,perpetrates,scam
+bot sentinel,perpetrates,defame
+bot sentinel,perpetrates,attack
+bot sentinel,perpetrates,harassment
+bot sentinel,registered on,twitter
+george webb sweigert,lives in,georgia
+webb,acts on,may 2018
+webb,acts on,december 17 2021
+webb,works with,bouzy
+webb,is,george webb sweigert
+webb,posts,youtube
+webb,accuses,rape
+webb,accuses,raped
+webb,accused,criminal activity
+benjamin wittes,communicated with,plaintiff
+wittes,acts on,decmber 2020
+wittes,is,benjamin wittes
+ask me anything,posts,plaintiff
+ask me anything,registered on,twitter
+cbouzy,registered on,twitter
+defendant,is,christopher elli bouzy
+defendant,is,bot sentinel inc
+defendant,is,george webb sweigert
+defendant,is,christopher bouzy
+defendant,is,bouzy
+defendant,is,bot sentiel inc
+plaintiff,is,jason goodman
+plaintiff,victim of,defamatory
+plaintiff,accused,rape
+plaintiff,victim of,harassment
+plaintiff,victim of,defamation
+plaintiff,victim of,defamatory statement
+plaintiff,accuses,criminal activity
+plaintiff,accuses,harass
+plaintiff,accuses,defame
+aden,is,halima aden
+aden,registered on,httpsenwikipediaorgwikihalimaaden
+aden,registered on,httpsenwikipediaorgwikihalimaaden
+goodman,is,jason goodman
+28 u s c 1391,regulates,plaintiff
+28 u s c 1391,regulates,defendant
+defame,accused,webb
+rape,accused,plaintiff
+raped,accused,plaintiff
+sweigert v cnn,launched after,december 17 2021
+sweigert v cnn,part of,20cv12933gadkga ecf no 35
+sweigert v cnn,part of,20cv12933gadkga ecf no 20
+harass,accused,bouzy
+
+

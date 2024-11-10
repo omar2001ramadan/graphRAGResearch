@@ -1,0 +1,976 @@
+Comparison Results
+
+Comparison with Generated Graph 1
+
+Entity Comparison Summary
+Total Entities in Truth Graph,64
+Total Entities in Generated Graph,81
+Matched Entities,7
+Extra Entities,74
+Missing Entities,57
+Entity Coverage (%),10.94
+
+Relation Comparison Summary
+Total Relations in Truth Graph,78
+Total Relations in Generated Graph,70
+Matched Relations,8
+Extra Relations,62
+Missing Relations,70
+Relationship Coverage (%),10.26
+
+
+Comparison with Generated Graph 2
+
+Entity Comparison Summary
+Total Entities in Truth Graph,64
+Total Entities in Generated Graph,81
+Matched Entities,7
+Extra Entities,74
+Missing Entities,57
+Entity Coverage (%),10.94
+
+Relation Comparison Summary
+Total Relations in Truth Graph,78
+Total Relations in Generated Graph,70
+Matched Relations,8
+Extra Relations,62
+Missing Relations,70
+Relationship Coverage (%),10.26
+
+
+Comparison with Generated Graph 3
+
+Entity Comparison Summary
+Total Entities in Truth Graph,64
+Total Entities in Generated Graph,81
+Matched Entities,7
+Extra Entities,74
+Missing Entities,57
+Entity Coverage (%),10.94
+
+Relation Comparison Summary
+Total Relations in Truth Graph,78
+Total Relations in Generated Graph,70
+Matched Relations,8
+Extra Relations,62
+Missing Relations,70
+Relationship Coverage (%),10.26
+
+
+Average Metrics Across All Trials
+
+Entity Comparison Summary
+Total Entities in Truth Graph,64.00
+Total Entities in Generated Graph,81.00
+Matched Entities,7.00
+Extra Entities,74.00
+Missing Entities,57.00
+Entity Coverage (%),10.94
+
+Relation Comparison Summary
+Total Relations in Truth Graph,78.00
+Total Relations in Generated Graph,70.00
+Matched Relations,8.00
+Extra Relations,62.00
+Missing Relations,70.00
+Relationship Coverage (%),10.26
+
+In-Depth Analysis of Included and Left-Out Items
+
+Detailed Analysis for Generated Graph 1
+
+Matched Entities
+Truth Entity Text,Truth Entity Type,Generated Entity Text,Generated Entity Type,Similarity Score
+john doe,person,john doe,"""person""",1.00
+los angeles california,location data,los angeles california,"""location data""",1.00
+damien vazquez,person,damien vazquez,"""person""",1.00
+october 2015,date,october 2015,"""date""",1.00
+may 10 2016,date,may 10 2016,"""date""",1.00
+april 22 2016,date,april 22 2016,"""date""",1.00
+loud platinum,organization,loud platinum,"""organization""",1.00
+
+Extra Entities in Generated Graph
+Entity Text,Entity Type
+salar atrizadeh,"""person"""
+law office of salar atrizadeh,"""organization"""
+9701 wilshire blvd 10th floor beverly hill ca 90212,"""location data"""
+3106943034,"""phone number"""
+3106943057,"""phone number"""
+salaratrizadehcom,"""email address"""
+united state district court central district of california western division,"""organization"""
+c c p 5276,"""law"""
+civil code 17087 et seq,"""law"""
+civil code 170885 et seq,"""law"""
+28 u s c 1332,"""law"""
+28 u s c 1367,"""law"""
+28 u s c 2201 et seq,"""law"""
+28 u s c 1391 et seq,"""law"""
+defendant,entity
+plaintiff,entity
+plaintiff mother,entity
+plaintiff friend,entity
+plaintiff colleague,entity
+plaintiff relative,entity
+plaintiff modelingacting agent,entity
+plaintiff business colleague,entity
+plaintiff fan,entity
+nude or seminude photo,entity
+private picture and video,entity
+cody nude,entity
+trapcall,entity
+venmo,entity
+imgmodels,entity
+nextmodels,entity
+comicconhouston,entity
+unknown caller id,entity
+wwwtrapcallcom,entity
+wwwvenmocom,entity
+your client need saving,entity
+settlement agreement,entity
+codysaintnew,entity
+codysaintgnuer,entity
+saintgnuebrasil,entity
+ddiivergent,entity
+mtv network,entity
+bravo model,entity
+platinumkid44gmailcom,entity
+musicboysitemsaolcom,entity
+anotherdmusicaolcom,entity
+richierich1444aolcom,entity
+dollardamedolleraolcom,entity
+platinumkid1444gmailcom,entity
+damedolleraolcom,entity
+9175975622,entity
+3204356727,entity
+3104356727,entity
+8185699062,entity
+3475865852,entity
+2525173289,entity
+4843885390,entity
+7044400790,entity
+2407768586,entity
+7144089384,entity
+teen wolf,entity
+invasion of privacy,entity
+civil harassment,entity
+federal common law,entity
+federal public policy,entity
+federal statutory law,entity
+federal constitution,entity
+california state common law,entity
+california state public policy,entity
+california state statutory law,entity
+california state constitution,entity
+january 11 2017,"""date"""
+intentional interference with prospective economic advantage,"""legal case"""
+negligent interference with prospective economic advantage,"""legal case"""
+declaratory and injunctive relief,"""legal case"""
+
+Missing Entities from Generated Graph
+Entity Text,Entity Type
+state of new york,location data
+vazquez,person
+instagram,app
+unknown caller id,phrase
+trapcall,app
+www trapcall com,url
+may 13 2016,date
+twitter,app
+imgmodels,account
+nextmodels,account
+keep checking my page for those leaked cody nude,phrase
+comicconhouston,account
+may 22 2016,date
+1 000 electronic payment made through www venmo com for plaintiff phone number,phrase
+october 1 2016,date
+your client need saving,phrase
+march 2016,date
+december 15 2016,date
+november 21 2016,date
+platinumkid44 gmailcom,email address
+musicboysitemsaolcom,email address
+anotherdmusicaolcom,email address
+richierich1444aolcom,email address
+platinumkid44gmailcom,email address
+dollardamedolleraolcom,email address
+platinumkid1444gmailcom,email address
+damedolleraolcom,email address
+9175975622,phone number
+3204356727,phone number
+3104356727,phone number
+8185699062,phone number
+3475865852,phone number
+2525173289,phone number
+4843885390,phone number
+704440 0790,phone number
+2407768586,phone number
+7144089384,phone number
+defendant,role
+plaintiff,role
+settlement agreement,law
+mtv network,organization
+bravo model,organization
+plaintiff,person
+facebook,app
+tumblr,app
+snapchat,app
+nude or semi nude,crime type
+nude or seminude photo,crime type
+plaintiff mother,role
+threat of dissemination,crime type
+june 9 2016,date
+tumbler,app
+defendant,person
+codysaintnew,account
+codysaintgnuer,account
+saintgnuebrasil,account
+ddiivergent,account
+
+Matched Relations
+Truth From,Truth Label,Truth To,Generated From,Generated Label,Generated To,Similarity Score
+john doe,lives in,los angeles california,john doe,"""lives in""",los angeles california,1.00
+defendant,communicated with,plaintiff,defendant,"""communicated with""",plaintiff mother,0.86
+defendant,communicated with,comicconhouston,defendant,"""communicated with""",comicconhouston,1.00
+defendant,comments,your client need saving,defendant,"""comments""",your client need saving,1.00
+defendant,perpetrates,threat of dissemination,defendant,"""perpetrates""",invasion of privacy,0.73
+plaintiff,works with,mtv network,plaintiff,"""works with""",mtv network,1.00
+plaintiff,works with,bravo model,plaintiff,"""works with""",bravo model,1.00
+defendant,communicated with,plaintiff,defendant,"""communicated with""",plaintiff friend,0.86
+
+Extra Relations in Generated Graph
+From,Label,To
+salar atrizadeh,"""works with""",law office of salar atrizadeh
+salar atrizadeh,salar atrizadeh and john doe are individuals who have communicated with each other and work together.,john doe
+law office of salar atrizadeh,"""works with""",john doe
+john doe,"""communicated with""",damien vazquez
+john doe,"""filed in""",united state district court central district of california western division
+john doe,"""acts on""",april 22 2016
+john doe,"""acts on""",january 11 2017
+damien vazquez,"""owns""",loud platinum
+damien vazquez,"""acts on""",october 2015
+damien vazquez,"""acts on""",may 10 2016
+defendant,the plaintiff accuses the defendant and has communicated with the defendant.,plaintiff
+defendant,"""communicated with""",plaintiff colleague
+defendant,"""communicated with""",plaintiff relative
+defendant,"""communicated with""",plaintiff modelingacting agent
+defendant,"""communicated with""",plaintiff business colleague
+defendant,"""communicated with""",plaintiff fan
+defendant,"""posts""",nude or seminude photo
+defendant,"""posts""",private picture and video
+defendant,"""posts""",cody nude
+defendant,"""acts on""",trapcall
+defendant,"""acts on""",venmo
+defendant,"""communicated with""",imgmodels
+defendant,"""communicated with""",nextmodels
+defendant,"""communicated with""",unknown caller id
+defendant,"""acts on""",wwwtrapcallcom
+defendant,"""acts on""",wwwvenmocom
+defendant,"""signed""",settlement agreement
+defendant,"""comments""",codysaintnew
+defendant,"""comments""",codysaintgnuer
+defendant,"""comments""",saintgnuebrasil
+defendant,"""comments""",ddiivergent
+defendant,"""communicated with""",platinumkid44gmailcom
+defendant,"""communicated with""",musicboysitemsaolcom
+defendant,"""communicated with""",anotherdmusicaolcom
+defendant,"""communicated with""",richierich1444aolcom
+defendant,"""communicated with""",dollardamedolleraolcom
+defendant,"""communicated with""",platinumkid1444gmailcom
+defendant,"""communicated with""",damedolleraolcom
+defendant,"""communicated with""",9175975622
+defendant,"""communicated with""",3204356727
+defendant,"""communicated with""",3104356727
+defendant,"""communicated with""",8185699062
+defendant,"""communicated with""",3475865852
+defendant,"""communicated with""",2525173289
+defendant,"""communicated with""",4843885390
+defendant,"""communicated with""",7044400790
+defendant,"""communicated with""",2407768586
+defendant,"""communicated with""",7144089384
+defendant,"""perpetrates""",civil harassment
+plaintiff,"""signed""",settlement agreement
+plaintiff,"""works with""",teen wolf
+plaintiff,"""protected by""",federal common law
+plaintiff,"""protected by""",federal public policy
+plaintiff,"""protected by""",federal statutory law
+plaintiff,"""protected by""",federal constitution
+plaintiff,"""protected by""",california state common law
+plaintiff,"""protected by""",california state public policy
+plaintiff,"""protected by""",california state statutory law
+plaintiff,"""protected by""",california state constitution
+plaintiff,"""accuses""",intentional interference with prospective economic advantage
+plaintiff,"""accuses""",negligent interference with prospective economic advantage
+plaintiff,"""accuses""",declaratory and injunctive relief
+
+Missing Relations from Generated Graph
+From,Label,To
+damien vazquez,lives in,state of new york
+instagram,recieved message,nude or seminude photo
+unknown caller id,is,defendant
+trapcall,owns,www trapcall com
+twitter,recieved message,nude or seminude photo
+imgmodels,registered on,twitter
+nextmodels,registered on,twitter
+defendant,is,damien vazquez
+defendant,acts on,october 2015
+defendant,acts on,may 10 2016
+defendant,acts on,twitter
+defendant,acts on,may 13 2016
+defendant,comments,keep checking my page for those leaked cody nude
+defendant,acts on,may 22 2016
+defendant,comments,1 000 electronic payment made through www venmo com for plaintiff phone number
+defendant,acts on,october 1 2016
+defendant,acts on,december 15 2016
+defendant,owns,platinumkid44 gmailcom
+defendant,owns,musicboysitemsaolcom
+defendant,owns,anotherdmusicaolcom
+defendant,owns,richierich1444aolcom
+defendant,owns,platinumkid44gmailcom
+defendant,owns,dollardamedolleraolcom
+defendant,owns,platinumkid1444gmailcom
+defendant,owns,damedolleraolcom
+defendant,owns,9175975622
+defendant,owns,3204356727
+defendant,owns,3104356727
+defendant,owns,8185699062
+defendant,owns,3475865852
+defendant,owns,2525173289
+defendant,owns,4843885390
+defendant,owns,704440 0790
+defendant,owns,2407768586
+defendant,owns,7144089384
+defendant,is,vazquez
+defendant,owns,loud platinum
+defendant,registered on,instagram
+defendant,acts on,april 22 2016
+defendant,perpetrates,nude or semi nude
+defendant,perpetrates,nude or seminude photo
+defendant,violates,settlement agreement
+plaintiff,is,john doe
+plaintiff,communicated with,defendant
+plaintiff,acts on,march 2016
+plaintiff,communicated with,unknown caller id
+plaintiff,acts on,april 22 2016
+plaintiff,registered on,instagram
+plaintiff,victim of,nude or semi nude
+plaintiff,recieved message,nude or seminude photo
+plaintiff,lives in,los angeles california
+plaintiff,works with,trapcall
+plaintiff,works with,imgmodels
+plaintiff,works with,nextmodels
+plaintiff,owns,codysaintnew
+plaintiff,owns,codysaintgnuer
+plaintiff,owns,saintgnuebrasil
+plaintiff,owns,ddiivergent
+settlement agreement,launched after,november 21 2016
+plaintiff,registered on,facebook
+plaintiff,registered on,twitter
+plaintiff,registered on,instagram
+plaintiff,registered on,tumblr
+plaintiff,registered on,snapchat
+plaintiff,victim of,nude or seminude photo
+plaintiff,victim of,threat of dissemination
+nude or seminude photo,acts on,june 9 2016
+nude or seminude photo,acts on,may 10 2016
+plaintiff mother,recieved message,nude or seminude photo
+tumbler,recieved message,nude or seminude photo
+
+
+Detailed Analysis for Generated Graph 2
+
+Matched Entities
+Truth Entity Text,Truth Entity Type,Generated Entity Text,Generated Entity Type,Similarity Score
+john doe,person,john doe,"""person""",1.00
+los angeles california,location data,los angeles california,"""location data""",1.00
+damien vazquez,person,damien vazquez,"""person""",1.00
+october 2015,date,october 2015,"""date""",1.00
+may 10 2016,date,may 10 2016,"""date""",1.00
+april 22 2016,date,april 22 2016,"""date""",1.00
+loud platinum,organization,loud platinum,"""organization""",1.00
+
+Extra Entities in Generated Graph
+Entity Text,Entity Type
+salar atrizadeh,"""person"""
+law office of salar atrizadeh,"""organization"""
+9701 wilshire blvd 10th floor beverly hill ca 90212,"""location data"""
+3106943034,"""phone number"""
+3106943057,"""phone number"""
+salaratrizadehcom,"""email address"""
+united state district court central district of california western division,"""organization"""
+c c p 5276,"""law"""
+civil code 17087 et seq,"""law"""
+civil code 170885 et seq,"""law"""
+28 u s c 1332,"""law"""
+28 u s c 1367,"""law"""
+28 u s c 2201 et seq,"""law"""
+28 u s c 1391 et seq,"""law"""
+defendant,entity
+plaintiff,entity
+plaintiff mother,entity
+plaintiff friend,entity
+plaintiff colleague,entity
+plaintiff relative,entity
+plaintiff modelingacting agent,entity
+plaintiff business colleague,entity
+plaintiff fan,entity
+nude or seminude photo,entity
+private picture and video,entity
+cody nude,entity
+trapcall,entity
+venmo,entity
+imgmodels,entity
+nextmodels,entity
+comicconhouston,entity
+unknown caller id,entity
+wwwtrapcallcom,entity
+wwwvenmocom,entity
+your client need saving,entity
+settlement agreement,entity
+codysaintnew,entity
+codysaintgnuer,entity
+saintgnuebrasil,entity
+ddiivergent,entity
+mtv network,entity
+bravo model,entity
+platinumkid44gmailcom,entity
+musicboysitemsaolcom,entity
+anotherdmusicaolcom,entity
+richierich1444aolcom,entity
+dollardamedolleraolcom,entity
+platinumkid1444gmailcom,entity
+damedolleraolcom,entity
+9175975622,entity
+3204356727,entity
+3104356727,entity
+8185699062,entity
+3475865852,entity
+2525173289,entity
+4843885390,entity
+7044400790,entity
+2407768586,entity
+7144089384,entity
+teen wolf,entity
+invasion of privacy,entity
+civil harassment,entity
+federal common law,entity
+federal public policy,entity
+federal statutory law,entity
+federal constitution,entity
+california state common law,entity
+california state public policy,entity
+california state statutory law,entity
+california state constitution,entity
+january 11 2017,"""date"""
+intentional interference with prospective economic advantage,"""legal case"""
+negligent interference with prospective economic advantage,"""legal case"""
+declaratory and injunctive relief,"""legal case"""
+
+Missing Entities from Generated Graph
+Entity Text,Entity Type
+state of new york,location data
+vazquez,person
+instagram,app
+unknown caller id,phrase
+trapcall,app
+www trapcall com,url
+may 13 2016,date
+twitter,app
+imgmodels,account
+nextmodels,account
+keep checking my page for those leaked cody nude,phrase
+comicconhouston,account
+may 22 2016,date
+1 000 electronic payment made through www venmo com for plaintiff phone number,phrase
+october 1 2016,date
+your client need saving,phrase
+march 2016,date
+december 15 2016,date
+november 21 2016,date
+platinumkid44 gmailcom,email address
+musicboysitemsaolcom,email address
+anotherdmusicaolcom,email address
+richierich1444aolcom,email address
+platinumkid44gmailcom,email address
+dollardamedolleraolcom,email address
+platinumkid1444gmailcom,email address
+damedolleraolcom,email address
+9175975622,phone number
+3204356727,phone number
+3104356727,phone number
+8185699062,phone number
+3475865852,phone number
+2525173289,phone number
+4843885390,phone number
+704440 0790,phone number
+2407768586,phone number
+7144089384,phone number
+defendant,role
+plaintiff,role
+settlement agreement,law
+mtv network,organization
+bravo model,organization
+plaintiff,person
+facebook,app
+tumblr,app
+snapchat,app
+nude or semi nude,crime type
+nude or seminude photo,crime type
+plaintiff mother,role
+threat of dissemination,crime type
+june 9 2016,date
+tumbler,app
+defendant,person
+codysaintnew,account
+codysaintgnuer,account
+saintgnuebrasil,account
+ddiivergent,account
+
+Matched Relations
+Truth From,Truth Label,Truth To,Generated From,Generated Label,Generated To,Similarity Score
+john doe,lives in,los angeles california,john doe,"""lives in""",los angeles california,1.00
+defendant,communicated with,plaintiff,defendant,"""communicated with""",plaintiff mother,0.86
+defendant,communicated with,comicconhouston,defendant,"""communicated with""",comicconhouston,1.00
+defendant,comments,your client need saving,defendant,"""comments""",your client need saving,1.00
+defendant,perpetrates,threat of dissemination,defendant,"""perpetrates""",invasion of privacy,0.73
+plaintiff,works with,mtv network,plaintiff,"""works with""",mtv network,1.00
+plaintiff,works with,bravo model,plaintiff,"""works with""",bravo model,1.00
+defendant,communicated with,plaintiff,defendant,"""communicated with""",plaintiff friend,0.86
+
+Extra Relations in Generated Graph
+From,Label,To
+salar atrizadeh,"""works with""",law office of salar atrizadeh
+salar atrizadeh,salar atrizadeh and john doe are individuals who have communicated with each other and work together.,john doe
+law office of salar atrizadeh,"""works with""",john doe
+john doe,"""communicated with""",damien vazquez
+john doe,"""filed in""",united state district court central district of california western division
+john doe,"""acts on""",april 22 2016
+john doe,"""acts on""",january 11 2017
+damien vazquez,"""owns""",loud platinum
+damien vazquez,"""acts on""",october 2015
+damien vazquez,"""acts on""",may 10 2016
+defendant,the plaintiff accuses the defendant and has communicated with the defendant.,plaintiff
+defendant,"""communicated with""",plaintiff colleague
+defendant,"""communicated with""",plaintiff relative
+defendant,"""communicated with""",plaintiff modelingacting agent
+defendant,"""communicated with""",plaintiff business colleague
+defendant,"""communicated with""",plaintiff fan
+defendant,"""posts""",nude or seminude photo
+defendant,"""posts""",private picture and video
+defendant,"""posts""",cody nude
+defendant,"""acts on""",trapcall
+defendant,"""acts on""",venmo
+defendant,"""communicated with""",imgmodels
+defendant,"""communicated with""",nextmodels
+defendant,"""communicated with""",unknown caller id
+defendant,"""acts on""",wwwtrapcallcom
+defendant,"""acts on""",wwwvenmocom
+defendant,"""signed""",settlement agreement
+defendant,"""comments""",codysaintnew
+defendant,"""comments""",codysaintgnuer
+defendant,"""comments""",saintgnuebrasil
+defendant,"""comments""",ddiivergent
+defendant,"""communicated with""",platinumkid44gmailcom
+defendant,"""communicated with""",musicboysitemsaolcom
+defendant,"""communicated with""",anotherdmusicaolcom
+defendant,"""communicated with""",richierich1444aolcom
+defendant,"""communicated with""",dollardamedolleraolcom
+defendant,"""communicated with""",platinumkid1444gmailcom
+defendant,"""communicated with""",damedolleraolcom
+defendant,"""communicated with""",9175975622
+defendant,"""communicated with""",3204356727
+defendant,"""communicated with""",3104356727
+defendant,"""communicated with""",8185699062
+defendant,"""communicated with""",3475865852
+defendant,"""communicated with""",2525173289
+defendant,"""communicated with""",4843885390
+defendant,"""communicated with""",7044400790
+defendant,"""communicated with""",2407768586
+defendant,"""communicated with""",7144089384
+defendant,"""perpetrates""",civil harassment
+plaintiff,"""signed""",settlement agreement
+plaintiff,"""works with""",teen wolf
+plaintiff,"""protected by""",federal common law
+plaintiff,"""protected by""",federal public policy
+plaintiff,"""protected by""",federal statutory law
+plaintiff,"""protected by""",federal constitution
+plaintiff,"""protected by""",california state common law
+plaintiff,"""protected by""",california state public policy
+plaintiff,"""protected by""",california state statutory law
+plaintiff,"""protected by""",california state constitution
+plaintiff,"""accuses""",intentional interference with prospective economic advantage
+plaintiff,"""accuses""",negligent interference with prospective economic advantage
+plaintiff,"""accuses""",declaratory and injunctive relief
+
+Missing Relations from Generated Graph
+From,Label,To
+damien vazquez,lives in,state of new york
+instagram,recieved message,nude or seminude photo
+unknown caller id,is,defendant
+trapcall,owns,www trapcall com
+twitter,recieved message,nude or seminude photo
+imgmodels,registered on,twitter
+nextmodels,registered on,twitter
+defendant,is,damien vazquez
+defendant,acts on,october 2015
+defendant,acts on,may 10 2016
+defendant,acts on,twitter
+defendant,acts on,may 13 2016
+defendant,comments,keep checking my page for those leaked cody nude
+defendant,acts on,may 22 2016
+defendant,comments,1 000 electronic payment made through www venmo com for plaintiff phone number
+defendant,acts on,october 1 2016
+defendant,acts on,december 15 2016
+defendant,owns,platinumkid44 gmailcom
+defendant,owns,musicboysitemsaolcom
+defendant,owns,anotherdmusicaolcom
+defendant,owns,richierich1444aolcom
+defendant,owns,platinumkid44gmailcom
+defendant,owns,dollardamedolleraolcom
+defendant,owns,platinumkid1444gmailcom
+defendant,owns,damedolleraolcom
+defendant,owns,9175975622
+defendant,owns,3204356727
+defendant,owns,3104356727
+defendant,owns,8185699062
+defendant,owns,3475865852
+defendant,owns,2525173289
+defendant,owns,4843885390
+defendant,owns,704440 0790
+defendant,owns,2407768586
+defendant,owns,7144089384
+defendant,is,vazquez
+defendant,owns,loud platinum
+defendant,registered on,instagram
+defendant,acts on,april 22 2016
+defendant,perpetrates,nude or semi nude
+defendant,perpetrates,nude or seminude photo
+defendant,violates,settlement agreement
+plaintiff,is,john doe
+plaintiff,communicated with,defendant
+plaintiff,acts on,march 2016
+plaintiff,communicated with,unknown caller id
+plaintiff,acts on,april 22 2016
+plaintiff,registered on,instagram
+plaintiff,victim of,nude or semi nude
+plaintiff,recieved message,nude or seminude photo
+plaintiff,lives in,los angeles california
+plaintiff,works with,trapcall
+plaintiff,works with,imgmodels
+plaintiff,works with,nextmodels
+plaintiff,owns,codysaintnew
+plaintiff,owns,codysaintgnuer
+plaintiff,owns,saintgnuebrasil
+plaintiff,owns,ddiivergent
+settlement agreement,launched after,november 21 2016
+plaintiff,registered on,facebook
+plaintiff,registered on,twitter
+plaintiff,registered on,instagram
+plaintiff,registered on,tumblr
+plaintiff,registered on,snapchat
+plaintiff,victim of,nude or seminude photo
+plaintiff,victim of,threat of dissemination
+nude or seminude photo,acts on,june 9 2016
+nude or seminude photo,acts on,may 10 2016
+plaintiff mother,recieved message,nude or seminude photo
+tumbler,recieved message,nude or seminude photo
+
+
+Detailed Analysis for Generated Graph 3
+
+Matched Entities
+Truth Entity Text,Truth Entity Type,Generated Entity Text,Generated Entity Type,Similarity Score
+john doe,person,john doe,"""person""",1.00
+los angeles california,location data,los angeles california,"""location data""",1.00
+damien vazquez,person,damien vazquez,"""person""",1.00
+october 2015,date,october 2015,"""date""",1.00
+may 10 2016,date,may 10 2016,"""date""",1.00
+april 22 2016,date,april 22 2016,"""date""",1.00
+loud platinum,organization,loud platinum,"""organization""",1.00
+
+Extra Entities in Generated Graph
+Entity Text,Entity Type
+salar atrizadeh,"""person"""
+law office of salar atrizadeh,"""organization"""
+9701 wilshire blvd 10th floor beverly hill ca 90212,"""location data"""
+3106943034,"""phone number"""
+3106943057,"""phone number"""
+salaratrizadehcom,"""email address"""
+united state district court central district of california western division,"""organization"""
+c c p 5276,"""law"""
+civil code 17087 et seq,"""law"""
+civil code 170885 et seq,"""law"""
+28 u s c 1332,"""law"""
+28 u s c 1367,"""law"""
+28 u s c 2201 et seq,"""law"""
+28 u s c 1391 et seq,"""law"""
+defendant,entity
+plaintiff,entity
+plaintiff mother,entity
+plaintiff friend,entity
+plaintiff colleague,entity
+plaintiff relative,entity
+plaintiff modelingacting agent,entity
+plaintiff business colleague,entity
+plaintiff fan,entity
+nude or seminude photo,entity
+private picture and video,entity
+cody nude,entity
+trapcall,entity
+venmo,entity
+imgmodels,entity
+nextmodels,entity
+comicconhouston,entity
+unknown caller id,entity
+wwwtrapcallcom,entity
+wwwvenmocom,entity
+your client need saving,entity
+settlement agreement,entity
+codysaintnew,entity
+codysaintgnuer,entity
+saintgnuebrasil,entity
+ddiivergent,entity
+mtv network,entity
+bravo model,entity
+platinumkid44gmailcom,entity
+musicboysitemsaolcom,entity
+anotherdmusicaolcom,entity
+richierich1444aolcom,entity
+dollardamedolleraolcom,entity
+platinumkid1444gmailcom,entity
+damedolleraolcom,entity
+9175975622,entity
+3204356727,entity
+3104356727,entity
+8185699062,entity
+3475865852,entity
+2525173289,entity
+4843885390,entity
+7044400790,entity
+2407768586,entity
+7144089384,entity
+teen wolf,entity
+invasion of privacy,entity
+civil harassment,entity
+federal common law,entity
+federal public policy,entity
+federal statutory law,entity
+federal constitution,entity
+california state common law,entity
+california state public policy,entity
+california state statutory law,entity
+california state constitution,entity
+january 11 2017,"""date"""
+intentional interference with prospective economic advantage,"""legal case"""
+negligent interference with prospective economic advantage,"""legal case"""
+declaratory and injunctive relief,"""legal case"""
+
+Missing Entities from Generated Graph
+Entity Text,Entity Type
+state of new york,location data
+vazquez,person
+instagram,app
+unknown caller id,phrase
+trapcall,app
+www trapcall com,url
+may 13 2016,date
+twitter,app
+imgmodels,account
+nextmodels,account
+keep checking my page for those leaked cody nude,phrase
+comicconhouston,account
+may 22 2016,date
+1 000 electronic payment made through www venmo com for plaintiff phone number,phrase
+october 1 2016,date
+your client need saving,phrase
+march 2016,date
+december 15 2016,date
+november 21 2016,date
+platinumkid44 gmailcom,email address
+musicboysitemsaolcom,email address
+anotherdmusicaolcom,email address
+richierich1444aolcom,email address
+platinumkid44gmailcom,email address
+dollardamedolleraolcom,email address
+platinumkid1444gmailcom,email address
+damedolleraolcom,email address
+9175975622,phone number
+3204356727,phone number
+3104356727,phone number
+8185699062,phone number
+3475865852,phone number
+2525173289,phone number
+4843885390,phone number
+704440 0790,phone number
+2407768586,phone number
+7144089384,phone number
+defendant,role
+plaintiff,role
+settlement agreement,law
+mtv network,organization
+bravo model,organization
+plaintiff,person
+facebook,app
+tumblr,app
+snapchat,app
+nude or semi nude,crime type
+nude or seminude photo,crime type
+plaintiff mother,role
+threat of dissemination,crime type
+june 9 2016,date
+tumbler,app
+defendant,person
+codysaintnew,account
+codysaintgnuer,account
+saintgnuebrasil,account
+ddiivergent,account
+
+Matched Relations
+Truth From,Truth Label,Truth To,Generated From,Generated Label,Generated To,Similarity Score
+john doe,lives in,los angeles california,john doe,"""lives in""",los angeles california,1.00
+defendant,communicated with,plaintiff,defendant,"""communicated with""",plaintiff mother,0.86
+defendant,communicated with,comicconhouston,defendant,"""communicated with""",comicconhouston,1.00
+defendant,comments,your client need saving,defendant,"""comments""",your client need saving,1.00
+defendant,perpetrates,threat of dissemination,defendant,"""perpetrates""",invasion of privacy,0.73
+plaintiff,works with,mtv network,plaintiff,"""works with""",mtv network,1.00
+plaintiff,works with,bravo model,plaintiff,"""works with""",bravo model,1.00
+defendant,communicated with,plaintiff,defendant,"""communicated with""",plaintiff friend,0.86
+
+Extra Relations in Generated Graph
+From,Label,To
+salar atrizadeh,"""works with""",law office of salar atrizadeh
+salar atrizadeh,salar atrizadeh and john doe are individuals who have communicated with each other and work together.,john doe
+law office of salar atrizadeh,"""works with""",john doe
+john doe,"""communicated with""",damien vazquez
+john doe,"""filed in""",united state district court central district of california western division
+john doe,"""acts on""",april 22 2016
+john doe,"""acts on""",january 11 2017
+damien vazquez,"""owns""",loud platinum
+damien vazquez,"""acts on""",october 2015
+damien vazquez,"""acts on""",may 10 2016
+defendant,the plaintiff accuses the defendant and has communicated with the defendant.,plaintiff
+defendant,"""communicated with""",plaintiff colleague
+defendant,"""communicated with""",plaintiff relative
+defendant,"""communicated with""",plaintiff modelingacting agent
+defendant,"""communicated with""",plaintiff business colleague
+defendant,"""communicated with""",plaintiff fan
+defendant,"""posts""",nude or seminude photo
+defendant,"""posts""",private picture and video
+defendant,"""posts""",cody nude
+defendant,"""acts on""",trapcall
+defendant,"""acts on""",venmo
+defendant,"""communicated with""",imgmodels
+defendant,"""communicated with""",nextmodels
+defendant,"""communicated with""",unknown caller id
+defendant,"""acts on""",wwwtrapcallcom
+defendant,"""acts on""",wwwvenmocom
+defendant,"""signed""",settlement agreement
+defendant,"""comments""",codysaintnew
+defendant,"""comments""",codysaintgnuer
+defendant,"""comments""",saintgnuebrasil
+defendant,"""comments""",ddiivergent
+defendant,"""communicated with""",platinumkid44gmailcom
+defendant,"""communicated with""",musicboysitemsaolcom
+defendant,"""communicated with""",anotherdmusicaolcom
+defendant,"""communicated with""",richierich1444aolcom
+defendant,"""communicated with""",dollardamedolleraolcom
+defendant,"""communicated with""",platinumkid1444gmailcom
+defendant,"""communicated with""",damedolleraolcom
+defendant,"""communicated with""",9175975622
+defendant,"""communicated with""",3204356727
+defendant,"""communicated with""",3104356727
+defendant,"""communicated with""",8185699062
+defendant,"""communicated with""",3475865852
+defendant,"""communicated with""",2525173289
+defendant,"""communicated with""",4843885390
+defendant,"""communicated with""",7044400790
+defendant,"""communicated with""",2407768586
+defendant,"""communicated with""",7144089384
+defendant,"""perpetrates""",civil harassment
+plaintiff,"""signed""",settlement agreement
+plaintiff,"""works with""",teen wolf
+plaintiff,"""protected by""",federal common law
+plaintiff,"""protected by""",federal public policy
+plaintiff,"""protected by""",federal statutory law
+plaintiff,"""protected by""",federal constitution
+plaintiff,"""protected by""",california state common law
+plaintiff,"""protected by""",california state public policy
+plaintiff,"""protected by""",california state statutory law
+plaintiff,"""protected by""",california state constitution
+plaintiff,"""accuses""",intentional interference with prospective economic advantage
+plaintiff,"""accuses""",negligent interference with prospective economic advantage
+plaintiff,"""accuses""",declaratory and injunctive relief
+
+Missing Relations from Generated Graph
+From,Label,To
+damien vazquez,lives in,state of new york
+instagram,recieved message,nude or seminude photo
+unknown caller id,is,defendant
+trapcall,owns,www trapcall com
+twitter,recieved message,nude or seminude photo
+imgmodels,registered on,twitter
+nextmodels,registered on,twitter
+defendant,is,damien vazquez
+defendant,acts on,october 2015
+defendant,acts on,may 10 2016
+defendant,acts on,twitter
+defendant,acts on,may 13 2016
+defendant,comments,keep checking my page for those leaked cody nude
+defendant,acts on,may 22 2016
+defendant,comments,1 000 electronic payment made through www venmo com for plaintiff phone number
+defendant,acts on,october 1 2016
+defendant,acts on,december 15 2016
+defendant,owns,platinumkid44 gmailcom
+defendant,owns,musicboysitemsaolcom
+defendant,owns,anotherdmusicaolcom
+defendant,owns,richierich1444aolcom
+defendant,owns,platinumkid44gmailcom
+defendant,owns,dollardamedolleraolcom
+defendant,owns,platinumkid1444gmailcom
+defendant,owns,damedolleraolcom
+defendant,owns,9175975622
+defendant,owns,3204356727
+defendant,owns,3104356727
+defendant,owns,8185699062
+defendant,owns,3475865852
+defendant,owns,2525173289
+defendant,owns,4843885390
+defendant,owns,704440 0790
+defendant,owns,2407768586
+defendant,owns,7144089384
+defendant,is,vazquez
+defendant,owns,loud platinum
+defendant,registered on,instagram
+defendant,acts on,april 22 2016
+defendant,perpetrates,nude or semi nude
+defendant,perpetrates,nude or seminude photo
+defendant,violates,settlement agreement
+plaintiff,is,john doe
+plaintiff,communicated with,defendant
+plaintiff,acts on,march 2016
+plaintiff,communicated with,unknown caller id
+plaintiff,acts on,april 22 2016
+plaintiff,registered on,instagram
+plaintiff,victim of,nude or semi nude
+plaintiff,recieved message,nude or seminude photo
+plaintiff,lives in,los angeles california
+plaintiff,works with,trapcall
+plaintiff,works with,imgmodels
+plaintiff,works with,nextmodels
+plaintiff,owns,codysaintnew
+plaintiff,owns,codysaintgnuer
+plaintiff,owns,saintgnuebrasil
+plaintiff,owns,ddiivergent
+settlement agreement,launched after,november 21 2016
+plaintiff,registered on,facebook
+plaintiff,registered on,twitter
+plaintiff,registered on,instagram
+plaintiff,registered on,tumblr
+plaintiff,registered on,snapchat
+plaintiff,victim of,nude or seminude photo
+plaintiff,victim of,threat of dissemination
+nude or seminude photo,acts on,june 9 2016
+nude or seminude photo,acts on,may 10 2016
+plaintiff mother,recieved message,nude or seminude photo
+tumbler,recieved message,nude or seminude photo
+
+

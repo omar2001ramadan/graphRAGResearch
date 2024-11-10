@@ -26,7 +26,7 @@ def extract_data(html_content):
     return nodes_json, edges_json
 
 def parse_entities(nodes_json):
-    entities = {}
+    entities = []
     for node in nodes_json:
         label = node.get('label', '')
         label_match = re.match(r'^(.*?)\s+<(.+?)>$', label)
@@ -36,12 +36,11 @@ def parse_entities(nodes_json):
             # Normalize text: lowercase and strip
             text_normalized = text.lower().strip()
             entity_type_normalized = entity_type.lower().strip()
-            # Use normalized text and type
-            entities[node['id']] = {
+            entities.append({
                 'text': text_normalized,
                 'type': entity_type_normalized,
                 'id': node['id']
-            }
+            })
     return entities
 
 def parse_relations(edges_json):
@@ -59,49 +58,56 @@ def parse_relations(edges_json):
         })
     return relations
 
-def compute_similarity(text1, text2):
+def compute_similarity(*texts):
     # Normalize texts: lowercase and strip
-    text1 = text1.lower().strip()
-    text2 = text2.lower().strip()
-    vectorizer = TfidfVectorizer().fit([text1, text2])
-    tfidf = vectorizer.transform([text1, text2])
-    cosine_sim = cosine_similarity(tfidf[0:1], tfidf[1:2])[0][0]
-    return cosine_sim
+    texts = [text.lower().strip() for text in texts]
+    vectorizer = TfidfVectorizer().fit(texts)
+    tfidf = vectorizer.transform(texts)
+    # Compute pairwise cosine similarities and take the average
+    similarities = []
+    for i in range(len(texts) - 1):
+        sim = cosine_similarity(tfidf[i:i+1], tfidf[i+1:i+2])[0][0]
+        similarities.append(sim)
+    return sum(similarities) / len(similarities) if similarities else 0
 
 def compare_entities(entities_a, entities_b, threshold=0.7):
     matched = []
     extra = entities_b.copy()
     missing = entities_a.copy()
-    used_entities_b = set()  # Keep track of matched entities in entities_b
-    
-    for id_a, entity_a in entities_a.items():
-        best_match_id = None
+    used_indices_b = set()
+
+    for idx_a, entity_a in enumerate(entities_a):
+        best_match = None
         best_score = 0
-        for id_b, entity_b in entities_b.items():
-            if id_b in used_entities_b:
+        best_idx_b = -1
+        for idx_b, entity_b in enumerate(entities_b):
+            if idx_b in used_indices_b:
                 continue  # Skip entities already matched
-            if entity_a['type'] == entity_b['type']:
-                sim_score = compute_similarity(entity_a['text'], entity_b['text'])
-                if sim_score > best_score:
-                    best_score = sim_score
-                    best_match_id = id_b
-        if best_score >= threshold and best_match_id is not None:
-            matched.append((entity_a, entities_b[best_match_id], best_score))
-            used_entities_b.add(best_match_id)
-            del extra[best_match_id]
-            del missing[id_a]
-    return matched, list(extra.values()), list(missing.values())
+            # Concatenate text and type for comparison
+            entity_a_str = f"{entity_a['text']} {entity_a['type']}"
+            entity_b_str = f"{entity_b['text']} {entity_b['type']}"
+            sim_score = compute_similarity(entity_a_str, entity_b_str)
+            if sim_score > best_score:
+                best_score = sim_score
+                best_match = entity_b
+                best_idx_b = idx_b
+        if best_score >= threshold and best_match is not None:
+            matched.append((entity_a, best_match, best_score))
+            used_indices_b.add(best_idx_b)
+            extra.remove(best_match)
+            missing.remove(entity_a)
+    return matched, extra, missing
 
 def compare_relations(relations_a, relations_b, entities_a, entities_b, threshold=0.7):
     matched = []
     extra = relations_b.copy()
     missing = relations_a.copy()
     used_relations_b = set()
-    
-    # Precompute entity text mapping
-    entity_text_a = {entity['id']: entity['text'] for entity in entities_a.values()}
-    entity_text_b = {entity['id']: entity['text'] for entity in entities_b.values()}
-    
+
+    # Build mapping from IDs to entity texts for entities in both graphs
+    entity_text_a = {entity['id']: entity['text'] for entity in entities_a}
+    entity_text_b = {entity['id']: entity['text'] for entity in entities_b}
+
     for idx_a, rel_a in enumerate(relations_a):
         best_match_idx = None
         best_score = 0
@@ -128,114 +134,210 @@ def compare_relations(relations_a, relations_b, entities_a, entities_b, threshol
     return matched, extra, missing
 
 def main():
-    if len(sys.argv) != 3:
-        print("Usage: python Compare_Graphs.py <path_to_true_graph> <path_to_generated_graph>")
+    if len(sys.argv) != 5:
+        print("Usage: python Compare_Graphs.py <path_to_true_graph> <path_to_generated_graph1> <path_to_generated_graph2> <path_to_generated_graph3>")
         sys.exit(1)
     
     true_graph_path = sys.argv[1]
-    generated_graph_path = sys.argv[2]
+    generated_graph_paths = sys.argv[2:5]
     
-    # Read HTML contents from files
+    # Read HTML contents from the truth graph
     with open(true_graph_path, 'r', encoding='utf-8') as f:
         html_content_a = f.read()
     
-    with open(generated_graph_path, 'r', encoding='utf-8') as f:
-        html_content_b = f.read()
-    
-    # Extract data
+    # Extract data from truth graph
     nodes_a, edges_a = extract_data(html_content_a)
-    nodes_b, edges_b = extract_data(html_content_b)
     
-    # Parse entities and relations
+    # Parse entities and relations from truth graph
     entities_a = parse_entities(nodes_a)
-    entities_b = parse_entities(nodes_b)
     relations_a = parse_relations(edges_a)
-    relations_b = parse_relations(edges_b)
     
-    # Compare entities using cosine similarity
-    matched_entities, extra_entities, missing_entities = compare_entities(entities_a, entities_b)
-    
-    # Compare relations using cosine similarity
-    matched_relations, extra_relations, missing_relations = compare_relations(relations_a, relations_b, entities_a, entities_b)
-    
-    # Count entities and relations
     total_entities_truth = len(entities_a)
-    total_entities_generated = len(entities_b)
     total_relations_truth = len(relations_a)
-    total_relations_generated = len(relations_b)
+    
+    # Lists to store metrics for each trial
+    entity_metrics = []
+    relation_metrics = []
+    detailed_analysis = []
+    
+    # Process each generated graph
+    for idx, generated_graph_path in enumerate(generated_graph_paths):
+        # Read HTML contents from generated graph
+        with open(generated_graph_path, 'r', encoding='utf-8') as f:
+            html_content_b = f.read()
+        
+        # Extract data from generated graph
+        nodes_b, edges_b = extract_data(html_content_b)
+        
+        # Parse entities and relations from generated graph
+        entities_b = parse_entities(nodes_b)
+        relations_b = parse_relations(edges_b)
+        
+        # Compare entities
+        matched_entities, extra_entities, missing_entities = compare_entities(entities_a, entities_b)
+        
+        # Compare relations
+        matched_relations, extra_relations, missing_relations = compare_relations(relations_a, relations_b, entities_a, entities_b)
+        
+        # Compute metrics for this trial
+        total_entities_generated = len(entities_b)
+        total_relations_generated = len(relations_b)
+        matched_entities_count = len(matched_entities)
+        extra_entities_count = len(extra_entities)
+        missing_entities_count = len(missing_entities)
+        entity_coverage = (matched_entities_count / total_entities_truth) * 100 if total_entities_truth > 0 else 0
+        
+        matched_relations_count = len(matched_relations)
+        extra_relations_count = len(extra_relations)
+        missing_relations_count = len(missing_relations)
+        relation_coverage = (matched_relations_count / total_relations_truth) * 100 if total_relations_truth > 0 else 0
+        
+        # Store metrics
+        entity_metrics.append({
+            'Total Entities in Truth Graph': total_entities_truth,
+            'Total Entities in Generated Graph': total_entities_generated,
+            'Matched Entities': matched_entities_count,
+            'Extra Entities': extra_entities_count,
+            'Missing Entities': missing_entities_count,
+            'Entity Coverage (%)': entity_coverage
+        })
+        
+        relation_metrics.append({
+            'Total Relations in Truth Graph': total_relations_truth,
+            'Total Relations in Generated Graph': total_relations_generated,
+            'Matched Relations': matched_relations_count,
+            'Extra Relations': extra_relations_count,
+            'Missing Relations': missing_relations_count,
+            'Relationship Coverage (%)': relation_coverage
+        })
+        
+        # Store detailed analysis for this trial
+        detailed_analysis.append({
+            'trial': idx + 1,
+            'matched_entities': matched_entities,
+            'extra_entities': extra_entities,
+            'missing_entities': missing_entities,
+            'matched_relations': matched_relations,
+            'extra_relations': extra_relations,
+            'missing_relations': missing_relations,
+            'entities_a': entities_a,
+            'entities_b': entities_b
+        })
+    
+    # Compute average metrics
+    avg_entity_metrics = {key: sum(d[key] for d in entity_metrics) / len(entity_metrics) for key in entity_metrics[0]}
+    avg_relation_metrics = {key: sum(d[key] for d in relation_metrics) / len(relation_metrics) for key in relation_metrics[0]}
     
     # Output results to CSV
     with open('comparison_results.csv', 'w', newline='', encoding='utf-8') as csvfile:
         csvwriter = csv.writer(csvfile)
         
-        # Write header rows
+        # Write header
         csvwriter.writerow(['Comparison Results'])
         csvwriter.writerow([])
+        
+        # Write metrics for each trial
+        for idx in range(len(generated_graph_paths)):
+            csvwriter.writerow([f'Comparison with Generated Graph {idx + 1}'])
+            csvwriter.writerow([])
+            
+            csvwriter.writerow(['Entity Comparison Summary'])
+            for key, value in entity_metrics[idx].items():
+                csvwriter.writerow([key, f"{value:.2f}" if isinstance(value, float) else value])
+            csvwriter.writerow([])
+            
+            csvwriter.writerow(['Relation Comparison Summary'])
+            for key, value in relation_metrics[idx].items():
+                csvwriter.writerow([key, f"{value:.2f}" if isinstance(value, float) else value])
+            csvwriter.writerow([])
+            csvwriter.writerow([])
+        
+        # Write average metrics
+        csvwriter.writerow(['Average Metrics Across All Trials'])
+        csvwriter.writerow([])
         csvwriter.writerow(['Entity Comparison Summary'])
-        csvwriter.writerow(['Total Entities in Truth Graph:', total_entities_truth])
-        csvwriter.writerow(['Total Entities in Generated Graph:', total_entities_generated])
-        csvwriter.writerow(['Matched Entities:', len(matched_entities)])
-        csvwriter.writerow(['Extra Entities (in Generated Graph):', len(extra_entities)])
-        csvwriter.writerow(['Missing Entities (from Generated Graph):', len(missing_entities)])
+        for key, value in avg_entity_metrics.items():
+            csvwriter.writerow([key, f"{value:.2f}" if isinstance(value, float) else value])
         csvwriter.writerow([])
         csvwriter.writerow(['Relation Comparison Summary'])
-        csvwriter.writerow(['Total Relations in Truth Graph:', total_relations_truth])
-        csvwriter.writerow(['Total Relations in Generated Graph:', total_relations_generated])
-        csvwriter.writerow(['Matched Relations:', len(matched_relations)])
-        csvwriter.writerow(['Extra Relations (in Generated Graph):', len(extra_relations)])
-        csvwriter.writerow(['Missing Relations (from Generated Graph):', len(missing_relations)])
+        for key, value in avg_relation_metrics.items():
+            csvwriter.writerow([key, f"{value:.2f}" if isinstance(value, float) else value])
         csvwriter.writerow([])
         
-        # Write Matched Entities
-        csvwriter.writerow(['Matched Entities'])
-        csvwriter.writerow(['Truth Entity Text', 'Generated Entity Text', 'Entity Type', 'Similarity Score'])
-        for entity_a, entity_b, sim_score in matched_entities:
-            csvwriter.writerow([entity_a['text'], entity_b['text'], entity_a['type'], f"{sim_score:.2f}"])
+        # In-depth Analysis
+        csvwriter.writerow(['In-Depth Analysis of Included and Left-Out Items'])
         csvwriter.writerow([])
         
-        # Write Extra Entities
-        csvwriter.writerow(['Extra Entities in Generated Graph'])
-        csvwriter.writerow(['Entity Text', 'Entity Type'])
-        for entity in extra_entities:
-            csvwriter.writerow([entity['text'], entity['type']])
-        csvwriter.writerow([])
+        for analysis in detailed_analysis:
+            trial = analysis['trial']
+            entities_a = analysis['entities_a']
+            entities_b = analysis['entities_b']
+            entities_a_dict = {entity['id']: entity for entity in entities_a}
+            entities_b_dict = {entity['id']: entity for entity in entities_b}
+            
+            csvwriter.writerow([f'Detailed Analysis for Generated Graph {trial}'])
+            csvwriter.writerow([])
+            
+            # Matched Entities
+            csvwriter.writerow(['Matched Entities'])
+            csvwriter.writerow(['Truth Entity Text', 'Truth Entity Type', 'Generated Entity Text', 'Generated Entity Type', 'Similarity Score'])
+            for entity_a, entity_b, sim_score in analysis['matched_entities']:
+                csvwriter.writerow([
+                    entity_a['text'], entity_a['type'],
+                    entity_b['text'], entity_b['type'],
+                    f"{sim_score:.2f}"
+                ])
+            csvwriter.writerow([])
+            
+            # Extra Entities
+            csvwriter.writerow(['Extra Entities in Generated Graph'])
+            csvwriter.writerow(['Entity Text', 'Entity Type'])
+            for entity in analysis['extra_entities']:
+                csvwriter.writerow([entity['text'], entity['type']])
+            csvwriter.writerow([])
+            
+            # Missing Entities
+            csvwriter.writerow(['Missing Entities from Generated Graph'])
+            csvwriter.writerow(['Entity Text', 'Entity Type'])
+            for entity in analysis['missing_entities']:
+                csvwriter.writerow([entity['text'], entity['type']])
+            csvwriter.writerow([])
+            
+            # Matched Relations
+            csvwriter.writerow(['Matched Relations'])
+            csvwriter.writerow(['Truth From', 'Truth Label', 'Truth To', 'Generated From', 'Generated Label', 'Generated To', 'Similarity Score'])
+            for rel_a, rel_b, avg_score in analysis['matched_relations']:
+                from_a_text = entities_a_dict.get(rel_a['from'], {'text': ''})['text']
+                to_a_text = entities_a_dict.get(rel_a['to'], {'text': ''})['text']
+                from_b_text = entities_b_dict.get(rel_b['from'], {'text': ''})['text']
+                to_b_text = entities_b_dict.get(rel_b['to'], {'text': ''})['text']
+                csvwriter.writerow([
+                    from_a_text, rel_a['label'], to_a_text,
+                    from_b_text, rel_b['label'], to_b_text,
+                    f"{avg_score:.2f}"
+                ])
+            csvwriter.writerow([])
+            
+            # Extra Relations
+            csvwriter.writerow(['Extra Relations in Generated Graph'])
+            csvwriter.writerow(['From', 'Label', 'To'])
+            for rel in analysis['extra_relations']:
+                from_text = entities_b_dict.get(rel['from'], {'text': ''})['text']
+                to_text = entities_b_dict.get(rel['to'], {'text': ''})['text']
+                csvwriter.writerow([from_text, rel['label'], to_text])
+            csvwriter.writerow([])
+            
+            # Missing Relations
+            csvwriter.writerow(['Missing Relations from Generated Graph'])
+            csvwriter.writerow(['From', 'Label', 'To'])
+            for rel in analysis['missing_relations']:
+                from_text = entities_a_dict.get(rel['from'], {'text': ''})['text']
+                to_text = entities_a_dict.get(rel['to'], {'text': ''})['text']
+                csvwriter.writerow([from_text, rel['label'], to_text])
+            csvwriter.writerow([])
+            
+            csvwriter.writerow([])
         
-        # Write Missing Entities
-        csvwriter.writerow(['Missing Entities from Generated Graph'])
-        csvwriter.writerow(['Entity Text', 'Entity Type'])
-        for entity in missing_entities:
-            csvwriter.writerow([entity['text'], entity['type']])
-        csvwriter.writerow([])
-        
-        # Write Matched Relations
-        csvwriter.writerow(['Matched Relations'])
-        csvwriter.writerow(['Truth From', 'Truth Label', 'Truth To', 'Generated From', 'Generated Label', 'Generated To', 'Similarity Score'])
-        for rel_a, rel_b, avg_score in matched_relations:
-            csvwriter.writerow([
-                entities_a[rel_a['from']]['text'], rel_a['label'], entities_a[rel_a['to']]['text'],
-                entities_b[rel_b['from']]['text'], rel_b['label'], entities_b[rel_b['to']]['text'],
-                f"{avg_score:.2f}"
-            ])
-        csvwriter.writerow([])
-        
-        # Write Extra Relations
-        csvwriter.writerow(['Extra Relations in Generated Graph'])
-        csvwriter.writerow(['From', 'Label', 'To'])
-        for rel in extra_relations:
-            from_text = entities_b.get(rel['from'], {'text': ''})['text']
-            to_text = entities_b.get(rel['to'], {'text': ''})['text']
-            csvwriter.writerow([from_text, rel['label'], to_text])
-        csvwriter.writerow([])
-        
-        # Write Missing Relations
-        csvwriter.writerow(['Missing Relations from Generated Graph'])
-        csvwriter.writerow(['From', 'Label', 'To'])
-        for rel in missing_relations:
-            from_text = entities_a.get(rel['from'], {'text': ''})['text']
-            to_text = entities_a.get(rel['to'], {'text': ''})['text']
-            csvwriter.writerow([from_text, rel['label'], to_text])
-        csvwriter.writerow([])
-    
     print("Comparison complete. Results have been saved to 'comparison_results.csv'.")
 
 if __name__ == "__main__":

@@ -1,0 +1,592 @@
+Comparison Results
+
+Comparison with Generated Graph 1
+
+Entity Comparison Summary
+Total Entities in Truth Graph,39
+Total Entities in Generated Graph,60
+Matched Entities,25
+Extra Entities,35
+Missing Entities,14
+Entity Coverage (%),64.10
+
+Relation Comparison Summary
+Total Relations in Truth Graph,43
+Total Relations in Generated Graph,48
+Matched Relations,15
+Extra Relations,33
+Missing Relations,28
+Relationship Coverage (%),34.88
+
+
+Comparison with Generated Graph 2
+
+Entity Comparison Summary
+Total Entities in Truth Graph,39
+Total Entities in Generated Graph,60
+Matched Entities,25
+Extra Entities,35
+Missing Entities,14
+Entity Coverage (%),64.10
+
+Relation Comparison Summary
+Total Relations in Truth Graph,43
+Total Relations in Generated Graph,48
+Matched Relations,15
+Extra Relations,33
+Missing Relations,28
+Relationship Coverage (%),34.88
+
+
+Comparison with Generated Graph 3
+
+Entity Comparison Summary
+Total Entities in Truth Graph,39
+Total Entities in Generated Graph,60
+Matched Entities,25
+Extra Entities,35
+Missing Entities,14
+Entity Coverage (%),64.10
+
+Relation Comparison Summary
+Total Relations in Truth Graph,43
+Total Relations in Generated Graph,48
+Matched Relations,15
+Extra Relations,33
+Missing Relations,28
+Relationship Coverage (%),34.88
+
+
+Average Metrics Across All Trials
+
+Entity Comparison Summary
+Total Entities in Truth Graph,39.00
+Total Entities in Generated Graph,60.00
+Matched Entities,25.00
+Extra Entities,35.00
+Missing Entities,14.00
+Entity Coverage (%),64.10
+
+Relation Comparison Summary
+Total Relations in Truth Graph,43.00
+Total Relations in Generated Graph,48.00
+Matched Relations,15.00
+Extra Relations,33.00
+Missing Relations,28.00
+Relationship Coverage (%),34.88
+
+In-Depth Analysis of Included and Left-Out Items
+
+Detailed Analysis for Generated Graph 1
+
+Matched Entities
+Truth Entity Text,Truth Entity Type,Generated Entity Text,Generated Entity Type,Similarity Score
+rli,organization,rli,"""organization""",1.00
+nexus,organization,nexus,"""organization""",1.00
+verona virginia,location data,verona virginia,"""location data""",1.00
+micheal donovan,person,micheal donovan,"""person""",1.00
+january 20 2016,date,january 20 2016,"""date""",1.00
+big marco insurance bonding service,organization,big marco insurance bonding service llc,"""organization""",0.87
+big marco,organization,big marco,"""organization""",1.00
+department of homeland security,organization,department of homeland security dhs,"""organization""",0.85
+code of federal regulation,law,code of federal regulation cfr,"""law""",0.85
+february 11 2016,date,february 11 2016,"""date""",1.00
+february 28 2017,date,february 28 2017,"""date""",1.00
+august 25 2016,date,august 25 2016,"""date""",1.00
+dhs,organization,dhs,"""organization""",1.00
+march 2017,date,march 3 2017,"""date""",1.00
+march 3 2017,date,march 6 2017,"""date""",1.00
+march 6 2017,date,march 13 2017,"""date""",0.78
+may 26 2017,date,may 26 2017,"""date""",1.00
+june 1 2017,date,june 1 2017,"""date""",1.00
+june 9 2017,date,june 19 2017,"""date""",0.78
+december 12 2017,date,december 12 2017,"""date""",1.00
+january 10 2018,date,january 10 2018,"""date""",1.00
+march 19 2018,date,march 19 2018,"""date""",1.00
+march 28 2018,date,march 28 2018,"""date""",1.00
+surety,role,surety,"""role""",1.00
+march 29 2018,date,march 29 2018,"""date""",1.00
+
+Extra Entities in Generated Graph
+Entity Text,Entity Type
+united state district court,"""organization"""
+western district of virginia,"""location data"""
+harrisonburg division,"""location data"""
+rli insurance company,"""organization"""
+nexus service inc,"""organization"""
+28 u s c 1332a1,"""law"""
+28 u s c 1391,"""law"""
+commercial surety general indemnity agreement,"""legal case"""
+indemnitors,"""role"""
+bond,"""legal case"""
+exhibit a general provision section,"""document"""
+state of illinois,"""location data"""
+united state government,"""organization"""
+dhs handbook,"""document"""
+form i352,"""document"""
+delivery bond,"""legal case"""
+departure bond,"""legal case"""
+order of supervision bond osup bond,"""legal case"""
+bond form i352,"""file"""
+united state department of treasury,"""organization"""
+may 25 2016,"""date"""
+department of treasury,"""organization"""
+8387214,"""currency"""
+indemnity agreement,"""legal case"""
+exhibit k,"""file"""
+bond,"""currency"""
+april 11 2018,"""date"""
+vivian katsantonis,"""person"""
+christopher m harris,"""person"""
+watt tieder hoffar fitzgerald llp,"""organization"""
+1765 greensboro station place suite 1000 mclean virginia 22102,"""location data"""
+7037491000,"""phone number"""
+7038938029,"""phone number"""
+vkatsantoniswatttiedercom,"""email address"""
+charriswatttiedercom,"""email address"""
+
+Missing Entities from Generated Graph
+Entity Text,Entity Type
+illinois,location data
+peoria illinois,location data
+virginia,location data
+march 10 2017,date
+june 19 2017,date
+mclean virginia,location data
+8 cfr 103 6,law
+indemnity agreement,law
+indemnitor,role
+bond,law
+cfr,law
+march 13 2017,date
+march 17 2017,date
+83 872 14,currency
+
+Matched Relations
+Truth From,Truth Label,Truth To,Generated From,Generated Label,Generated To,Similarity Score
+rli,works with,big marco insurance bonding service,rli,"""works with""",big marco insurance bonding service llc,0.95
+rli,works with,big marco,rli,"""communicated with""",big marco,0.78
+rli,acts on,february 11 2016,rli,"""acts on""",february 11 2016,1.00
+rli,acts on,february 28 2017,rli,"""acts on""",february 28 2017,1.00
+rli,acts on,august 25 2016,rli,"""acts on""",august 25 2016,1.00
+rli,acts on,march 2017,rli,"""acts on""",march 3 2017,1.00
+rli,acts on,march 3 2017,rli,"""acts on""",march 6 2017,1.00
+rli,acts on,march 6 2017,rli,"""acts on""",march 13 2017,0.90
+rli,acts on,june 1 2017,rli,"""acts on""",june 1 2017,1.00
+rli,acts on,june 19 2017,rli,"""acts on""",june 19 2017,1.00
+rli,acts on,january 10 2018,rli,"""acts on""",april 11 2018,0.73
+rli,acts on,may 26 2017,rli,"""acts on""",may 26 2017,1.00
+rli,signed,indemnity agreement,rli,"""signed""",indemnity agreement,1.00
+rli,communicated with,dhs,rli,"rli and dhs have engaged in communication and financial transactions, indicating a relationship where rli has communicated with dhs and also made payments to them.",dhs,0.73
+nexus,lives in,virginia,nexus,"""lives in""",verona virginia,0.86
+
+Extra Relations in Generated Graph
+From,Label,To
+rli insurance company,"""accuses""",nexus service inc
+rli insurance company,"""communicated with""",micheal donovan
+rli insurance company,"""signed""",commercial surety general indemnity agreement
+rli insurance company,"""regulates""",28 u s c 1332a1
+rli insurance company,"""regulates""",28 u s c 1391
+nexus service inc,"""works with""",micheal donovan
+nexus service inc,"""signed""",commercial surety general indemnity agreement
+surety,"""obliged to do""",indemnitors
+rli,"rli and nexus are entities that have a complex relationship involving various interactions. rli accuses nexus of certain actions, indicating a contentious aspect to their relationship. despite this, both entities are obliged to engage with each other, suggesting a formal or contractual obligation that necessitates communication and collaboration. additionally, rli and nexus work together, which implies a cooperative aspect to their interactions, possibly in a professional or business context. overall, the relationship between rli and nexus is multifaceted, involving elements of accusation, obligation, communication, and collaboration.",nexus
+rli,"""registers""",united state department of treasury
+rli,"""acts on""",may 25 2016
+rli,"""part of""",exhibit k
+rli,"""owns""",bond
+rli,"""works with""",vivian katsantonis
+rli,"""works with""",christopher m harris
+rli,"""works with""",watt tieder hoffar fitzgerald llp
+nexus,"""communicated with""",dhs
+nexus,"""communicated with""",department of treasury
+nexus,"""obliged to do""",big marco
+nexus,"""signed""",indemnity agreement
+nexus,"""obliged to do""",bond
+united state government,"""part of""",department of homeland security dhs
+code of federal regulation cfr,"""regulates""",department of homeland security dhs
+department of homeland security dhs,"""administers""",dhs handbook
+dhs handbook,"""part of""",bond form i352
+form i352,"""part of""",delivery bond
+form i352,"""part of""",departure bond
+form i352,"""part of""",order of supervision bond osup bond
+vivian katsantonis,"""owns""",vkatsantoniswatttiedercom
+christopher m harris,"""owns""",charriswatttiedercom
+watt tieder hoffar fitzgerald llp,"""is""",1765 greensboro station place suite 1000 mclean virginia 22102
+watt tieder hoffar fitzgerald llp,"""owns""",7037491000
+watt tieder hoffar fitzgerald llp,"""owns""",7038938029
+
+Missing Relations from Generated Graph
+From,Label,To
+rli,lives in,illinois
+rli,lives in,peoria illinois
+rli,acts on,march 19 2018
+rli,communicated with,nexus
+rli,acts on,verona virginia
+rli,acts on,march 10 2017
+rli,acts on,march 13 2017
+rli,lives in,mclean virginia
+rli,acts on,march 28 2018
+nexus,acts on,verona virginia
+nexus,acts on,january 20 2016
+nexus,administers,december 12 2017
+nexus,violates,rli
+nexus,acts on,may 26 2017
+nexus,obliged to do,indemnity agreement
+nexus,acts on,march 17 2017
+nexus,acts on,june 9 2017
+nexus,works with,big marco
+nexus,acts on,march 29 2018
+micheal donovan,owns,nexus
+micheal donovan,is,indemnitor
+department of homeland security,regulates,code of federal regulation
+dhs,communicated with,rli
+dhs,obliged to do,83 872 14
+8 cfr 103 6,part of,code of federal regulation
+surety,is,rli
+bond,part of,indemnity agreement
+cfr,is,code of federal regulation
+
+
+Detailed Analysis for Generated Graph 2
+
+Matched Entities
+Truth Entity Text,Truth Entity Type,Generated Entity Text,Generated Entity Type,Similarity Score
+rli,organization,rli,"""organization""",1.00
+nexus,organization,nexus,"""organization""",1.00
+verona virginia,location data,verona virginia,"""location data""",1.00
+micheal donovan,person,micheal donovan,"""person""",1.00
+january 20 2016,date,january 20 2016,"""date""",1.00
+big marco insurance bonding service,organization,big marco insurance bonding service llc,"""organization""",0.87
+big marco,organization,big marco,"""organization""",1.00
+department of homeland security,organization,department of homeland security dhs,"""organization""",0.85
+code of federal regulation,law,code of federal regulation cfr,"""law""",0.85
+february 11 2016,date,february 11 2016,"""date""",1.00
+february 28 2017,date,february 28 2017,"""date""",1.00
+august 25 2016,date,august 25 2016,"""date""",1.00
+dhs,organization,dhs,"""organization""",1.00
+march 2017,date,march 3 2017,"""date""",1.00
+march 3 2017,date,march 6 2017,"""date""",1.00
+march 6 2017,date,march 13 2017,"""date""",0.78
+may 26 2017,date,may 26 2017,"""date""",1.00
+june 1 2017,date,june 1 2017,"""date""",1.00
+june 9 2017,date,june 19 2017,"""date""",0.78
+december 12 2017,date,december 12 2017,"""date""",1.00
+january 10 2018,date,january 10 2018,"""date""",1.00
+march 19 2018,date,march 19 2018,"""date""",1.00
+march 28 2018,date,march 28 2018,"""date""",1.00
+surety,role,surety,"""role""",1.00
+march 29 2018,date,march 29 2018,"""date""",1.00
+
+Extra Entities in Generated Graph
+Entity Text,Entity Type
+united state district court,"""organization"""
+western district of virginia,"""location data"""
+harrisonburg division,"""location data"""
+rli insurance company,"""organization"""
+nexus service inc,"""organization"""
+28 u s c 1332a1,"""law"""
+28 u s c 1391,"""law"""
+commercial surety general indemnity agreement,"""legal case"""
+indemnitors,"""role"""
+bond,"""legal case"""
+exhibit a general provision section,"""document"""
+state of illinois,"""location data"""
+united state government,"""organization"""
+dhs handbook,"""document"""
+form i352,"""document"""
+delivery bond,"""legal case"""
+departure bond,"""legal case"""
+order of supervision bond osup bond,"""legal case"""
+bond form i352,"""file"""
+united state department of treasury,"""organization"""
+may 25 2016,"""date"""
+department of treasury,"""organization"""
+8387214,"""currency"""
+indemnity agreement,"""legal case"""
+exhibit k,"""file"""
+bond,"""currency"""
+april 11 2018,"""date"""
+vivian katsantonis,"""person"""
+christopher m harris,"""person"""
+watt tieder hoffar fitzgerald llp,"""organization"""
+1765 greensboro station place suite 1000 mclean virginia 22102,"""location data"""
+7037491000,"""phone number"""
+7038938029,"""phone number"""
+vkatsantoniswatttiedercom,"""email address"""
+charriswatttiedercom,"""email address"""
+
+Missing Entities from Generated Graph
+Entity Text,Entity Type
+illinois,location data
+peoria illinois,location data
+virginia,location data
+march 10 2017,date
+june 19 2017,date
+mclean virginia,location data
+8 cfr 103 6,law
+indemnity agreement,law
+indemnitor,role
+bond,law
+cfr,law
+march 13 2017,date
+march 17 2017,date
+83 872 14,currency
+
+Matched Relations
+Truth From,Truth Label,Truth To,Generated From,Generated Label,Generated To,Similarity Score
+rli,works with,big marco insurance bonding service,rli,"""works with""",big marco insurance bonding service llc,0.95
+rli,works with,big marco,rli,"""communicated with""",big marco,0.78
+rli,acts on,february 11 2016,rli,"""acts on""",february 11 2016,1.00
+rli,acts on,february 28 2017,rli,"""acts on""",february 28 2017,1.00
+rli,acts on,august 25 2016,rli,"""acts on""",august 25 2016,1.00
+rli,acts on,march 2017,rli,"""acts on""",march 3 2017,1.00
+rli,acts on,march 3 2017,rli,"""acts on""",march 6 2017,1.00
+rli,acts on,march 6 2017,rli,"""acts on""",march 13 2017,0.90
+rli,acts on,june 1 2017,rli,"""acts on""",june 1 2017,1.00
+rli,acts on,june 19 2017,rli,"""acts on""",june 19 2017,1.00
+rli,acts on,january 10 2018,rli,"""acts on""",april 11 2018,0.73
+rli,acts on,may 26 2017,rli,"""acts on""",may 26 2017,1.00
+rli,signed,indemnity agreement,rli,"""signed""",indemnity agreement,1.00
+rli,communicated with,dhs,rli,"rli and dhs have engaged in communication and financial transactions, indicating a relationship where rli has communicated with dhs and also made payments to them.",dhs,0.73
+nexus,lives in,virginia,nexus,"""lives in""",verona virginia,0.86
+
+Extra Relations in Generated Graph
+From,Label,To
+rli insurance company,"""accuses""",nexus service inc
+rli insurance company,"""communicated with""",micheal donovan
+rli insurance company,"""signed""",commercial surety general indemnity agreement
+rli insurance company,"""regulates""",28 u s c 1332a1
+rli insurance company,"""regulates""",28 u s c 1391
+nexus service inc,"""works with""",micheal donovan
+nexus service inc,"""signed""",commercial surety general indemnity agreement
+surety,"""obliged to do""",indemnitors
+rli,"rli and nexus are entities that have a complex relationship involving multiple interactions. rli accuses nexus, indicating a point of contention or conflict between the two. despite this, they are also obliged to engage with each other, suggesting a formal or contractual relationship that necessitates communication. furthermore, both rli and nexus work together, implying a collaborative aspect to their relationship. this multifaceted interaction highlights a dynamic where conflict, obligation, and cooperation coexist between rli and nexus.",nexus
+rli,"""registers""",united state department of treasury
+rli,"""acts on""",may 25 2016
+rli,"""part of""",exhibit k
+rli,"""owns""",bond
+rli,"""works with""",vivian katsantonis
+rli,"""works with""",christopher m harris
+rli,"""works with""",watt tieder hoffar fitzgerald llp
+nexus,"""communicated with""",dhs
+nexus,"""communicated with""",department of treasury
+nexus,"""obliged to do""",big marco
+nexus,"""signed""",indemnity agreement
+nexus,"""obliged to do""",bond
+united state government,"""part of""",department of homeland security dhs
+code of federal regulation cfr,"""regulates""",department of homeland security dhs
+department of homeland security dhs,"""administers""",dhs handbook
+dhs handbook,"""part of""",bond form i352
+form i352,"""part of""",delivery bond
+form i352,"""part of""",departure bond
+form i352,"""part of""",order of supervision bond osup bond
+vivian katsantonis,"""owns""",vkatsantoniswatttiedercom
+christopher m harris,"""owns""",charriswatttiedercom
+watt tieder hoffar fitzgerald llp,"""is""",1765 greensboro station place suite 1000 mclean virginia 22102
+watt tieder hoffar fitzgerald llp,"""owns""",7037491000
+watt tieder hoffar fitzgerald llp,"""owns""",7038938029
+
+Missing Relations from Generated Graph
+From,Label,To
+rli,lives in,illinois
+rli,lives in,peoria illinois
+rli,acts on,march 19 2018
+rli,communicated with,nexus
+rli,acts on,verona virginia
+rli,acts on,march 10 2017
+rli,acts on,march 13 2017
+rli,lives in,mclean virginia
+rli,acts on,march 28 2018
+nexus,acts on,verona virginia
+nexus,acts on,january 20 2016
+nexus,administers,december 12 2017
+nexus,violates,rli
+nexus,acts on,may 26 2017
+nexus,obliged to do,indemnity agreement
+nexus,acts on,march 17 2017
+nexus,acts on,june 9 2017
+nexus,works with,big marco
+nexus,acts on,march 29 2018
+micheal donovan,owns,nexus
+micheal donovan,is,indemnitor
+department of homeland security,regulates,code of federal regulation
+dhs,communicated with,rli
+dhs,obliged to do,83 872 14
+8 cfr 103 6,part of,code of federal regulation
+surety,is,rli
+bond,part of,indemnity agreement
+cfr,is,code of federal regulation
+
+
+Detailed Analysis for Generated Graph 3
+
+Matched Entities
+Truth Entity Text,Truth Entity Type,Generated Entity Text,Generated Entity Type,Similarity Score
+rli,organization,rli,"""organization""",1.00
+nexus,organization,nexus,"""organization""",1.00
+verona virginia,location data,verona virginia,"""location data""",1.00
+micheal donovan,person,micheal donovan,"""person""",1.00
+january 20 2016,date,january 20 2016,"""date""",1.00
+big marco insurance bonding service,organization,big marco insurance bonding service llc,"""organization""",0.87
+big marco,organization,big marco,"""organization""",1.00
+department of homeland security,organization,department of homeland security dhs,"""organization""",0.85
+code of federal regulation,law,code of federal regulation cfr,"""law""",0.85
+february 11 2016,date,february 11 2016,"""date""",1.00
+february 28 2017,date,february 28 2017,"""date""",1.00
+august 25 2016,date,august 25 2016,"""date""",1.00
+dhs,organization,dhs,"""organization""",1.00
+march 2017,date,march 3 2017,"""date""",1.00
+march 3 2017,date,march 6 2017,"""date""",1.00
+march 6 2017,date,march 13 2017,"""date""",0.78
+may 26 2017,date,may 26 2017,"""date""",1.00
+june 1 2017,date,june 1 2017,"""date""",1.00
+june 9 2017,date,june 19 2017,"""date""",0.78
+december 12 2017,date,december 12 2017,"""date""",1.00
+january 10 2018,date,january 10 2018,"""date""",1.00
+march 19 2018,date,march 19 2018,"""date""",1.00
+march 28 2018,date,march 28 2018,"""date""",1.00
+surety,role,surety,"""role""",1.00
+march 29 2018,date,march 29 2018,"""date""",1.00
+
+Extra Entities in Generated Graph
+Entity Text,Entity Type
+united state district court,"""organization"""
+western district of virginia,"""location data"""
+harrisonburg division,"""location data"""
+rli insurance company,"""organization"""
+nexus service inc,"""organization"""
+28 u s c 1332a1,"""law"""
+28 u s c 1391,"""law"""
+commercial surety general indemnity agreement,"""legal case"""
+indemnitors,"""role"""
+bond,"""legal case"""
+exhibit a general provision section,"""document"""
+state of illinois,"""location data"""
+united state government,"""organization"""
+dhs handbook,"""document"""
+form i352,"""document"""
+delivery bond,"""legal case"""
+departure bond,"""legal case"""
+order of supervision bond osup bond,"""legal case"""
+bond form i352,"""file"""
+united state department of treasury,"""organization"""
+may 25 2016,"""date"""
+department of treasury,"""organization"""
+8387214,"""currency"""
+indemnity agreement,"""legal case"""
+exhibit k,"""file"""
+bond,"""currency"""
+april 11 2018,"""date"""
+vivian katsantonis,"""person"""
+christopher m harris,"""person"""
+watt tieder hoffar fitzgerald llp,"""organization"""
+1765 greensboro station place suite 1000 mclean virginia 22102,"""location data"""
+7037491000,"""phone number"""
+7038938029,"""phone number"""
+vkatsantoniswatttiedercom,"""email address"""
+charriswatttiedercom,"""email address"""
+
+Missing Entities from Generated Graph
+Entity Text,Entity Type
+illinois,location data
+peoria illinois,location data
+virginia,location data
+march 10 2017,date
+june 19 2017,date
+mclean virginia,location data
+8 cfr 103 6,law
+indemnity agreement,law
+indemnitor,role
+bond,law
+cfr,law
+march 13 2017,date
+march 17 2017,date
+83 872 14,currency
+
+Matched Relations
+Truth From,Truth Label,Truth To,Generated From,Generated Label,Generated To,Similarity Score
+rli,works with,big marco insurance bonding service,rli,"""works with""",big marco insurance bonding service llc,0.95
+rli,works with,big marco,rli,"""communicated with""",big marco,0.78
+rli,acts on,february 11 2016,rli,"""acts on""",february 11 2016,1.00
+rli,acts on,february 28 2017,rli,"""acts on""",february 28 2017,1.00
+rli,acts on,august 25 2016,rli,"""acts on""",august 25 2016,1.00
+rli,acts on,march 2017,rli,"""acts on""",march 3 2017,1.00
+rli,acts on,march 3 2017,rli,"""acts on""",march 6 2017,1.00
+rli,acts on,march 6 2017,rli,"""acts on""",march 13 2017,0.90
+rli,acts on,june 1 2017,rli,"""acts on""",june 1 2017,1.00
+rli,acts on,june 19 2017,rli,"""acts on""",june 19 2017,1.00
+rli,acts on,january 10 2018,rli,"""acts on""",april 11 2018,0.73
+rli,acts on,may 26 2017,rli,"""acts on""",may 26 2017,1.00
+rli,signed,indemnity agreement,rli,"""signed""",indemnity agreement,1.00
+rli,communicated with,dhs,rli,"rli and dhs have engaged in communication and financial transactions, indicating a relationship where rli has communicated with dhs and also made payments to them.",dhs,0.73
+nexus,lives in,virginia,nexus,"""lives in""",verona virginia,0.86
+
+Extra Relations in Generated Graph
+From,Label,To
+rli insurance company,"""accuses""",nexus service inc
+rli insurance company,"""communicated with""",micheal donovan
+rli insurance company,"""signed""",commercial surety general indemnity agreement
+rli insurance company,"""regulates""",28 u s c 1332a1
+rli insurance company,"""regulates""",28 u s c 1391
+nexus service inc,"""works with""",micheal donovan
+nexus service inc,"""signed""",commercial surety general indemnity agreement
+surety,"""obliged to do""",indemnitors
+rli,"rli and nexus are entities that have a complex relationship involving multiple interactions. rli accuses nexus, indicating a point of contention or conflict between the two. despite this, they are also obliged to engage with each other, suggesting a formal or contractual relationship that necessitates communication. furthermore, both rli and nexus work together, implying a collaborative aspect to their relationship. this multifaceted interaction highlights a dynamic where conflict, obligation, and cooperation coexist between rli and nexus.",nexus
+rli,"""registers""",united state department of treasury
+rli,"""acts on""",may 25 2016
+rli,"""part of""",exhibit k
+rli,"""owns""",bond
+rli,"""works with""",vivian katsantonis
+rli,"""works with""",christopher m harris
+rli,"""works with""",watt tieder hoffar fitzgerald llp
+nexus,"""communicated with""",dhs
+nexus,"""communicated with""",department of treasury
+nexus,"""obliged to do""",big marco
+nexus,"""signed""",indemnity agreement
+nexus,"""obliged to do""",bond
+united state government,"""part of""",department of homeland security dhs
+code of federal regulation cfr,"""regulates""",department of homeland security dhs
+department of homeland security dhs,"""administers""",dhs handbook
+dhs handbook,"""part of""",bond form i352
+form i352,"""part of""",delivery bond
+form i352,"""part of""",departure bond
+form i352,"""part of""",order of supervision bond osup bond
+vivian katsantonis,"""owns""",vkatsantoniswatttiedercom
+christopher m harris,"""owns""",charriswatttiedercom
+watt tieder hoffar fitzgerald llp,"""is""",1765 greensboro station place suite 1000 mclean virginia 22102
+watt tieder hoffar fitzgerald llp,"""owns""",7037491000
+watt tieder hoffar fitzgerald llp,"""owns""",7038938029
+
+Missing Relations from Generated Graph
+From,Label,To
+rli,lives in,illinois
+rli,lives in,peoria illinois
+rli,acts on,march 19 2018
+rli,communicated with,nexus
+rli,acts on,verona virginia
+rli,acts on,march 10 2017
+rli,acts on,march 13 2017
+rli,lives in,mclean virginia
+rli,acts on,march 28 2018
+nexus,acts on,verona virginia
+nexus,acts on,january 20 2016
+nexus,administers,december 12 2017
+nexus,violates,rli
+nexus,acts on,may 26 2017
+nexus,obliged to do,indemnity agreement
+nexus,acts on,march 17 2017
+nexus,acts on,june 9 2017
+nexus,works with,big marco
+nexus,acts on,march 29 2018
+micheal donovan,owns,nexus
+micheal donovan,is,indemnitor
+department of homeland security,regulates,code of federal regulation
+dhs,communicated with,rli
+dhs,obliged to do,83 872 14
+8 cfr 103 6,part of,code of federal regulation
+surety,is,rli
+bond,part of,indemnity agreement
+cfr,is,code of federal regulation
+
+

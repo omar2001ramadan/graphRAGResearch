@@ -1,0 +1,1036 @@
+Comparison Results
+
+Comparison with Generated Graph 1
+
+Entity Comparison Summary
+Total Entities in Truth Graph,106
+Total Entities in Generated Graph,54
+Matched Entities,35
+Extra Entities,19
+Missing Entities,71
+Entity Coverage (%),33.02
+
+Relation Comparison Summary
+Total Relations in Truth Graph,141
+Total Relations in Generated Graph,37
+Matched Relations,5
+Extra Relations,32
+Missing Relations,136
+Relationship Coverage (%),3.55
+
+
+Comparison with Generated Graph 2
+
+Entity Comparison Summary
+Total Entities in Truth Graph,106
+Total Entities in Generated Graph,54
+Matched Entities,35
+Extra Entities,19
+Missing Entities,71
+Entity Coverage (%),33.02
+
+Relation Comparison Summary
+Total Relations in Truth Graph,141
+Total Relations in Generated Graph,37
+Matched Relations,5
+Extra Relations,32
+Missing Relations,136
+Relationship Coverage (%),3.55
+
+
+Comparison with Generated Graph 3
+
+Entity Comparison Summary
+Total Entities in Truth Graph,106
+Total Entities in Generated Graph,54
+Matched Entities,35
+Extra Entities,19
+Missing Entities,71
+Entity Coverage (%),33.02
+
+Relation Comparison Summary
+Total Relations in Truth Graph,141
+Total Relations in Generated Graph,37
+Matched Relations,5
+Extra Relations,32
+Missing Relations,136
+Relationship Coverage (%),3.55
+
+
+Average Metrics Across All Trials
+
+Entity Comparison Summary
+Total Entities in Truth Graph,106.00
+Total Entities in Generated Graph,54.00
+Matched Entities,35.00
+Extra Entities,19.00
+Missing Entities,71.00
+Entity Coverage (%),33.02
+
+Relation Comparison Summary
+Total Relations in Truth Graph,141.00
+Total Relations in Generated Graph,37.00
+Matched Relations,5.00
+Extra Relations,32.00
+Missing Relations,136.00
+Relationship Coverage (%),3.55
+
+In-Depth Analysis of Included and Left-Out Items
+
+Detailed Analysis for Generated Graph 1
+
+Matched Entities
+Truth Entity Text,Generated Entity Text,Entity Type,Similarity Score
+rachel depalma,rachel depalma,person,1.00
+san jose california,san jose california,location data,1.00
+no peace no quiet,no peace no quiet,organization,1.00
+tiktok,tiktok,app,1.00
+kern,kern,person,1.00
+samantha kern,samantha kern,person,1.00
+kathleen georgia,kathleen georgia,location data,1.00
+instagram,instagram,app,1.00
+whatdoesitmatter,whatdoesitmatter,account,1.00
+tracy korslund,tracy korslund,person,1.00
+korslund,korslund,person,1.00
+narctokroyalty,narctokroyalty,account,1.00
+thesilliestho,thesilliestho,account,1.00
+jadalous,jadalous,account,1.00
+laurinda kirk,laurinda kirk,person,1.00
+kirk,kirk,person,1.00
+lithonia georgia,lithonia georgia,location data,1.00
+wholesomehealingatl,wholesomehealingatl,account,1.00
+reallaurinda,reallaurinda,account,1.00
+misconduct ticketing system,mt misconduct ticketing system,app,0.78
+httpswwwtiktokcomnarctokroyaltyvideo7036127491538472239,httpswwwtiktokcomnarctokroyaltyvideo7036127491538472239,url,1.00
+december 3 2021,december 4 2021,date,1.00
+httpswwwtiktokcomnarctokroyaltyvideo7037588241091988783,httpswwwtiktokcomnarctokroyaltyvideo7037588241091988783,url,1.00
+december 4 2021,december 8 2021,date,1.00
+httpswwwtiktokcomthesilliesthovideo7037928472706207023iscopyurl1isfromwebappv1langen,httpswwwtiktokcomthesilliesthovideo7037928472706207023iscopyurl1isfromwebappv1langen,url,1.00
+httpswwwtiktokcomnarctokroyaltyvideo7039475956196871470,httpswwwtiktokcomnarctokroyaltyvideo7039475956196871470,url,1.00
+httpswwwtiktokcomnarctokroyaltyvideo7039489665736412463,httpswwwtiktokcomnarctokroyaltyvideo7039489665736412463,url,1.00
+httpswwwtiktokcomnarctokroyaltyvideo7039517120732106031,httpswwwtiktokcomnarctokroyaltyvideo7039517120732106031,url,1.00
+httpswwwtiktokcomnarctokroyaltyvideo7039529805636734255,httpswwwtiktokcomnarctokroyaltyvideo7039529805636734255,url,1.00
+november 30 2021,november 30 2021,date,1.00
+httpswwwtiktokcomreallaurindavideo7036480475006864686iscopyurl1isfromwebappv1langen,httpswwwtiktokcomreallaurindavideo7036480475006864686iscopyurl1isfromwebappv1langen,url,1.00
+december 9 2021,december 9 2021,date,1.00
+january 2022,january 2022,date,1.00
+lennox south dakota,lennox south dakota,location data,1.00
+plaintiff,plaintiff,person,1.00
+
+Extra Entities in Generated Graph
+Entity Text,Entity Type
+nopeacenoquietorg,url
+ip address,ip address
+mt,organization
+mark belmessieri v rachel depalma,legal case
+noquietnopeaceorg,url
+minc law,organization
+sabbak izmaylova p c,organization
+march 2 2022,date
+facebook,app
+astebbinsminclawcom,email address
+olgasilawatlcom,email address
+2163737706,phone number
+4407925327,phone number
+4047937773,phone number
+7707975887,phone number
+defamation,crime type
+false light,crime type
+court,organization
+trial,legal case
+
+Missing Entities from Generated Graph
+Entity Text,Entity Type
+whatdoesitmatternow,account
+iamsamxo,account
+narctokog,account
+hotdoghealing,account
+2021,date
+nopeacenoquiet org,organization
+mt,app
+november 19 2021,date
+loveandjustice5,account
+nopeacenoquiet,account
+november 26 2021,date
+november 27 2021,date
+if you are a victim of abuse do not interact with that message board in any way it is not a secured site,phrase
+all of her legal documentation is still pending,phrase
+keep your information safe she ha already posted somebody ip address in an effort to intimidate somebody,phrase
+i did not get your approval to use this in anyway and i wanna see what you are going to do,phrase
+stop taking advantage of abuse survivor,phrase
+november 29 2021,date
+do not trust this website nothing is ever anonymous,phrase
+one of the most dangerous individual kern ha ever seen on this app,phrase
+leaked data from nopeacenoquiet org ticketing system,file
+when someone else and i had a issue plaintiff then used my datainfo from her website,phrase
+the mt is not even close to being anonymous you have to give your info and this woman doxxed my ip,phrase
+herself and her own motif,phrase
+is a very dangerous woman,phrase
+doxxed,phrase
+doxxed somebody ip address this wa somebody that wa on her website nopeacenoquiet org,phrase
+is not securenot encrypted no security for you the user of the website,phrase
+obviously plaintiff is not using the data they are getting for good in fact they are using it to doxx people on the internet which is something that kirk is pretty sure is on their request form,phrase
+ha been taking money from people,phrase
+con artist,phrase
+doxxed someone ip address,phrase
+unsafe,phrase
+noquietnopeace org,organization
+all i want to say is that youdo not need an off app misconduct ticketing system to protect you the owner of that app is abusive and got upset when other abuse survivor asked legitimate question,phrase
+that ticketing system is not safe the owner of that organization ha doxed people that are member of her site if she did it to them she will do it to you,phrase
+advantage of abuse survivor and victim on social medium,phrase
+smear campaign misconduct ticketing system,phrase
+people paid plaintiff money to make the mt,phrase
+december 8 2021,date
+narctockroyalty,account
+httpswwwtiktokcomnarctokroyaltyvideo7037588241091988783,video
+httpswwwtiktokcomnarctokroyaltyvideo7039475956196871470,video
+httpswwwtiktokcomnarctokroyaltyvideo7039489665736412463,video
+httpswwwtiktokcomnarctokroyaltyvideo7039517120732106031,video
+httpswwwtiktokcomnarctokroyaltyvideo7039529805636734255,video
+httpswwwtiktokcomreallaurindavideo7036480475006864686iscopyurl1isfromwebappv1langen,video
+plaintiff,role
+domestic violence and abuse,crime type
+defendant,role
+houston county,location data
+75 000,currency
+28 u s c 1332,law
+domestic abuse,crime type
+domestic abuse victim,crime type
+november 2021,date
+social medium smear campaign,crime type
+harassment,crime type
+october 2021,date
+sexual harassment,crime type
+false and defamatory information,crime type
+hack,crime type
+unknown individual,role
+hacker,role
+defamatory,crime type
+kern,role
+harassing and defamatory conduct,crime type
+leaked data from nopeacenoquiet org ticketing system,video
+harass,crime type
+harassing,crime type
+noquietnopeace org,url
+
+Matched Relations
+Truth From,Truth Label,Truth To,Generated From,Generated Label,Generated To,Similarity Score
+kern,owns,whatdoesitmatter,kern,owns,whatdoesitmatter,1.00
+kern,posts,tiktok,samantha kern,posts,tiktok,0.86
+korslund,posts,tiktok,tracy korslund,posts,tiktok,0.86
+korslund,posts,instagram,tracy korslund,posts,instagram,0.86
+plaintiff,owns,mt,plaintiff,owns,mt,1.00
+
+Extra Relations in Generated Graph
+From,Label,To
+rachel depalma,owns,no peace no quiet
+rachel depalma,owns,mt misconduct ticketing system
+rachel depalma,posts,tiktok
+rachel depalma,posts,instagram
+rachel depalma,owns,nopeacenoquietorg
+rachel depalma,accuses,samantha kern
+rachel depalma,accuses,tracy korslund
+rachel depalma,accuses,laurinda kirk
+rachel depalma,represents,minc law
+rachel depalma,represents,sabbak izmaylova p c
+samantha kern,posts,instagram
+tracy korslund,owns,ip address
+laurinda kirk,posts,tiktok
+tiktok,posts,korslund
+tiktok,posts,kern
+nopeacenoquietorg,comments,korslund
+ip address,owns,korslund
+korslund,accuses,plaintiff
+korslund,"korslund, also known by the handle @narctok_royalty, is an entity that is involved in both ownership and posting activities.",narctokroyalty
+korslund,posts,httpswwwtiktokcomnarctokroyaltyvideo7036127491538472239
+korslund,posts,httpswwwtiktokcomnarctokroyaltyvideo7037588241091988783
+korslund,posts,thesilliestho
+korslund,is,jadalous
+korslund,communicated with,kirk
+kern,accuses,plaintiff
+plaintiff,accuses,mark belmessieri v rachel depalma
+plaintiff,accuses,kirk
+whatdoesitmatter,deleted,kirk
+kirk,posts,wholesomehealingatl
+kirk,registers,noquietnopeaceorg
+kirk,posts,reallaurinda
+court,administers,trial
+
+Missing Relations from Generated Graph
+From,Label,To
+rachel depalma,lives in,san jose california
+rachel depalma,is,plaintiff
+no peace no quiet,launched after,2021
+no peace no quiet,works with,domestic violence and abuse
+no peace no quiet,works with,domestic abuse victim
+tiktok,deleted,whatdoesitmatter
+tiktok,posts,kirk
+kern,acts on,november 27 2021
+kern,comments,if you are a victim of abuse do not interact with that message board in any way it is not a secured site
+kern,comments,all of her legal documentation is still pending
+kern,comments,keep your information safe she ha already posted somebody ip address in an effort to intimidate somebody
+kern,comments,i did not get your approval to use this in anyway and i wanna see what you are going to do
+kern,comments,stop taking advantage of abuse survivor
+kern,lives in,kathleen georgia
+kern,registered on,instagram
+kern,comments,do not trust this website nothing is ever anonymous
+kern,comments,one of the most dangerous individual kern ha ever seen on this app
+kern,comments,mt
+kern,acts on,november 29 2021
+kern,owns,whatdoesitmatternow
+kern,owns,iamsamxo
+kern,is,samantha kern
+kern,acts on,plaintiff
+kern,perpetrates,defamatory
+kern,communicated with,defendant
+kathleen georgia,part of,houston county
+whatdoesitmatter,registered on,tiktok
+korslund,owns,narctokroyalty
+korslund,owns,thesilliestho
+korslund,owns,jadalous
+korslund,acts on,november 27 2021
+korslund,comments,leaked data from nopeacenoquiet org ticketing system
+korslund,acts on,november 29 2021
+korslund,comments,when someone else and i had a issue plaintiff then used my datainfo from her website
+korslund,acts on,december 3 2021
+korslund,comments,mt
+korslund,comments,the mt is not even close to being anonymous you have to give your info and this woman doxxed my ip
+korslund,comments,herself and her own motif
+korslund,comments,is a very dangerous woman
+korslund,comments,doxxed
+korslund,acts on,december 4 2021
+korslund,acts on,december 8 2021
+korslund,acts on,december 9 2021
+korslund,comments,people paid plaintiff money to make the mt
+korslund,lives in,lennox south dakota
+korslund,is,tracy korslund
+korslund,perpetrates,defamatory
+narctokroyalty,registered on,tiktok
+narctokroyalty,posts,httpswwwtiktokcomnarctokroyaltyvideo7036127491538472239
+narctokroyalty,posts,httpswwwtiktokcomnarctokroyaltyvideo7037588241091988783
+thesilliestho,posts,httpswwwtiktokcomthesilliesthovideo7037928472706207023iscopyurl1isfromwebappv1langen
+thesilliestho,registered on,tiktok
+jadalous,registered on,tiktok
+kirk,lives in,lithonia georgia
+kirk,registered on,tiktok
+kirk,owns,wholesomehealingatl
+kirk,owns,reallaurinda
+kirk,owns,narctokog
+kirk,owns,hotdoghealing
+kirk,acts on,november 30 2021
+kirk,comments,doxxed somebody ip address this wa somebody that wa on her website nopeacenoquiet org
+kirk,comments,is not securenot encrypted no security for you the user of the website
+kirk,comments,obviously plaintiff is not using the data they are getting for good in fact they are using it to doxx people on the internet which is something that kirk is pretty sure is on their request form
+kirk,comments,ha been taking money from people
+kirk,comments,con artist
+kirk,comments,doxxed someone ip address
+kirk,posts,unsafe
+kirk,owns,noquietnopeace org
+kirk,comments,all i want to say is that youdo not need an off app misconduct ticketing system to protect you the owner of that app is abusive and got upset when other abuse survivor asked legitimate question
+kirk,comments,that ticketing system is not safe the owner of that organization ha doxed people that are member of her site if she did it to them she will do it to you
+kirk,comments,advantage of abuse survivor and victim on social medium
+kirk,comments,smear campaign misconduct ticketing system
+kirk,acts on,january 2022
+kirk,is,laurinda kirk
+kirk,owns,noquietnopeace org
+kirk,perpetrates,harassing
+kirk,posts,httpswwwtiktokcomreallaurindavideo7036480475006864686iscopyurl1isfromwebappv1langen
+kirk,posts,httpswwwtiktokcomreallaurindavideo7036480475006864686iscopyurl1isfromwebappv1langen
+kirk,acts on,december 9 2021
+kirk,posts,instagram
+kirk,comments,people paid plaintiff money to make the mt
+wholesomehealingatl,registered on,tiktok
+misconduct ticketing system,registered on,nopeacenoquiet org
+mt,launched after,november 26 2021
+mt,launched after,november 19 2021
+mt,is,misconduct ticketing system
+leaked data from nopeacenoquiet org ticketing system,is,leaked data from nopeacenoquiet org ticketing system
+httpswwwtiktokcomnarctokroyaltyvideo7037588241091988783,registered on,tiktok
+httpswwwtiktokcomnarctokroyaltyvideo7037588241091988783,is,httpswwwtiktokcomnarctokroyaltyvideo7037588241091988783
+httpswwwtiktokcomnarctokroyaltyvideo7039475956196871470,is,httpswwwtiktokcomnarctokroyaltyvideo7039475956196871470
+httpswwwtiktokcomnarctokroyaltyvideo7039489665736412463,is,httpswwwtiktokcomnarctokroyaltyvideo7039489665736412463
+httpswwwtiktokcomnarctokroyaltyvideo7039517120732106031,is,httpswwwtiktokcomnarctokroyaltyvideo7039517120732106031
+noquietnopeace org,perpetrates,harassing
+noquietnopeace org,perpetrates,defamatory
+narctockroyalty,posts,httpswwwtiktokcomnarctokroyaltyvideo7039475956196871470
+narctockroyalty,posts,httpswwwtiktokcomnarctokroyaltyvideo7039489665736412463
+narctockroyalty,posts,httpswwwtiktokcomnarctokroyaltyvideo7039517120732106031
+narctockroyalty,posts,httpswwwtiktokcomnarctokroyaltyvideo7039529805636734255
+httpswwwtiktokcomnarctokroyaltyvideo7039529805636734255,is,httpswwwtiktokcomnarctokroyaltyvideo7039529805636734255
+plaintiff,owns,no peace no quiet
+plaintiff,owns,misconduct ticketing system
+plaintiff,registered on,tiktok
+plaintiff,is,rachel depalma
+plaintiff,victim of,domestic abuse
+plaintiff,victim of,social medium smear campaign
+plaintiff,owns,loveandjustice5
+plaintiff,owns,nopeacenoquiet
+plaintiff,victim of,hack
+plaintiff,victim of,harassing and defamatory conduct
+plaintiff,victim of,defamatory
+plaintiff,victim of,harassing
+plaintiff,victim of,smear campaign misconduct ticketing system
+plaintiff,victim of,people paid plaintiff money to make the mt
+defendant,is,samantha kern
+defendant,is,tracy korslund
+defendant,is,laurinda kirk
+defendant,perpetrates,social medium smear campaign
+defendant,perpetrates,harassment
+defendant,perpetrates,false and defamatory information
+defendant,registered on,tiktok
+defendant,registered on,instagram
+defendant,is,korslund
+defendant,is,kern
+defendant,perpetrates,harassing and defamatory conduct
+defendant,violates,mt
+defendant,is,kirk
+28 u s c 1332,regulates,75 000
+social medium smear campaign,launched after,november 2021
+harassment,launched after,october 2021
+plaintiff,victim of,harassment
+plaintiff,accused,sexual harassment
+unknown individual,perpetrates,hack
+hacker,is,korslund
+defamatory,victim of,plaintiff
+kern,registered on,tiktok
+harass,victim of,plaintiff
+
+
+Detailed Analysis for Generated Graph 2
+
+Matched Entities
+Truth Entity Text,Generated Entity Text,Entity Type,Similarity Score
+rachel depalma,rachel depalma,person,1.00
+san jose california,san jose california,location data,1.00
+no peace no quiet,no peace no quiet,organization,1.00
+tiktok,tiktok,app,1.00
+kern,kern,person,1.00
+samantha kern,samantha kern,person,1.00
+kathleen georgia,kathleen georgia,location data,1.00
+instagram,instagram,app,1.00
+whatdoesitmatter,whatdoesitmatter,account,1.00
+tracy korslund,tracy korslund,person,1.00
+korslund,korslund,person,1.00
+narctokroyalty,narctokroyalty,account,1.00
+thesilliestho,thesilliestho,account,1.00
+jadalous,jadalous,account,1.00
+laurinda kirk,laurinda kirk,person,1.00
+kirk,kirk,person,1.00
+lithonia georgia,lithonia georgia,location data,1.00
+wholesomehealingatl,wholesomehealingatl,account,1.00
+reallaurinda,reallaurinda,account,1.00
+misconduct ticketing system,mt misconduct ticketing system,app,0.78
+httpswwwtiktokcomnarctokroyaltyvideo7036127491538472239,httpswwwtiktokcomnarctokroyaltyvideo7036127491538472239,url,1.00
+december 3 2021,december 4 2021,date,1.00
+httpswwwtiktokcomnarctokroyaltyvideo7037588241091988783,httpswwwtiktokcomnarctokroyaltyvideo7037588241091988783,url,1.00
+december 4 2021,december 8 2021,date,1.00
+httpswwwtiktokcomthesilliesthovideo7037928472706207023iscopyurl1isfromwebappv1langen,httpswwwtiktokcomthesilliesthovideo7037928472706207023iscopyurl1isfromwebappv1langen,url,1.00
+httpswwwtiktokcomnarctokroyaltyvideo7039475956196871470,httpswwwtiktokcomnarctokroyaltyvideo7039475956196871470,url,1.00
+httpswwwtiktokcomnarctokroyaltyvideo7039489665736412463,httpswwwtiktokcomnarctokroyaltyvideo7039489665736412463,url,1.00
+httpswwwtiktokcomnarctokroyaltyvideo7039517120732106031,httpswwwtiktokcomnarctokroyaltyvideo7039517120732106031,url,1.00
+httpswwwtiktokcomnarctokroyaltyvideo7039529805636734255,httpswwwtiktokcomnarctokroyaltyvideo7039529805636734255,url,1.00
+november 30 2021,november 30 2021,date,1.00
+httpswwwtiktokcomreallaurindavideo7036480475006864686iscopyurl1isfromwebappv1langen,httpswwwtiktokcomreallaurindavideo7036480475006864686iscopyurl1isfromwebappv1langen,url,1.00
+december 9 2021,december 9 2021,date,1.00
+january 2022,january 2022,date,1.00
+lennox south dakota,lennox south dakota,location data,1.00
+plaintiff,plaintiff,person,1.00
+
+Extra Entities in Generated Graph
+Entity Text,Entity Type
+nopeacenoquietorg,url
+ip address,ip address
+mt,organization
+mark belmessieri v rachel depalma,legal case
+noquietnopeaceorg,url
+minc law,organization
+sabbak izmaylova p c,organization
+march 2 2022,date
+facebook,app
+astebbinsminclawcom,email address
+olgasilawatlcom,email address
+2163737706,phone number
+4407925327,phone number
+4047937773,phone number
+7707975887,phone number
+defamation,crime type
+false light,crime type
+court,organization
+trial,legal case
+
+Missing Entities from Generated Graph
+Entity Text,Entity Type
+whatdoesitmatternow,account
+iamsamxo,account
+narctokog,account
+hotdoghealing,account
+2021,date
+nopeacenoquiet org,organization
+mt,app
+november 19 2021,date
+loveandjustice5,account
+nopeacenoquiet,account
+november 26 2021,date
+november 27 2021,date
+if you are a victim of abuse do not interact with that message board in any way it is not a secured site,phrase
+all of her legal documentation is still pending,phrase
+keep your information safe she ha already posted somebody ip address in an effort to intimidate somebody,phrase
+i did not get your approval to use this in anyway and i wanna see what you are going to do,phrase
+stop taking advantage of abuse survivor,phrase
+november 29 2021,date
+do not trust this website nothing is ever anonymous,phrase
+one of the most dangerous individual kern ha ever seen on this app,phrase
+leaked data from nopeacenoquiet org ticketing system,file
+when someone else and i had a issue plaintiff then used my datainfo from her website,phrase
+the mt is not even close to being anonymous you have to give your info and this woman doxxed my ip,phrase
+herself and her own motif,phrase
+is a very dangerous woman,phrase
+doxxed,phrase
+doxxed somebody ip address this wa somebody that wa on her website nopeacenoquiet org,phrase
+is not securenot encrypted no security for you the user of the website,phrase
+obviously plaintiff is not using the data they are getting for good in fact they are using it to doxx people on the internet which is something that kirk is pretty sure is on their request form,phrase
+ha been taking money from people,phrase
+con artist,phrase
+doxxed someone ip address,phrase
+unsafe,phrase
+noquietnopeace org,organization
+all i want to say is that youdo not need an off app misconduct ticketing system to protect you the owner of that app is abusive and got upset when other abuse survivor asked legitimate question,phrase
+that ticketing system is not safe the owner of that organization ha doxed people that are member of her site if she did it to them she will do it to you,phrase
+advantage of abuse survivor and victim on social medium,phrase
+smear campaign misconduct ticketing system,phrase
+people paid plaintiff money to make the mt,phrase
+december 8 2021,date
+narctockroyalty,account
+httpswwwtiktokcomnarctokroyaltyvideo7037588241091988783,video
+httpswwwtiktokcomnarctokroyaltyvideo7039475956196871470,video
+httpswwwtiktokcomnarctokroyaltyvideo7039489665736412463,video
+httpswwwtiktokcomnarctokroyaltyvideo7039517120732106031,video
+httpswwwtiktokcomnarctokroyaltyvideo7039529805636734255,video
+httpswwwtiktokcomreallaurindavideo7036480475006864686iscopyurl1isfromwebappv1langen,video
+plaintiff,role
+domestic violence and abuse,crime type
+defendant,role
+houston county,location data
+75 000,currency
+28 u s c 1332,law
+domestic abuse,crime type
+domestic abuse victim,crime type
+november 2021,date
+social medium smear campaign,crime type
+harassment,crime type
+october 2021,date
+sexual harassment,crime type
+false and defamatory information,crime type
+hack,crime type
+unknown individual,role
+hacker,role
+defamatory,crime type
+kern,role
+harassing and defamatory conduct,crime type
+leaked data from nopeacenoquiet org ticketing system,video
+harass,crime type
+harassing,crime type
+noquietnopeace org,url
+
+Matched Relations
+Truth From,Truth Label,Truth To,Generated From,Generated Label,Generated To,Similarity Score
+kern,owns,whatdoesitmatter,kern,owns,whatdoesitmatter,1.00
+kern,posts,tiktok,samantha kern,posts,tiktok,0.86
+korslund,posts,tiktok,tracy korslund,posts,tiktok,0.86
+korslund,posts,instagram,tracy korslund,posts,instagram,0.86
+plaintiff,owns,mt,plaintiff,owns,mt,1.00
+
+Extra Relations in Generated Graph
+From,Label,To
+rachel depalma,owns,no peace no quiet
+rachel depalma,owns,mt misconduct ticketing system
+rachel depalma,posts,tiktok
+rachel depalma,posts,instagram
+rachel depalma,owns,nopeacenoquietorg
+rachel depalma,accuses,samantha kern
+rachel depalma,accuses,tracy korslund
+rachel depalma,accuses,laurinda kirk
+rachel depalma,represents,minc law
+rachel depalma,represents,sabbak izmaylova p c
+samantha kern,posts,instagram
+tracy korslund,owns,ip address
+laurinda kirk,posts,tiktok
+tiktok,posts,korslund
+tiktok,posts,kern
+nopeacenoquietorg,comments,korslund
+ip address,owns,korslund
+korslund,accuses,plaintiff
+korslund,"korslund, also known by the handle @narctok_royalty, is an entity that is involved in both ownership and posting activities.",narctokroyalty
+korslund,posts,httpswwwtiktokcomnarctokroyaltyvideo7036127491538472239
+korslund,posts,httpswwwtiktokcomnarctokroyaltyvideo7037588241091988783
+korslund,posts,thesilliestho
+korslund,is,jadalous
+korslund,communicated with,kirk
+kern,accuses,plaintiff
+plaintiff,accuses,mark belmessieri v rachel depalma
+plaintiff,accuses,kirk
+whatdoesitmatter,deleted,kirk
+kirk,posts,wholesomehealingatl
+kirk,registers,noquietnopeaceorg
+kirk,posts,reallaurinda
+court,administers,trial
+
+Missing Relations from Generated Graph
+From,Label,To
+rachel depalma,lives in,san jose california
+rachel depalma,is,plaintiff
+no peace no quiet,launched after,2021
+no peace no quiet,works with,domestic violence and abuse
+no peace no quiet,works with,domestic abuse victim
+tiktok,deleted,whatdoesitmatter
+tiktok,posts,kirk
+kern,acts on,november 27 2021
+kern,comments,if you are a victim of abuse do not interact with that message board in any way it is not a secured site
+kern,comments,all of her legal documentation is still pending
+kern,comments,keep your information safe she ha already posted somebody ip address in an effort to intimidate somebody
+kern,comments,i did not get your approval to use this in anyway and i wanna see what you are going to do
+kern,comments,stop taking advantage of abuse survivor
+kern,lives in,kathleen georgia
+kern,registered on,instagram
+kern,comments,do not trust this website nothing is ever anonymous
+kern,comments,one of the most dangerous individual kern ha ever seen on this app
+kern,comments,mt
+kern,acts on,november 29 2021
+kern,owns,whatdoesitmatternow
+kern,owns,iamsamxo
+kern,is,samantha kern
+kern,acts on,plaintiff
+kern,perpetrates,defamatory
+kern,communicated with,defendant
+kathleen georgia,part of,houston county
+whatdoesitmatter,registered on,tiktok
+korslund,owns,narctokroyalty
+korslund,owns,thesilliestho
+korslund,owns,jadalous
+korslund,acts on,november 27 2021
+korslund,comments,leaked data from nopeacenoquiet org ticketing system
+korslund,acts on,november 29 2021
+korslund,comments,when someone else and i had a issue plaintiff then used my datainfo from her website
+korslund,acts on,december 3 2021
+korslund,comments,mt
+korslund,comments,the mt is not even close to being anonymous you have to give your info and this woman doxxed my ip
+korslund,comments,herself and her own motif
+korslund,comments,is a very dangerous woman
+korslund,comments,doxxed
+korslund,acts on,december 4 2021
+korslund,acts on,december 8 2021
+korslund,acts on,december 9 2021
+korslund,comments,people paid plaintiff money to make the mt
+korslund,lives in,lennox south dakota
+korslund,is,tracy korslund
+korslund,perpetrates,defamatory
+narctokroyalty,registered on,tiktok
+narctokroyalty,posts,httpswwwtiktokcomnarctokroyaltyvideo7036127491538472239
+narctokroyalty,posts,httpswwwtiktokcomnarctokroyaltyvideo7037588241091988783
+thesilliestho,posts,httpswwwtiktokcomthesilliesthovideo7037928472706207023iscopyurl1isfromwebappv1langen
+thesilliestho,registered on,tiktok
+jadalous,registered on,tiktok
+kirk,lives in,lithonia georgia
+kirk,registered on,tiktok
+kirk,owns,wholesomehealingatl
+kirk,owns,reallaurinda
+kirk,owns,narctokog
+kirk,owns,hotdoghealing
+kirk,acts on,november 30 2021
+kirk,comments,doxxed somebody ip address this wa somebody that wa on her website nopeacenoquiet org
+kirk,comments,is not securenot encrypted no security for you the user of the website
+kirk,comments,obviously plaintiff is not using the data they are getting for good in fact they are using it to doxx people on the internet which is something that kirk is pretty sure is on their request form
+kirk,comments,ha been taking money from people
+kirk,comments,con artist
+kirk,comments,doxxed someone ip address
+kirk,posts,unsafe
+kirk,owns,noquietnopeace org
+kirk,comments,all i want to say is that youdo not need an off app misconduct ticketing system to protect you the owner of that app is abusive and got upset when other abuse survivor asked legitimate question
+kirk,comments,that ticketing system is not safe the owner of that organization ha doxed people that are member of her site if she did it to them she will do it to you
+kirk,comments,advantage of abuse survivor and victim on social medium
+kirk,comments,smear campaign misconduct ticketing system
+kirk,acts on,january 2022
+kirk,is,laurinda kirk
+kirk,owns,noquietnopeace org
+kirk,perpetrates,harassing
+kirk,posts,httpswwwtiktokcomreallaurindavideo7036480475006864686iscopyurl1isfromwebappv1langen
+kirk,posts,httpswwwtiktokcomreallaurindavideo7036480475006864686iscopyurl1isfromwebappv1langen
+kirk,acts on,december 9 2021
+kirk,posts,instagram
+kirk,comments,people paid plaintiff money to make the mt
+wholesomehealingatl,registered on,tiktok
+misconduct ticketing system,registered on,nopeacenoquiet org
+mt,launched after,november 26 2021
+mt,launched after,november 19 2021
+mt,is,misconduct ticketing system
+leaked data from nopeacenoquiet org ticketing system,is,leaked data from nopeacenoquiet org ticketing system
+httpswwwtiktokcomnarctokroyaltyvideo7037588241091988783,registered on,tiktok
+httpswwwtiktokcomnarctokroyaltyvideo7037588241091988783,is,httpswwwtiktokcomnarctokroyaltyvideo7037588241091988783
+httpswwwtiktokcomnarctokroyaltyvideo7039475956196871470,is,httpswwwtiktokcomnarctokroyaltyvideo7039475956196871470
+httpswwwtiktokcomnarctokroyaltyvideo7039489665736412463,is,httpswwwtiktokcomnarctokroyaltyvideo7039489665736412463
+httpswwwtiktokcomnarctokroyaltyvideo7039517120732106031,is,httpswwwtiktokcomnarctokroyaltyvideo7039517120732106031
+noquietnopeace org,perpetrates,harassing
+noquietnopeace org,perpetrates,defamatory
+narctockroyalty,posts,httpswwwtiktokcomnarctokroyaltyvideo7039475956196871470
+narctockroyalty,posts,httpswwwtiktokcomnarctokroyaltyvideo7039489665736412463
+narctockroyalty,posts,httpswwwtiktokcomnarctokroyaltyvideo7039517120732106031
+narctockroyalty,posts,httpswwwtiktokcomnarctokroyaltyvideo7039529805636734255
+httpswwwtiktokcomnarctokroyaltyvideo7039529805636734255,is,httpswwwtiktokcomnarctokroyaltyvideo7039529805636734255
+plaintiff,owns,no peace no quiet
+plaintiff,owns,misconduct ticketing system
+plaintiff,registered on,tiktok
+plaintiff,is,rachel depalma
+plaintiff,victim of,domestic abuse
+plaintiff,victim of,social medium smear campaign
+plaintiff,owns,loveandjustice5
+plaintiff,owns,nopeacenoquiet
+plaintiff,victim of,hack
+plaintiff,victim of,harassing and defamatory conduct
+plaintiff,victim of,defamatory
+plaintiff,victim of,harassing
+plaintiff,victim of,smear campaign misconduct ticketing system
+plaintiff,victim of,people paid plaintiff money to make the mt
+defendant,is,samantha kern
+defendant,is,tracy korslund
+defendant,is,laurinda kirk
+defendant,perpetrates,social medium smear campaign
+defendant,perpetrates,harassment
+defendant,perpetrates,false and defamatory information
+defendant,registered on,tiktok
+defendant,registered on,instagram
+defendant,is,korslund
+defendant,is,kern
+defendant,perpetrates,harassing and defamatory conduct
+defendant,violates,mt
+defendant,is,kirk
+28 u s c 1332,regulates,75 000
+social medium smear campaign,launched after,november 2021
+harassment,launched after,october 2021
+plaintiff,victim of,harassment
+plaintiff,accused,sexual harassment
+unknown individual,perpetrates,hack
+hacker,is,korslund
+defamatory,victim of,plaintiff
+kern,registered on,tiktok
+harass,victim of,plaintiff
+
+
+Detailed Analysis for Generated Graph 3
+
+Matched Entities
+Truth Entity Text,Generated Entity Text,Entity Type,Similarity Score
+rachel depalma,rachel depalma,person,1.00
+san jose california,san jose california,location data,1.00
+no peace no quiet,no peace no quiet,organization,1.00
+tiktok,tiktok,app,1.00
+kern,kern,person,1.00
+samantha kern,samantha kern,person,1.00
+kathleen georgia,kathleen georgia,location data,1.00
+instagram,instagram,app,1.00
+whatdoesitmatter,whatdoesitmatter,account,1.00
+tracy korslund,tracy korslund,person,1.00
+korslund,korslund,person,1.00
+narctokroyalty,narctokroyalty,account,1.00
+thesilliestho,thesilliestho,account,1.00
+jadalous,jadalous,account,1.00
+laurinda kirk,laurinda kirk,person,1.00
+kirk,kirk,person,1.00
+lithonia georgia,lithonia georgia,location data,1.00
+wholesomehealingatl,wholesomehealingatl,account,1.00
+reallaurinda,reallaurinda,account,1.00
+misconduct ticketing system,mt misconduct ticketing system,app,0.78
+httpswwwtiktokcomnarctokroyaltyvideo7036127491538472239,httpswwwtiktokcomnarctokroyaltyvideo7036127491538472239,url,1.00
+december 3 2021,december 4 2021,date,1.00
+httpswwwtiktokcomnarctokroyaltyvideo7037588241091988783,httpswwwtiktokcomnarctokroyaltyvideo7037588241091988783,url,1.00
+december 4 2021,december 8 2021,date,1.00
+httpswwwtiktokcomthesilliesthovideo7037928472706207023iscopyurl1isfromwebappv1langen,httpswwwtiktokcomthesilliesthovideo7037928472706207023iscopyurl1isfromwebappv1langen,url,1.00
+httpswwwtiktokcomnarctokroyaltyvideo7039475956196871470,httpswwwtiktokcomnarctokroyaltyvideo7039475956196871470,url,1.00
+httpswwwtiktokcomnarctokroyaltyvideo7039489665736412463,httpswwwtiktokcomnarctokroyaltyvideo7039489665736412463,url,1.00
+httpswwwtiktokcomnarctokroyaltyvideo7039517120732106031,httpswwwtiktokcomnarctokroyaltyvideo7039517120732106031,url,1.00
+httpswwwtiktokcomnarctokroyaltyvideo7039529805636734255,httpswwwtiktokcomnarctokroyaltyvideo7039529805636734255,url,1.00
+november 30 2021,november 30 2021,date,1.00
+httpswwwtiktokcomreallaurindavideo7036480475006864686iscopyurl1isfromwebappv1langen,httpswwwtiktokcomreallaurindavideo7036480475006864686iscopyurl1isfromwebappv1langen,url,1.00
+december 9 2021,december 9 2021,date,1.00
+january 2022,january 2022,date,1.00
+lennox south dakota,lennox south dakota,location data,1.00
+plaintiff,plaintiff,person,1.00
+
+Extra Entities in Generated Graph
+Entity Text,Entity Type
+nopeacenoquietorg,url
+ip address,ip address
+mt,organization
+mark belmessieri v rachel depalma,legal case
+noquietnopeaceorg,url
+minc law,organization
+sabbak izmaylova p c,organization
+march 2 2022,date
+facebook,app
+astebbinsminclawcom,email address
+olgasilawatlcom,email address
+2163737706,phone number
+4407925327,phone number
+4047937773,phone number
+7707975887,phone number
+defamation,crime type
+false light,crime type
+court,organization
+trial,legal case
+
+Missing Entities from Generated Graph
+Entity Text,Entity Type
+whatdoesitmatternow,account
+iamsamxo,account
+narctokog,account
+hotdoghealing,account
+2021,date
+nopeacenoquiet org,organization
+mt,app
+november 19 2021,date
+loveandjustice5,account
+nopeacenoquiet,account
+november 26 2021,date
+november 27 2021,date
+if you are a victim of abuse do not interact with that message board in any way it is not a secured site,phrase
+all of her legal documentation is still pending,phrase
+keep your information safe she ha already posted somebody ip address in an effort to intimidate somebody,phrase
+i did not get your approval to use this in anyway and i wanna see what you are going to do,phrase
+stop taking advantage of abuse survivor,phrase
+november 29 2021,date
+do not trust this website nothing is ever anonymous,phrase
+one of the most dangerous individual kern ha ever seen on this app,phrase
+leaked data from nopeacenoquiet org ticketing system,file
+when someone else and i had a issue plaintiff then used my datainfo from her website,phrase
+the mt is not even close to being anonymous you have to give your info and this woman doxxed my ip,phrase
+herself and her own motif,phrase
+is a very dangerous woman,phrase
+doxxed,phrase
+doxxed somebody ip address this wa somebody that wa on her website nopeacenoquiet org,phrase
+is not securenot encrypted no security for you the user of the website,phrase
+obviously plaintiff is not using the data they are getting for good in fact they are using it to doxx people on the internet which is something that kirk is pretty sure is on their request form,phrase
+ha been taking money from people,phrase
+con artist,phrase
+doxxed someone ip address,phrase
+unsafe,phrase
+noquietnopeace org,organization
+all i want to say is that youdo not need an off app misconduct ticketing system to protect you the owner of that app is abusive and got upset when other abuse survivor asked legitimate question,phrase
+that ticketing system is not safe the owner of that organization ha doxed people that are member of her site if she did it to them she will do it to you,phrase
+advantage of abuse survivor and victim on social medium,phrase
+smear campaign misconduct ticketing system,phrase
+people paid plaintiff money to make the mt,phrase
+december 8 2021,date
+narctockroyalty,account
+httpswwwtiktokcomnarctokroyaltyvideo7037588241091988783,video
+httpswwwtiktokcomnarctokroyaltyvideo7039475956196871470,video
+httpswwwtiktokcomnarctokroyaltyvideo7039489665736412463,video
+httpswwwtiktokcomnarctokroyaltyvideo7039517120732106031,video
+httpswwwtiktokcomnarctokroyaltyvideo7039529805636734255,video
+httpswwwtiktokcomreallaurindavideo7036480475006864686iscopyurl1isfromwebappv1langen,video
+plaintiff,role
+domestic violence and abuse,crime type
+defendant,role
+houston county,location data
+75 000,currency
+28 u s c 1332,law
+domestic abuse,crime type
+domestic abuse victim,crime type
+november 2021,date
+social medium smear campaign,crime type
+harassment,crime type
+october 2021,date
+sexual harassment,crime type
+false and defamatory information,crime type
+hack,crime type
+unknown individual,role
+hacker,role
+defamatory,crime type
+kern,role
+harassing and defamatory conduct,crime type
+leaked data from nopeacenoquiet org ticketing system,video
+harass,crime type
+harassing,crime type
+noquietnopeace org,url
+
+Matched Relations
+Truth From,Truth Label,Truth To,Generated From,Generated Label,Generated To,Similarity Score
+kern,owns,whatdoesitmatter,kern,owns,whatdoesitmatter,1.00
+kern,posts,tiktok,samantha kern,posts,tiktok,0.86
+korslund,posts,tiktok,tracy korslund,posts,tiktok,0.86
+korslund,posts,instagram,tracy korslund,posts,instagram,0.86
+plaintiff,owns,mt,plaintiff,owns,mt,1.00
+
+Extra Relations in Generated Graph
+From,Label,To
+rachel depalma,owns,no peace no quiet
+rachel depalma,owns,mt misconduct ticketing system
+rachel depalma,posts,tiktok
+rachel depalma,posts,instagram
+rachel depalma,owns,nopeacenoquietorg
+rachel depalma,accuses,samantha kern
+rachel depalma,accuses,tracy korslund
+rachel depalma,accuses,laurinda kirk
+rachel depalma,represents,minc law
+rachel depalma,represents,sabbak izmaylova p c
+samantha kern,posts,instagram
+tracy korslund,owns,ip address
+laurinda kirk,posts,tiktok
+tiktok,posts,korslund
+tiktok,posts,kern
+nopeacenoquietorg,comments,korslund
+ip address,owns,korslund
+korslund,accuses,plaintiff
+korslund,"korslund, also known by the handle @narctok_royalty, is an entity that is involved in both ownership and posting activities.",narctokroyalty
+korslund,posts,httpswwwtiktokcomnarctokroyaltyvideo7036127491538472239
+korslund,posts,httpswwwtiktokcomnarctokroyaltyvideo7037588241091988783
+korslund,posts,thesilliestho
+korslund,is,jadalous
+korslund,communicated with,kirk
+kern,accuses,plaintiff
+plaintiff,accuses,mark belmessieri v rachel depalma
+plaintiff,accuses,kirk
+whatdoesitmatter,deleted,kirk
+kirk,posts,wholesomehealingatl
+kirk,registers,noquietnopeaceorg
+kirk,posts,reallaurinda
+court,administers,trial
+
+Missing Relations from Generated Graph
+From,Label,To
+rachel depalma,lives in,san jose california
+rachel depalma,is,plaintiff
+no peace no quiet,launched after,2021
+no peace no quiet,works with,domestic violence and abuse
+no peace no quiet,works with,domestic abuse victim
+tiktok,deleted,whatdoesitmatter
+tiktok,posts,kirk
+kern,acts on,november 27 2021
+kern,comments,if you are a victim of abuse do not interact with that message board in any way it is not a secured site
+kern,comments,all of her legal documentation is still pending
+kern,comments,keep your information safe she ha already posted somebody ip address in an effort to intimidate somebody
+kern,comments,i did not get your approval to use this in anyway and i wanna see what you are going to do
+kern,comments,stop taking advantage of abuse survivor
+kern,lives in,kathleen georgia
+kern,registered on,instagram
+kern,comments,do not trust this website nothing is ever anonymous
+kern,comments,one of the most dangerous individual kern ha ever seen on this app
+kern,comments,mt
+kern,acts on,november 29 2021
+kern,owns,whatdoesitmatternow
+kern,owns,iamsamxo
+kern,is,samantha kern
+kern,acts on,plaintiff
+kern,perpetrates,defamatory
+kern,communicated with,defendant
+kathleen georgia,part of,houston county
+whatdoesitmatter,registered on,tiktok
+korslund,owns,narctokroyalty
+korslund,owns,thesilliestho
+korslund,owns,jadalous
+korslund,acts on,november 27 2021
+korslund,comments,leaked data from nopeacenoquiet org ticketing system
+korslund,acts on,november 29 2021
+korslund,comments,when someone else and i had a issue plaintiff then used my datainfo from her website
+korslund,acts on,december 3 2021
+korslund,comments,mt
+korslund,comments,the mt is not even close to being anonymous you have to give your info and this woman doxxed my ip
+korslund,comments,herself and her own motif
+korslund,comments,is a very dangerous woman
+korslund,comments,doxxed
+korslund,acts on,december 4 2021
+korslund,acts on,december 8 2021
+korslund,acts on,december 9 2021
+korslund,comments,people paid plaintiff money to make the mt
+korslund,lives in,lennox south dakota
+korslund,is,tracy korslund
+korslund,perpetrates,defamatory
+narctokroyalty,registered on,tiktok
+narctokroyalty,posts,httpswwwtiktokcomnarctokroyaltyvideo7036127491538472239
+narctokroyalty,posts,httpswwwtiktokcomnarctokroyaltyvideo7037588241091988783
+thesilliestho,posts,httpswwwtiktokcomthesilliesthovideo7037928472706207023iscopyurl1isfromwebappv1langen
+thesilliestho,registered on,tiktok
+jadalous,registered on,tiktok
+kirk,lives in,lithonia georgia
+kirk,registered on,tiktok
+kirk,owns,wholesomehealingatl
+kirk,owns,reallaurinda
+kirk,owns,narctokog
+kirk,owns,hotdoghealing
+kirk,acts on,november 30 2021
+kirk,comments,doxxed somebody ip address this wa somebody that wa on her website nopeacenoquiet org
+kirk,comments,is not securenot encrypted no security for you the user of the website
+kirk,comments,obviously plaintiff is not using the data they are getting for good in fact they are using it to doxx people on the internet which is something that kirk is pretty sure is on their request form
+kirk,comments,ha been taking money from people
+kirk,comments,con artist
+kirk,comments,doxxed someone ip address
+kirk,posts,unsafe
+kirk,owns,noquietnopeace org
+kirk,comments,all i want to say is that youdo not need an off app misconduct ticketing system to protect you the owner of that app is abusive and got upset when other abuse survivor asked legitimate question
+kirk,comments,that ticketing system is not safe the owner of that organization ha doxed people that are member of her site if she did it to them she will do it to you
+kirk,comments,advantage of abuse survivor and victim on social medium
+kirk,comments,smear campaign misconduct ticketing system
+kirk,acts on,january 2022
+kirk,is,laurinda kirk
+kirk,owns,noquietnopeace org
+kirk,perpetrates,harassing
+kirk,posts,httpswwwtiktokcomreallaurindavideo7036480475006864686iscopyurl1isfromwebappv1langen
+kirk,posts,httpswwwtiktokcomreallaurindavideo7036480475006864686iscopyurl1isfromwebappv1langen
+kirk,acts on,december 9 2021
+kirk,posts,instagram
+kirk,comments,people paid plaintiff money to make the mt
+wholesomehealingatl,registered on,tiktok
+misconduct ticketing system,registered on,nopeacenoquiet org
+mt,launched after,november 26 2021
+mt,launched after,november 19 2021
+mt,is,misconduct ticketing system
+leaked data from nopeacenoquiet org ticketing system,is,leaked data from nopeacenoquiet org ticketing system
+httpswwwtiktokcomnarctokroyaltyvideo7037588241091988783,registered on,tiktok
+httpswwwtiktokcomnarctokroyaltyvideo7037588241091988783,is,httpswwwtiktokcomnarctokroyaltyvideo7037588241091988783
+httpswwwtiktokcomnarctokroyaltyvideo7039475956196871470,is,httpswwwtiktokcomnarctokroyaltyvideo7039475956196871470
+httpswwwtiktokcomnarctokroyaltyvideo7039489665736412463,is,httpswwwtiktokcomnarctokroyaltyvideo7039489665736412463
+httpswwwtiktokcomnarctokroyaltyvideo7039517120732106031,is,httpswwwtiktokcomnarctokroyaltyvideo7039517120732106031
+noquietnopeace org,perpetrates,harassing
+noquietnopeace org,perpetrates,defamatory
+narctockroyalty,posts,httpswwwtiktokcomnarctokroyaltyvideo7039475956196871470
+narctockroyalty,posts,httpswwwtiktokcomnarctokroyaltyvideo7039489665736412463
+narctockroyalty,posts,httpswwwtiktokcomnarctokroyaltyvideo7039517120732106031
+narctockroyalty,posts,httpswwwtiktokcomnarctokroyaltyvideo7039529805636734255
+httpswwwtiktokcomnarctokroyaltyvideo7039529805636734255,is,httpswwwtiktokcomnarctokroyaltyvideo7039529805636734255
+plaintiff,owns,no peace no quiet
+plaintiff,owns,misconduct ticketing system
+plaintiff,registered on,tiktok
+plaintiff,is,rachel depalma
+plaintiff,victim of,domestic abuse
+plaintiff,victim of,social medium smear campaign
+plaintiff,owns,loveandjustice5
+plaintiff,owns,nopeacenoquiet
+plaintiff,victim of,hack
+plaintiff,victim of,harassing and defamatory conduct
+plaintiff,victim of,defamatory
+plaintiff,victim of,harassing
+plaintiff,victim of,smear campaign misconduct ticketing system
+plaintiff,victim of,people paid plaintiff money to make the mt
+defendant,is,samantha kern
+defendant,is,tracy korslund
+defendant,is,laurinda kirk
+defendant,perpetrates,social medium smear campaign
+defendant,perpetrates,harassment
+defendant,perpetrates,false and defamatory information
+defendant,registered on,tiktok
+defendant,registered on,instagram
+defendant,is,korslund
+defendant,is,kern
+defendant,perpetrates,harassing and defamatory conduct
+defendant,violates,mt
+defendant,is,kirk
+28 u s c 1332,regulates,75 000
+social medium smear campaign,launched after,november 2021
+harassment,launched after,october 2021
+plaintiff,victim of,harassment
+plaintiff,accused,sexual harassment
+unknown individual,perpetrates,hack
+hacker,is,korslund
+defamatory,victim of,plaintiff
+kern,registered on,tiktok
+harass,victim of,plaintiff
+
+
